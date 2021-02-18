@@ -3,8 +3,10 @@ package com.hydroyura.TechDocsSymbiosis.init;
 public class Constants {
 	
 	// Имена таблиц
-	public static final String TABLE_NAME_ORINGS = "orings";
-	public static final String TABLE_NAME_STANDART_PARTS = "standart_parts";
+	public static final String TABLE_NAME_ORINGS 						= "orings";
+	public static final String TABLE_NAME_STANDART_PARTS 				= "standart_parts";
+	public static final String TABLE_NAME_NUMBER_PREFIXES 				= "number_prefixes";
+	//-------------------------------------------------------------------------------------
 	
 	// Название столбцов таблицы orings
 	public static final String TABLE_COLOMN_ORINGS_ID 					= "id";
@@ -13,15 +15,20 @@ public class Constants {
 	public static final String TABLE_COLOMN_ORINGS_STANDART 			= "standart";
 	public static final String TABLE_COLOMN_ORINGS_CROSS_SECTION 		= "cross_section";
 	public static final String TABLE_COLOMN_ORINGS_INTERNAL_DIAMETER 	= "internal_diameter";
+	//-------------------------------------------------------------------------------------
 	
-	// Название столбцов таблицы orings
+	// Название столбцов таблицы standart_parts
 	public static final String TABLE_COLOMN_STP_ID 						= "id";
 	public static final String TABLE_COLOMN_STP_NAME 					= "name";
 	public static final String TABLE_COLOMN_STP_NUMBER 					= "number";
 	public static final String TABLE_COLOMN_STP_STANDART 				= "standart";
+	//-------------------------------------------------------------------------------------
 
-
-	
+	// Название столбцов таблицы standart_parts
+	public static final String TABLE_COLOMN_NP_ID 						= "id";
+	public static final String TABLE_COLOMN_NP_NAME 					= "name";
+	public static final String TABLE_COLOMN_NP_DESCPIPTION 				= "description";
+	//-------------------------------------------------------------------------------------
 	
 	
 	/*

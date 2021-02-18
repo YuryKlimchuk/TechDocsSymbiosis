@@ -18,12 +18,24 @@ CREATE TABLE orings (
 	Таблица для хранения номенклатуры стандартных изделий: винты, болты, шайбы, гайки, прокладки, стопорные кольца и т.д.
 */
 DROP TABLE IF EXISTS standart_parts;
-CREATE TABLE orings (
+CREATE TABLE standart_parts (
 
 	id serial NOT NULL UNIQUE PRIMARY KEY,
 	number varchar(50) NOT NULL UNIQUE,
 	name varchar(50) NOT NULL UNIQUE,
 	standart varchar(50)
+		
+);
+
+/*
+	Таблица для хранения префиксов деталей
+*/
+DROP TABLE IF EXISTS number_prefixes;
+CREATE TABLE number_prefixes (
+
+	id serial NOT NULL UNIQUE PRIMARY KEY,
+	name varchar(50) NOT NULL UNIQUE,
+	description varchar(100)
 		
 );
 
