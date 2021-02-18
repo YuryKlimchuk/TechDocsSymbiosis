@@ -8,11 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/oring")
 public class ControllerOring {
-
 	
 	@GetMapping("/index")
 	public String showOringIndex(Model model) {
 		return "/oring/oring_index";
 	}
+	
+	
+	@GetMapping("/list")
+	public String showOringList(Model model) {
+		return "/oring/oring_list";
+	}
+	
 	
 }
