@@ -6,8 +6,8 @@ public class Oring {
 	private String name;
 	private String number;
 	private String standart;
-	private double crossSection;
-	private double innerDiameter;
+	private float crossSection;
+	private float innerDiameter;
 	
 	
 	public Oring() {}
@@ -28,11 +28,11 @@ public class Oring {
 		return standart;
 	}
 
-	public double getCrossSection() {
+	public float getCrossSection() {
 		return crossSection;
 	}
 
-	public double getInnerDiameter() {
+	public float getInnerDiameter() {
 		return innerDiameter;
 	}
 
@@ -52,11 +52,11 @@ public class Oring {
 		this.standart = standart;
 	}
 
-	public void setCrossSection(double crossSection) {
+	public void setCrossSection(float crossSection) {
 		this.crossSection = crossSection;
 	}
 
-	public void setInnerDiameter(double innerDiameter) {
+	public void setInnerDiameter(float innerDiameter) {
 		this.innerDiameter = innerDiameter;
 	}
 

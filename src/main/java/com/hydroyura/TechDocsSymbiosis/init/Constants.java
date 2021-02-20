@@ -1,5 +1,8 @@
 package com.hydroyura.TechDocsSymbiosis.init;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Constants {
 	
 	// Имена таблиц
@@ -100,4 +103,19 @@ public class Constants {
 	public static final String OPP_ENTITY_TYPE_NOTE = "NOTE";
 	public static final String OPP_ENTITY_TYPE_DESIGN = "DESIGN";
 	*/
+	
+	
+	public static boolean isThere(ResultSet rs, String column){
+	    try{
+	        rs.findColumn(column);
+	        return true;
+	    } catch (SQLException sqlex){
+	        System.out.println("column doesn't exist {}");
+	    }
+
+	    return false;
+	}
+	
+	
+	
 }
