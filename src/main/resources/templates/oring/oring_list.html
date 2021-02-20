@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Резиновые кольца, O-Rings</title>
-		<link rel="stylesheet" href="/style.css">
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
 	    <p>Список уплотнительных колец</p>
@@ -19,38 +19,37 @@
 		            </ul>
 	            </div>
 	            <div>
-	            	<input type="text" th:value="*{minInnerDiameterDefault}" th:field="*{minInnerDiameter}"/>
+	            	<input type="text" th:field="*{minInnerDiameter}"/>
 		            <span>Мин. диаметр, мм</span> 
 	            </div>
 	            <div>
-	            	<input type="text" th:value="*{maxInnerDiameterDefault}" th:field="*{maxInnerDiameter}"/>
-		            <span>Мин. диаметр, мм</span> 
+	            	<input type="text" th:field="*{maxInnerDiameter}"/>
+		            <span>Макс. диаметр, мм</span> 
 	            </div>
 	            <input type="submit" value="Submit" />
-	            <input type="reset" value="Reset" />
             </form>
 	    </div>
 	    <br>
 	    <br>
 	    <div>
 		    <table>
-			<thead>
+			
 	       		<tr>
 		            <th> id </th>
 		            <th> Обозначение </th>
 		            <th> Стандарт </th>
 	        	</tr>
-    		</thead>
-		    		<tbody>
-					<tr th:if="${orings.empty}">
-			            <td colspan="2"> No Books Available </td>
-		        	</tr>
-		       		<tr th:each="oring : ${orings}">
-			            <td><span th:text="${oring.id}"> Title </span></td>
-			            <td><a href="#"><span th:text="${oring.name + ' ' + oring.number}"> Author </span></a></td>
-			            <td><span th:text="${oring.standart}"> Author </span></td>
-		       		</tr>
-	    		</tbody>
+    		
+		    		
+				<tr th:if="${orings.empty}">
+		            <td colspan="2"> No Books Available </td>
+	        	</tr>
+	       		<tr th:each="oring : ${orings}">
+		            <td><span th:text="${oring.id}"> Title </span></td>
+		            <td><a href="#"><span th:text="${oring.name + ' ' + oring.number}"> Author </span></a></td>
+		            <td><span th:text="${oring.standart}"> Author </span></td>
+	       		</tr>
+	    		
 		    </table>
 		</div>
 		<br>

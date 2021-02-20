@@ -33,17 +33,17 @@ public class OringController {
 	@GetMapping("/list")
 	public String showOringListGet(Model model) {
 		
-		if(model.getAttribute("oringFilter") == null) {
-			model.addAttribute("oringFilter", new OringFilter());
-		} else {
-			OringFilter oringFilter = (OringFilter) model.getAttribute("oringFilter");
-			System.out.println(oringFilter.getMinInnerDiameter());
-			System.out.println(oringFilter.getMinInnerDiameter());
-			System.out.println(oringFilter.getCrossSectionListSelected());
-		}
-			
-		model.addAttribute("orings", oringService.getOringList());
+		OringFilter oringFilter;
 		
+		if(model.getAttribute("oringFilter") == null) {
+			oringFilter = new OringFilter(); 
+			oringFilter.setMinInnerDiameter(oringService.getMinInnerDiameter());
+			oringFilter.setMaxInnerDiameter(oringService.getMaxInnerDiameter());
+			model.addAttribute("oringFilter", oringFilter);
+		} else {
+			oringFilter = (OringFilter) model.getAttribute("oringFilter");
+		}		
+		model.addAttribute("orings", oringService.getOringListByFilter(oringFilter));
 		return "/oring/oring_list";
 	}
 	
@@ -58,6 +58,5 @@ public class OringController {
 	public List<Float> getCrossSectionEnable() {
 		return oringService.getCrossSectionList();
 	}
-	
 	
 }

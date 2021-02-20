@@ -42,11 +42,11 @@ public class OringDao {
 				+ " WHERE " + Constants.TABLE_COLOMN_ORINGS_INTERNAL_DIAMETER 
 				+ " BETWEEN '" + minInnerDiameter + "' AND '" + maxInnerDiameter + "'";
 		
-		if(crossSectionDiameters.size() == 0) {
+		if((crossSectionDiameters == null) || (crossSectionDiameters.size() == 0)) {
 			query = query + ";";
 		} else {
 			
-			query = query + " IN (";
+			query = query + "AND " + Constants.TABLE_COLOMN_ORINGS_CROSS_SECTION + " IN (";
 			
 			for (Float diameter : crossSectionDiameters) {
 				query = query + "'" + diameter + "',";
@@ -59,8 +59,15 @@ public class OringDao {
 		return jdbc.query(query, new OringRowMap());
 	}
 	
+	public Float getOringsMinInternalDiameter() {
+		String query = "SELECT MIN(" + Constants.TABLE_COLOMN_ORINGS_INTERNAL_DIAMETER + ") FROM " + Constants.TABLE_NAME_ORINGS + ";";
+		return jdbc.queryForObject(query, Float.class);
+	}
 	
-	
+	public Float getOringsMaxInternalDiameter() {
+		String query = "SELECT MAX(" + Constants.TABLE_COLOMN_ORINGS_INTERNAL_DIAMETER + ") FROM " + Constants.TABLE_NAME_ORINGS + ";";
+		return jdbc.queryForObject(query, Float.class);
+	}
 	
 
 }
