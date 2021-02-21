@@ -7,8 +7,10 @@ public class Constants {
 	
 	// Имена таблиц
 	public static final String TABLE_NAME_ORINGS 						= "orings";
+	public static final String TABLE_NAME_ORINGS_DELETED 				= "orings_deleted";
 	public static final String TABLE_NAME_STANDART_PARTS 				= "standart_parts";
 	public static final String TABLE_NAME_NUMBER_PREFIXES 				= "number_prefixes";
+	public static final String TABLE_NAME_OPP 							= "our_product_parts";
 	//-------------------------------------------------------------------------------------
 	
 	// Название столбцов таблицы orings
@@ -27,12 +29,27 @@ public class Constants {
 	public static final String TABLE_COLOMN_STP_STANDART 				= "standart";
 	//-------------------------------------------------------------------------------------
 
-	// Название столбцов таблицы standart_parts
+	// Название столбцов таблицы number_prefixes 
 	public static final String TABLE_COLOMN_NP_ID 						= "id";
 	public static final String TABLE_COLOMN_NP_NAME 					= "name";
 	public static final String TABLE_COLOMN_NP_DESCPIPTION 				= "description";
 	//-------------------------------------------------------------------------------------
 	
+	// типы статусов для opp и asm
+	public static final String OPP_ENTITY_TYPE_TASK = "TASK";
+	public static final String OPP_ENTITY_TYPE_NOTE = "NOTE";
+	public static final String OPP_ENTITY_TYPE_DESIGN = "DESIGN";
+	//-------------------------------------------------------------------------------------
+
+	// Название столбцов таблицы our_product_parts 
+	public static final String TABLE_COLOMN_OPP_ID = "id";
+	public static final String TABLE_COLOMN_OPP_NUMBER = "number";
+	public static final String TABLE_COLOMN_OPP_NAME = "name";
+	public static final String TABLE_COLOMN_OPP_STATUS = "status";
+	public static final String TABLE_COLOMN_OPP_VERSION = "version";
+	public static final String TABLE_COLOMN_OPP_UPDATE = "update";
+	//-------------------------------------------------------------------------------------
+
 	
 	/*
 	public static final String TABLE_NAME_OPP = "our_product_parts";

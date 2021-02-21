@@ -14,6 +14,21 @@ CREATE TABLE orings (
 );
 
 /*
+	Таблица для хранения номенклатуры УДАЛЕННЫХ резиновых колец.
+*/
+DROP TABLE IF EXISTS orings_deleted;
+CREATE TABLE orings_deleted (
+
+	id serial NOT NULL UNIQUE PRIMARY KEY,
+	number varchar(50) NOT NULL,
+	name varchar(50) NOT NULL,
+	standart varchar(50) NOT NULL,
+	cross_section real NOT NULL,
+	internal_diameter real NOT NULL
+		
+);
+
+/*
 	Таблица для хранения номенклатуры стандартных изделий: винты, болты, шайбы, гайки, прокладки, стопорные кольца и т.д.
 */
 DROP TABLE IF EXISTS standart_parts;

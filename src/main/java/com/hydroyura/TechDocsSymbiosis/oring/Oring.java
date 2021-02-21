@@ -2,7 +2,10 @@ package com.hydroyura.TechDocsSymbiosis.oring;
 
 public class Oring {
 	
+	
 	private int id;
+	
+	
 	private String name;
 	private String number;
 	private String standart;

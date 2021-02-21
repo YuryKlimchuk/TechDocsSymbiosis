@@ -23,8 +23,7 @@ public class OringServiceInterfaceImpl implements OringServiceInterface {
 
 	@Override
 	public Oring getOringItem(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return oringDao.getOringById(id);
 	}
 
 	@Override
@@ -45,6 +44,16 @@ public class OringServiceInterfaceImpl implements OringServiceInterface {
 	@Override
 	public float getMinInnerDiameter() {
 		return oringDao.getOringsMinInternalDiameter();
+	}
+
+	@Override
+	public void deleteOringById(int id) {
+		oringDao.deleteOringById(id);
+	}
+
+	@Override
+	public void updateOringById(int id, Oring updateOring) {
+		oringDao.updateOring(id, updateOring);
 	}
 
 }

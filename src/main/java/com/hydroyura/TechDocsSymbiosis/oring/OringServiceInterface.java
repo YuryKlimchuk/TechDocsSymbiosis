@@ -10,5 +10,7 @@ public interface OringServiceInterface {
 	public List<Oring> getOringListByFilter(OringFilter oringFilter);
 	public float getMaxInnerDiameter();
 	public float getMinInnerDiameter();
+	public void deleteOringById(int id);
+	public void updateOringById(int id, Oring updateOring);
 
 }

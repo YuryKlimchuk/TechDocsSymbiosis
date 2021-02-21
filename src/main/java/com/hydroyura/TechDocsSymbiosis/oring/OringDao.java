@@ -69,5 +69,68 @@ public class OringDao {
 		return jdbc.queryForObject(query, Float.class);
 	}
 	
+	
+	public void deleteOringById(int id) {
+		addOringDeleted(getOringById(id));
+		String query = "DELETE FROM " + Constants.TABLE_NAME_ORINGS + " WHERE " + Constants.TABLE_COLOMN_ORINGS_ID + "=?;";
+		jdbc.update(query, id);
+	}
+	
+	public Oring getOringById(int id) {
+		String query = "SELECT * FROM " + Constants.TABLE_NAME_ORINGS + " WHERE " + Constants.TABLE_COLOMN_ORINGS_ID + " = '" + id + "';";
+		System.out.println("getOringById: " + query);
+		return jdbc.queryForObject(query, new OringRowMap());
+	}
+	
+	
+	public int addOring(Oring oring) {
+		String query = "INSERT INTO " + Constants.TABLE_NAME_ORINGS + " (" 
+				+ Constants.TABLE_COLOMN_ORINGS_CROSS_SECTION + ", " 
+				+ Constants.TABLE_COLOMN_ORINGS_NAME + ", " 
+				+ Constants.TABLE_COLOMN_ORINGS_INTERNAL_DIAMETER + ", " 
+				+ Constants.TABLE_COLOMN_ORINGS_NUMBER + ", " 
+				+ Constants.TABLE_COLOMN_ORINGS_STANDART + ") VALUES (?, ?, ?, ?, ?);";
+				
+		return jdbc.update(query, 
+				oring.getCrossSection(), 
+				oring.getName(),
+				oring.getInnerDiameter(),
+				oring.getNumber(),
+				oring.getStandart());
+	}
+	
+	
+	public int addOringDeleted(Oring oring) {
+		String query = "INSERT INTO " + Constants.TABLE_NAME_ORINGS_DELETED + " (" 
+				+ Constants.TABLE_COLOMN_ORINGS_CROSS_SECTION + ", " 
+				+ Constants.TABLE_COLOMN_ORINGS_NAME + ", " 
+				+ Constants.TABLE_COLOMN_ORINGS_INTERNAL_DIAMETER + ", " 
+				+ Constants.TABLE_COLOMN_ORINGS_NUMBER + ", " 
+				+ Constants.TABLE_COLOMN_ORINGS_STANDART + ") VALUES (?, ?, ?, ?, ?);";
+				
+		return jdbc.update(query, 
+				oring.getCrossSection(), 
+				oring.getName(),
+				oring.getInnerDiameter(),
+				oring.getNumber(),
+				oring.getStandart());
+	}
+	
+	public void updateOring(int id, Oring updateOring) {
+		String query = "UPDATE " + Constants.TABLE_NAME_ORINGS + " SET " 
+				+ Constants.TABLE_COLOMN_ORINGS_NAME + " =?, " 
+				+ Constants.TABLE_COLOMN_ORINGS_NUMBER + " =?, " 
+				+ Constants.TABLE_COLOMN_ORINGS_CROSS_SECTION + " =?, " 
+				+ Constants.TABLE_COLOMN_ORINGS_INTERNAL_DIAMETER + " =?, " 
+				+ Constants.TABLE_COLOMN_ORINGS_STANDART + " =? WHERE "
+				+ Constants.TABLE_COLOMN_ORINGS_ID + "=?;";
+		jdbc.update(query, 
+				updateOring.getName(), 
+				updateOring.getNumber(),
+				updateOring.getCrossSection(),
+				updateOring.getInnerDiameter(),
+				updateOring.getStandart(),
+				id);
+	}
 
 }

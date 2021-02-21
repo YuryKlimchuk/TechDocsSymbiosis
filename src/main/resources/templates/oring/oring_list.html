@@ -38,6 +38,8 @@
 		            <th> id </th>
 		            <th> Обозначение </th>
 		            <th> Стандарт </th>
+		            <th> Удалить </th>
+		            <th> Редактировать </th>
 	        	</tr>
     		
 		    		
@@ -48,8 +50,9 @@
 		            <td><span th:text="${oring.id}"> Title </span></td>
 		            <td><a href="#"><span th:text="${oring.name + ' ' + oring.number}"> Author </span></a></td>
 		            <td><span th:text="${oring.standart}"> Author </span></td>
+		            <td><a th:href="@{/oring/delete/{id}(id=${oring.getId()})}">Удалить</a></td>
+		            <td><a th:href="@{/oring/edit/{id}(id=${oring.getId()})}">Редактировать</a></td>
 	       		</tr>
-	    		
 		    </table>
 		</div>
 		<br>

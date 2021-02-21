@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -50,6 +50,33 @@ public class OringController {
 	@PostMapping("/list")
 	public String showOringListPost(@ModelAttribute("oringFilter") OringFilter oringFilter, RedirectAttributes redirectAttributes, Model model) {
 		redirectAttributes.addFlashAttribute("oringFilter", oringFilter);
+		return "redirect:/oring/list";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String showDeleteOring(@PathVariable("id") int id) {
+		oringService.deleteOringById(id);
+		return "redirect:/oring/list";
+	}
+	
+	@GetMapping("/edit/{id}")
+	public String showEditOringGet(@PathVariable("id") int id, Model model) {
+		
+		Oring oring = oringService.getOringItem(id);
+		
+		System.out.println("showEditOring: id = " + id + "; name = " + oring.getName() + "; number = " + oring.getNumber());
+		
+		model.addAttribute("oring", oring);
+		return "/oring/oring_edit";
+	}
+	
+	@PostMapping("/edit/{id}")
+	public String showEditOringPath(
+			@ModelAttribute("oring") Oring updateOring, 
+			@PathVariable("id") int id) {
+		
+		System.out.println("showEditOringPath");
+		oringService.updateOringById(id, updateOring);
 		return "redirect:/oring/list";
 	}
 	
