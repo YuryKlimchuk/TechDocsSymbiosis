@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Свои детали</title>
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+	    <p>Список своих деталей</p>
+	    <br>
+<!-- 	    <div>
+	    	<form action="#" th:action="@{/oring/list}" th:object="${oringFilter}" method="post">
+	      		<div>
+		      		<ul>
+			            <li th:each="crossSection : ${crossSectionEnable}" >
+			                <input type="checkbox" th:value="${crossSection}" th:field="*{crossSectionListSelected}"/>
+			                <span th:text="${crossSection}"></span> 
+			            </li>
+		            </ul>
+	            </div>
+	            <div>
+	            	<input type="text" th:field="*{minInnerDiameter}"/>
+		            <span>Мин. диаметр, мм</span> 
+	            </div>
+	            <div>
+	            	<input type="text" th:field="*{maxInnerDiameter}"/>
+		            <span>Макс. диаметр, мм</span> 
+	            </div>
+	            <input type="submit" value="Submit" />
+            </form>
+	    </div> -->
+	    <br>
+	    <br>
+	    <div>
+		    <table>
+			
+	       		<tr>
+		            <th> id </th>
+		            <th> Обозначение </th>
+		            <th> Наименование </th>
+		            <th> Статус </th>
+		            <th> Версия </th>
+		            <th> Дата обновления </th>
+		            <th> Изменить </th>
+	        	</tr>
+    		
+		    		
+				<tr th:if="${opps.empty}">
+		            <td colspan="2"> No Books Available </td>
+	        	</tr>
+	       		<tr th:each="opp : ${opps}">
+		            <td><span th:text="${opp.id}"> Title </span></td>
+		            <td><a href="#"><span th:text="${opp.number}"> Author </span></a></td>
+		            <td><span th:text="${opp.name}"> Author </span></td>
+		            <td><span th:text="${opp.status}"> Author </span></td>
+		            <td><span th:text="${opp.version}"> Author </span></td>
+		            <td><span th:text="${opp.update}"> Author </span></td>
+		            <td><a th:href="@{/opp/edit/{id}(id=${opp.getId()})}">Редактировать</a></td>
+	       		</tr>
+		    </table>
+		</div>
+		<br>
+	</body>
+</html>

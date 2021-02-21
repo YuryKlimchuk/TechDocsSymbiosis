@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Редактирование opp</title>
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+	    <p>Редактирование параметров детали</p>
+	    <br>
+	    <div>
+	    	<form th:action="@{/opp/edit/{id}(id=${opp.getId()})}" th:object="${opp}" th:method="POST">
+	            
+	            <div>
+	            	<input type="text" th:field="*{number}"/>
+		            <span>Обозначение</span> 
+	            </div>
+	            <div>
+	            	<input type="text" th:field="*{name}"/>
+		            <span>Наименование</span> 
+	            </div>
+	            <div>
+	            	<input type="text" th:field="*{status}"/>
+		            <span>Статус</span> 
+	            </div>
+	            <div>
+	            	<input type="text" th:field="*{version}"/>
+		            <span>Версия</span> 
+	            </div>
+	            <div>
+	            	<input type="text" th:field="*{update}"/>
+		            <span>Обновление</span> 
+	            </div>
+
+	            <input type="submit" value="Изменить" />
+            </form>
+	    </div>
+	    <br>
+	    <br>
+		<br>
+	</body>
+</html>
