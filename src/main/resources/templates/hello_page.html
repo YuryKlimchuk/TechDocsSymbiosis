@@ -6,5 +6,10 @@
 	</head>
 	<body>
 	    <h2>Start page</h2>
+	    <form th:object="${user}" th:action="@{/hello}" th:method="POST">
+	    	<input type="text" th:field=*{name}/>
+	    	<input type="text" th:field=*{surname}/>
+	    	<input type="submit" name="submit">
+	    </form>
 	</body>
 </html>

@@ -1,4 +1,73 @@
 /*
+	Таблица для хранения номенклатуры стандартных изделий
+*/
+
+-- Создание таблицы
+DROP TABLE IF EXISTS standart_parts;
+CREATE TABLE standart_parts (
+
+	id serial NOT NULL UNIQUE PRIMARY KEY,
+	number varchar(30) NOT NULL UNIQUE,
+	name varchar(30) NOT NULL,
+	standart varchar(30) NOT NULL
+);
+
+
+
+/*
+	Таблица для хранения номенклатуры резиновых колец.
+*/
+
+-- Создание таблцы
+DROP TABLE IF EXISTS assemblies;
+CREATE TABLE assemblies (
+
+	id serial NOT NULL UNIQUE PRIMARY KEY,
+	number varchar(30) NOT NULL UNIQUE,
+	name varchar(30) NOT NULL,
+	status varchar(30) NOT NULL,
+	version varchar(30) NOT NULL,
+	update varchar(30) NOT NULL
+
+);
+
+/*
+	Таблица для хранения деталей в сборках
+*/
+-- Создание таблицы
+DROP TABLE IF EXISTS assembly_composition_opp;
+CREATE TABLE assembly_composition_opp (
+
+	asm_id_full integer NOT NULL,
+	opp_id integer NOT NULL,
+	counts integer,
+	change integer,
+	FOREIGN KEY (opp_id) REFERENCES our_product_parts (id),
+	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
+	
+);
+
+/*
+	Таблица для хранения деталей в сборках
+*/
+-- Создание таблицы
+DROP TABLE IF EXISTS assembly_composition_oring;
+CREATE TABLE assembly_composition_oring (
+
+	asm_id_full integer NOT NULL,
+	oring_id integer NOT NULL,
+	counts integer,
+	change integer,
+	FOREIGN KEY (oring_id) REFERENCES orings (id),
+	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
+	
+);
+
+
+
+
+
+/*
 	Таблица для хранения номенклатуры резиновых колец.
 */
 DROP TABLE IF EXISTS orings;
@@ -211,7 +280,25 @@ VALUES
 	
 	
 	
+-- Заполнение таблицы standart_parts
+INSERT INTO standart_parts (
 
-
-
+	number,
+	name,
+	standart
 	
+)
+
+-- Занесение данных в таблицу
+VALUES
+
+	('M5x12', 'Винт', 'ISO4762'),
+	('M5x14', 'Винт', 'ISO4762'),
+	('M5x25', 'Винт', 'ISO4762'),
+	('M6x14', 'Винт', 'ISO4762'),
+	('M6x30', 'Винт', 'ISO4762');
+
+
+
+
+

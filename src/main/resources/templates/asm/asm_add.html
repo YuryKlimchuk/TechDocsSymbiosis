@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Добавление новой сборки</title>
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+	    <p>Новаясборка!</p>
+	    <br>
+	    <p>Количество деталей = <span th:text="${asmCompositionForm.countOpp}"></span></p>
+	    <p>Количество колец = <span th:text="${asmCompositionForm.countOring}"></span></p>
+	    <div>
+	    	<form th:action="@{/asm/add}" th:object="${asmCompositionForm}" th:method="POST">
+	            <div>
+	            	<input type="text" th:field="*{asm.number}"/>
+		            <span>Обозначение</span> 
+	            </div>
+	            <br>
+	            <div>
+	            	<input type="text" th:field="*{asm.name}"/>
+		            <span>Наименование</span> 
+	            </div>
+	          	<br>
+	            <div>
+	            	<select th:field="*{asm.status}">
+		    			<option th:value="'NOTE'" th:text="Извещение"></option>
+		    			<option th:value="'TASK'" th:text="Задание"></option>	
+		    			<option th:value="'DESIGN'" th:text="Проектирование"></option>	
+    				</select>
+    				<span>Статус</span> 
+	            </div>
+	            
+	            <br>
+	            <div>
+	            	<input type="text" th:field="*{asm.version}"/>
+		            <span>Версия</span> 
+	            </div>
+	            <br>
+	            <div>
+	            	<input type="text" th:field="*{asm.update}"/>
+		            <span>Дата</span> 
+	            </div>
+	            <br>
+	 
+	            <div>
+		            <h2>Детали</h2>
+		            <button type="submit" name="action" value="addOpp">Добавить строку</button>
+		            <button type="submit" name="action" value="delOpp">Удалить строку</button>
+		            <br>
+		            <table>
+			       		<tr>
+			       			<th> Поз.  </th>
+				            <th> Обозначение  </th>
+				            <th> Кол. </th>
+			        	</tr>
+						<tr th:if="${asmCompositionForm.getCountOpp() == 0}">
+				            <td colspan="4"> добавить элементы </td>
+			        	</tr>
+			        	<th:block th:unless="${asmCompositionForm.getCountOpp() == 0}">
+			       		<tr th:each="i : ${#numbers.sequence(1, asmCompositionForm.getCountOpp())}">
+				            <td>
+				            	<input type="text"/>
+				            </td>
+				            <td> 
+					            <select th:field="*{listOppId}">
+	                         		<option th:each="opp : ${oppList}" th:value="${opp.id}" th:text="${opp.number}"/>
+	                  			</select>
+                  			</td>
+				            <td>
+				            	<input type="text" th:field="*{listOppCounts}"/>
+				            </td>
+			       		</tr>
+			       		</th:block>
+			    	</table>
+	            </div>
+	            <div>
+		            <h2>Оринги</h2>
+		            <button type="submit" name="action" value="addOring">Добавить строку</button>
+		            <button type="submit" name="action" value="delOring">Удалить строку</button>
+		            <br>
+		            <table>
+			       		<tr>
+			       			<th> Поз.  </th>
+				            <th> Обозначение  </th>
+				            <th> Кол. </th>
+			        	</tr>
+						<tr th:if="${asmCompositionForm.getCountOring() == 0}">
+				            <td colspan="4"> добавить элементы </td>
+			        	</tr>
+			        	<th:block th:unless="${asmCompositionForm.getCountOring() == 0}">
+			       		<tr th:each="i : ${#numbers.sequence(1, asmCompositionForm.getCountOring())}">
+				            <td>
+				            	<input type="text"/>
+				            </td>
+				            <td> 
+					            <select th:field="*{listOringId}">
+	                         		<option th:each="oring : ${oringList}" th:value="${oring.id}" th:text="${oring.number}"/>
+	                  			</select>
+                  			</td>
+				            <td>
+				            	<input type="text" th:field="*{listOringCounts}"/>
+				            </td>
+			       		</tr>
+			       		</th:block>
+			    	</table>
+			    	<button type="submit" name="action" value="addInDB">Добавить в базу</button>
+	            </div>
+	            <div>
+		            <h2>Стандартные изделия</h2>
+		            <button type="submit" name="action" value="addStp">Добавить строку</button>
+		            <button type="submit" name="action" value="delStp">Удалить строку</button>
+		            <br>
+		            <table>
+			       		<tr>
+			       			<th> Поз.  </th>
+				            <th> Обозначение  </th>
+				            <th> Кол. </th>
+			        	</tr>
+						<tr th:if="${asmCompositionForm.getCountOring() == 0}">
+				            <td colspan="4"> добавить элементы </td>
+			        	</tr>
+			        	<th:block th:unless="${asmCompositionForm.getCountOring() == 0}">
+			       		<tr th:each="i : ${#numbers.sequence(1, asmCompositionForm.getCountOring())}">
+				            <td>
+				            	<input type="text"/>
+				            </td>
+				            <td> 
+					            <select th:field="*{listOringId}">
+	                         		<option th:each="oring : ${oringList}" th:value="${oring.id}" th:text="${oring.number}"/>
+	                  			</select>
+                  			</td>
+				            <td>
+				            	<input type="text" th:field="*{listOringCounts}"/>
+				            </td>
+			       		</tr>
+			       		</th:block>
+			    	</table>
+			    	<button type="submit" name="action" value="addInDB">Добавить в базу</button>
+	            </div>
+	            
+            </form>
+	    </div>
+	    <br>
+	    <br>
+		<br>
+	</body>
+</html>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/opp")
 public class OppController {
 	
-	private OppServiceInterfaceImpl oppService;
+	private OppServiceInterface oppService;
 	
 	@Autowired
 	public OppController(OppServiceInterfaceImpl oppService) {

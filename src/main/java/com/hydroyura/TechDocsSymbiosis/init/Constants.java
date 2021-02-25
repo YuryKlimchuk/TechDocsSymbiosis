@@ -11,6 +11,17 @@ public class Constants {
 	public static final String TABLE_NAME_STANDART_PARTS 				= "standart_parts";
 	public static final String TABLE_NAME_NUMBER_PREFIXES 				= "number_prefixes";
 	public static final String TABLE_NAME_OPP 							= "our_product_parts";
+	public static final String TABLE_NAME_ASM 							= "assemblies";
+	public static final String TABLE_NAME_ASM_COMP_OPP 					= "assembly_composition_opp";
+	public static final String TABLE_NAME_ASM_COMP_ORING 				= "assembly_composition_oring";
+	public static final String TABLE_NAME_ST 							= "standart_parts";
+	//-------------------------------------------------------------------------------------
+	
+	// Название столбцов таблицы standart_parts
+	public static final String TABLE_COLOMN_ST_ID 					= "id";
+	public static final String TABLE_COLOMN_ST_NAME 				= "name";
+	public static final String TABLE_COLOMN_ST_NUMBER 				= "number";
+	public static final String TABLE_COLOMN_ST_STANDART 			= "standart";
 	//-------------------------------------------------------------------------------------
 	
 	// Название столбцов таблицы orings
@@ -36,25 +47,49 @@ public class Constants {
 	//-------------------------------------------------------------------------------------
 	
 	// типы статусов для opp и asm
-	public static final String OPP_ENTITY_TYPE_TASK = "TASK";
-	public static final String OPP_ENTITY_TYPE_NOTE = "NOTE";
-	public static final String OPP_ENTITY_TYPE_DESIGN = "DESIGN";
+	public static final String OPP_ENTITY_TYPE_TASK 					= "TASK";
+	public static final String OPP_ENTITY_TYPE_NOTE 					= "NOTE";
+	public static final String OPP_ENTITY_TYPE_DESIGN 					= "DESIGN";
 	//-------------------------------------------------------------------------------------
 
 	// Название столбцов таблицы our_product_parts 
-	public static final String TABLE_COLOMN_OPP_ID = "id";
-	public static final String TABLE_COLOMN_OPP_NUMBER = "number";
-	public static final String TABLE_COLOMN_OPP_NAME = "name";
-	public static final String TABLE_COLOMN_OPP_STATUS = "status";
-	public static final String TABLE_COLOMN_OPP_VERSION = "version";
-	public static final String TABLE_COLOMN_OPP_UPDATE = "update";
+	public static final String TABLE_COLOMN_OPP_ID 						= "id";
+	public static final String TABLE_COLOMN_OPP_NUMBER 					= "number";
+	public static final String TABLE_COLOMN_OPP_NAME 					= "name";
+	public static final String TABLE_COLOMN_OPP_STATUS 					= "status";
+	public static final String TABLE_COLOMN_OPP_VERSION 				= "version";
+	public static final String TABLE_COLOMN_OPP_UPDATE 					= "update";
 	//-------------------------------------------------------------------------------------
-
+	
+	// Название столбцов таблицы assemblies
+	public static final String TABLE_COLOMN_ASM_ID 						= "id";
+	public static final String TABLE_COLOMN_ASM_NUMBER 					= "number";
+	public static final String TABLE_COLOMN_ASM_NAME 					= "name";
+	public static final String TABLE_COLOMN_ASM_STATUS					= "status";
+	public static final String TABLE_COLOMN_ASM_VERSION 				= "version";
+	public static final String TABLE_COLOMN_ASM_UPDATE 					= "update";
+	//-------------------------------------------------------------------------------------
+	
+	// Название столбцов таблицы assembly_composition_opp
+	public static final String TABLE_COLOMN_ASM_COMP_OPP_ASM_FULL_ID 	= "asm_id_full";
+	public static final String TABLE_COLOMN_ASM_COMP_OPP_OPP_ID 		= "opp_id";
+	public static final String TABLE_COLOMN_ASM_COMP_OPP_COUNTS 		= "counts";
+	public static final String TABLE_COLOMN_ASM_COMP_OPP_CHANGE 		= "change";
+	//-------------------------------------------------------------------------------------
+	
+	// Название столбцов таблицы assembly_composition_opp
+	public static final String TABLE_COLOMN_ASM_COMP_ORING_ASM_FULL_ID 	= "asm_id_full";
+	public static final String TABLE_COLOMN_ASM_COMP_ORING_ORING_ID 	= "oring_id";
+	public static final String TABLE_COLOMN_ASM_COMP_ORING_COUNTS 		= "counts";
+	public static final String TABLE_COLOMN_ASM_COMP_ORING_CHANGE 		= "change";
+	//-------------------------------------------------------------------------------------
+	
+	
 	
 	/*
 	public static final String TABLE_NAME_OPP = "our_product_parts";
 	public static final String TABLE_NAME_SCREW_BOLT = "screw_bolt";
-	public static final String TABLE_NAME_ASM = "assemblies";
+
 	public static final String TABLE_NAME_ASM_ORINGS = "assembly_composition_orings";
 	public static final String TABLE_NAME_VZK = "vzk";
 	public static final String TABLE_NAME_ASM_COMP_ORINGS = "assembly_composition_orings";
@@ -76,16 +111,8 @@ public class Constants {
 	public static final String TABLE_COLOMN_ASM_COMP_VZK_CHANGE = "change";
 	
 	// Название столбцов таблицы assembly_composition_orings
-	public static final String TABLE_COLOMN_ASM_COMP_OPP_ASM_FULL_ID = "asm_id_full";
-	public static final String TABLE_COLOMN_ASM_COMP_OPP_OPP_ID = "opp_id";
-	public static final String TABLE_COLOMN_ASM_COMP_OPP_COUNTS = "counts";
-	public static final String TABLE_COLOMN_ASM_COMP_OPP_CHANGE = "change";
-	
-	// Название столбцов таблицы assembly_composition_orings
-	public static final String TABLE_COLOMN_ASM_COMP_ORINGS_ASM_FULL_ID = "asm_id_full";
-	public static final String TABLE_COLOMN_ASM_COMP_ORINGS_ORING_ID = "orings_id";
-	public static final String TABLE_COLOMN_ASM_COMP_ORINGS_COUNTS = "counts";
-	public static final String TABLE_COLOMN_ASM_COMP_ORINGS_CHANGE = "change";
+
+
 
 	
 	// Название столбцов таблицы vzks
@@ -99,13 +126,7 @@ public class Constants {
 	public static final String TABLE_COLOMN_SCREW_NAME = "screw_bolt_name";
 	public static final String TABLE_COLOMN_SCREW_STANDART = "standart";
 	
-	// Название столбцов таблицы assemblies
-	public static final String TABLE_COLOMN_ASM_ID = "asm_id";
-	public static final String TABLE_COLOMN_ASM_NUMBER = "asm_number";
-	public static final String TABLE_COLOMN_ASM_NAME = "asm_name";
-	public static final String TABLE_COLOMN_ASM_STATUS = "asm_status";
-	public static final String TABLE_COLOMN_ASM_VERSION = "asm_version";
-	public static final String TABLE_COLOMN_ASM_UPDATE = "asm_update";
+
 	
 	// Название столбцов таблицы our_product_parts
 	public static final String TABLE_COLOMN_OPP_ID = "opp_id";
@@ -119,6 +140,21 @@ public class Constants {
 	public static final String OPP_ENTITY_TYPE_TASK = "TASK";
 	public static final String OPP_ENTITY_TYPE_NOTE = "NOTE";
 	public static final String OPP_ENTITY_TYPE_DESIGN = "DESIGN";
+	
+	DROP TABLE IF EXISTS assembly_composition_opp;
+	CREATE TABLE assembly_composition_opp (
+
+	asm_id_full integer NOT NULL,
+	opp_id integer NOT NULL,
+	counts integer,
+	change integer,
+	FOREIGN KEY (opp_id) REFERENCES our_product_parts (id),
+	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
+	
+);
+	
+	
+	
 	*/
 	
 	
