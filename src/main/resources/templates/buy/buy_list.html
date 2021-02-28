@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Покупнуха</title>
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+	    <p>Покупные детали</p>
+	    <br>
+		<h2>Список покупных изделий</h2>
+		<table>
+			<thead>
+				<tr>
+					<td>Поз.</td>
+					<td>ID</td>
+					<td>Обозначение</td>
+					<td>Наименвоание</td>
+					<td>Производитель</td>
+				</tr>
+			</thead>
+				<tr th:each="buy, status : ${buyies}">
+					<td><span th:text="${status.count}"></span></td>
+					<td><span th:text="${buyies.id}"></span></td>
+					<td><span th:text="${buyies.number}"></span></td>
+					<td><span th:text="${buyies.name}"></span></td>
+					<td><span th:text="${buyies.manufacturer}"></span></td>
+				</tr>
+			<tbody>
+			
+			</tbody>
+		</table>
+	</body>
+</html>
