@@ -12,16 +12,39 @@ public class Constants {
 	public static final String TABLE_NAME_NUMBER_PREFIXES 				= "number_prefixes";
 	public static final String TABLE_NAME_OPP 							= "our_product_parts";
 	public static final String TABLE_NAME_ASM 							= "assemblies";
+	
+	
 	public static final String TABLE_NAME_ASM_COMP_OPP 					= "assembly_composition_opp";
 	public static final String TABLE_NAME_ASM_COMP_ORING 				= "assembly_composition_oring";
+	public static final String TABLE_NAME_ASM_COMP_VZK					= "assembly_composition_vzk";
+	public static final String TABLE_NAME_ASM_COMP_BUY					= "assembly_composition_buy";
+	public static final String TABLE_NAME_ASM_COMP_ASM					= "assembly_composition_asm";
+	public static final String TABLE_NAME_ASM_COMP_STP					= "assembly_composition_stp";
+
+	
 	public static final String TABLE_NAME_ST 							= "standart_parts";
+	public static final String TABLE_NAME_VZK 							= "vzk";
+	public static final String TABLE_NAME_BUY  							= "buy";
+	//-------------------------------------------------------------------------------------
+	
+	// Название столбцов таблицы vzk
+	public static final String TABLE_COLOMN_VZK_ID						= "id";
+	public static final String TABLE_COLOMN_VZK_NUMBER					= "number";
+	public static final String TABLE_COLOMN_VZK_NAME 					= "name";
+	//-------------------------------------------------------------------------------------
+
+	// Название столбцов таблицы buy
+	public static final String TABLE_COLOMN_BUY_ID 						= "id";
+	public static final String TABLE_COLOMN_BUY_NUMBER 					= "number";
+	public static final String TABLE_COLOMN_BUY_NAME 					= "name";
+	public static final String TABLE_COLOMN_BUY_MANUFACTURER 			= "manufacturer";
 	//-------------------------------------------------------------------------------------
 	
 	// Название столбцов таблицы standart_parts
-	public static final String TABLE_COLOMN_ST_ID 					= "id";
-	public static final String TABLE_COLOMN_ST_NAME 				= "name";
-	public static final String TABLE_COLOMN_ST_NUMBER 				= "number";
-	public static final String TABLE_COLOMN_ST_STANDART 			= "standart";
+	public static final String TABLE_COLOMN_ST_ID 						= "id";
+	public static final String TABLE_COLOMN_ST_NAME 					= "name";
+	public static final String TABLE_COLOMN_ST_NUMBER 					= "number";
+	public static final String TABLE_COLOMN_ST_STANDART 				= "standart";
 	//-------------------------------------------------------------------------------------
 	
 	// Название столбцов таблицы orings
@@ -77,86 +100,41 @@ public class Constants {
 	public static final String TABLE_COLOMN_ASM_COMP_OPP_CHANGE 		= "change";
 	//-------------------------------------------------------------------------------------
 	
-	// Название столбцов таблицы assembly_composition_opp
+	// Название столбцов таблицы assembly_composition_oring
 	public static final String TABLE_COLOMN_ASM_COMP_ORING_ASM_FULL_ID 	= "asm_id_full";
 	public static final String TABLE_COLOMN_ASM_COMP_ORING_ORING_ID 	= "oring_id";
 	public static final String TABLE_COLOMN_ASM_COMP_ORING_COUNTS 		= "counts";
 	public static final String TABLE_COLOMN_ASM_COMP_ORING_CHANGE 		= "change";
 	//-------------------------------------------------------------------------------------
 	
+	// Название столбцов таблицы assembly_composition_vzk
+	public static final String TABLE_COLOMN_ASM_COMP_VZK_ASM_FULL_ID 	= "asm_id_full";
+	public static final String TABLE_COLOMN_ASM_COMP_VZK_VZK_ID 		= "vzk_id";
+	public static final String TABLE_COLOMN_ASM_COMP_VZK_COUNTS 		= "counts";
+	public static final String TABLE_COLOMN_ASM_COMP_VZK_CHANGE 		= "change";
+	//-------------------------------------------------------------------------------------
 	
-	
-	/*
-	public static final String TABLE_NAME_OPP = "our_product_parts";
-	public static final String TABLE_NAME_SCREW_BOLT = "screw_bolt";
-
-	public static final String TABLE_NAME_ASM_ORINGS = "assembly_composition_orings";
-	public static final String TABLE_NAME_VZK = "vzk";
-	public static final String TABLE_NAME_ASM_COMP_ORINGS = "assembly_composition_orings";
-	public static final String TABLE_NAME_ASM_COMP_OPP = "assembly_composition_opp";
-	public static final String TABLE_NAME_ASM_COMP_VZK = "assembly_composition_vzk";
-	public static final String TABLE_NAME_ASM_COMP_ASM = "assembly_composition_asm";
+	// Название столбцов таблицы assembly_composition_buy
+	public static final String TABLE_COLOMN_ASM_COMP_BUY_ASM_FULL_ID 	= "asm_id_full";
+	public static final String TABLE_COLOMN_ASM_COMP_BUY_BUY_ID 		= "buy_id";
+	public static final String TABLE_COLOMN_ASM_COMP_BUY_COUNTS 		= "counts";
+	public static final String TABLE_COLOMN_ASM_COMP_BUY_CHANGE 		= "change";
+	//-------------------------------------------------------------------------------------
 	
 	// Название столбцов таблицы assembly_composition_asm
-	public static final String TABLE_COLOMN_ASM_COMP_ASM_ASM_FULL_ID = "asm_id_full";
-	public static final String TABLE_COLOMN_ASM_COMP_ASM_ASM_ID = "asm_id";
-	public static final String TABLE_COLOMN_ASM_COMP_ASM_COUNTS = "counts";
-	public static final String TABLE_COLOMN_ASM_COMP_ASM_CHANGE = "change";
+	public static final String TABLE_COLOMN_ASM_COMP_ASM_ASM_FULL_ID 	= "asm_id_full";
+	public static final String TABLE_COLOMN_ASM_COMP_ASM_ASM_ID 		= "asm_id";
+	public static final String TABLE_COLOMN_ASM_COMP_ASM_COUNTS 		= "counts";
+	public static final String TABLE_COLOMN_ASM_COMP_ASM_CHANGE 		= "change";
+	//-------------------------------------------------------------------------------------
 	
-	
-	// Название столбцов таблицы assembly_composition_vzk
-	public static final String TABLE_COLOMN_ASM_COMP_VZK_ASM_FULL_ID = "asm_id_full";
-	public static final String TABLE_COLOMN_ASM_COMP_VZK_VZK_ID = "vzk_id";
-	public static final String TABLE_COLOMN_ASM_COMP_VZK_COUNTS = "counts";
-	public static final String TABLE_COLOMN_ASM_COMP_VZK_CHANGE = "change";
-	
-	// Название столбцов таблицы assembly_composition_orings
+	// Название столбцов таблицы assembly_composition_stp
+	public static final String TABLE_COLOMN_ASM_COMP_STP_ASM_FULL_ID 	= "asm_id_full";
+	public static final String TABLE_COLOMN_ASM_COMP_STP_STP_ID 		= "stp_id";
+	public static final String TABLE_COLOMN_ASM_COMP_STP_COUNTS 		= "counts";
+	public static final String TABLE_COLOMN_ASM_COMP_STP_CHANGE 		= "change";
+	//-------------------------------------------------------------------------------------
 
-
-
-	
-	// Название столбцов таблицы vzks
-	public static final String TABLE_COLOMN_VZK_ID = "vzk_id";
-	public static final String TABLE_COLOMN_VZK_NUMBER = "vzk_number";
-	public static final String TABLE_COLOMN_VZK_NAME = "vzk_name";
-	
-	// Название столбцов таблицы screw_bolt
-	public static final String TABLE_COLOMN_SCREW_ID = "screw_bolt_id";
-	public static final String TABLE_COLOMN_SCREW_NUMBER = "screw_bolt_number";
-	public static final String TABLE_COLOMN_SCREW_NAME = "screw_bolt_name";
-	public static final String TABLE_COLOMN_SCREW_STANDART = "standart";
-	
-
-	
-	// Название столбцов таблицы our_product_parts
-	public static final String TABLE_COLOMN_OPP_ID = "opp_id";
-	public static final String TABLE_COLOMN_OPP_NUMBER = "opp_number";
-	public static final String TABLE_COLOMN_OPP_NAME = "opp_name";
-	public static final String TABLE_COLOMN_OPP_STATUS = "opp_status";
-	public static final String TABLE_COLOMN_OPP_VERSION = "opp_version";
-	public static final String TABLE_COLOMN_OPP_UPDATE = "opp_update";
-		
-	// Типы OPP элементов
-	public static final String OPP_ENTITY_TYPE_TASK = "TASK";
-	public static final String OPP_ENTITY_TYPE_NOTE = "NOTE";
-	public static final String OPP_ENTITY_TYPE_DESIGN = "DESIGN";
-	
-	DROP TABLE IF EXISTS assembly_composition_opp;
-	CREATE TABLE assembly_composition_opp (
-
-	asm_id_full integer NOT NULL,
-	opp_id integer NOT NULL,
-	counts integer,
-	change integer,
-	FOREIGN KEY (opp_id) REFERENCES our_product_parts (id),
-	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
-	
-);
-	
-	
-	
-	*/
-	
 	
 	public static boolean isThere(ResultSet rs, String column){
 	    try{

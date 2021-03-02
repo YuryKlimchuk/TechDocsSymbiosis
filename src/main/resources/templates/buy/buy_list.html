@@ -9,22 +9,22 @@
 	    <p>Покупные детали</p>
 	    <br>
 		<h2>Список покупных изделий</h2>
-		<table>
+		<table class="container">
 			<thead>
 				<tr>
-					<td>Поз.</td>
-					<td>ID</td>
-					<td>Обозначение</td>
-					<td>Наименвоание</td>
-					<td>Производитель</td>
+					<td><h2>Поз.</h2></td>
+					<td><h2>ID</h2></td>
+					<td><h2>Обозначение</h2></td>
+					<td><h2>Наименвоание</h2></td>
+					<td><h2>Производитель</h2></td>
 				</tr>
 			</thead>
 				<tr th:each="buy, status : ${buyies}">
 					<td><span th:text="${status.count}"></span></td>
-					<td><span th:text="${buyies.id}"></span></td>
-					<td><span th:text="${buyies.number}"></span></td>
-					<td><span th:text="${buyies.name}"></span></td>
-					<td><span th:text="${buyies.manufacturer}"></span></td>
+					<td><span th:text="${buy.id}"></span></td>
+					<td><span th:text="${buy.number}"></span></td>
+					<td><span th:text="${buy.name}"></span></td>
+					<td><span th:text="${buy.manufacturer}"></span></td>
 				</tr>
 			<tbody>
 			

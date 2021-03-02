@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Взаимозаменяемые изделия</title>
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+	    <p>Список VZK</p>
+	    <br>
+	    <div>
+			<table>
+				<tr>
+					<th>Поз.</th>
+					<th>id</th>
+					<th>Обозначение</th>
+					<th>Наименование</th>
+					<th>Действие</th>
+				</tr>
+				<tr th:each="vzk, status : ${vzks}">
+					<td>
+						<span th:text="${status.count}"></span>
+					</td>
+					<td>
+						<span th:text="${vzk.id}"></span>
+					</td>
+					<td>
+						<span th:text="${vzk.number}"></span>
+					</td>
+					<td>
+						<span th:text="${vzk.name}"></span>
+					</td>
+					<td>
+						<a href="#">Редактировать</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+	</body>
+</html>

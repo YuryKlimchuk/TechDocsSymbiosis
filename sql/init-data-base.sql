@@ -31,6 +31,38 @@ CREATE TABLE assemblies (
 
 );
 
+
+/*
+	Таблица для хранения покупных изделий
+*/
+
+-- Создание таблцы
+DROP TABLE IF EXISTS buy;
+CREATE TABLE buy (
+
+	id serial NOT NULL UNIQUE PRIMARY KEY,
+	number varchar(30) NOT NULL UNIQUE,
+	name varchar(30) NOT NULL,
+	manufacturer varchar(30) NOT NULL
+);
+
+
+
+-- Создание таблицы
+DROP TABLE IF EXISTS assembly_composition_vzk;
+CREATE TABLE assembly_composition_vzk (
+
+	asm_id_full integer NOT NULL,
+	vzk_id integer NOT NULL,
+	counts integer,
+	change integer,
+	FOREIGN KEY (vzk_id) REFERENCES vzk (id),
+	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
+	
+);
+
+
+
 /*
 	Таблица для хранения деталей в сборках
 */
@@ -63,6 +95,56 @@ CREATE TABLE assembly_composition_oring (
 	
 );
 
+
+/*
+	Таблица для хранения деталей в сборках
+*/
+-- Создание таблицы
+DROP TABLE IF EXISTS assembly_composition_buy;
+CREATE TABLE assembly_composition_buy (
+
+	asm_id_full integer NOT NULL,
+	buy_id integer NOT NULL,
+	counts integer,
+	change integer,
+	FOREIGN KEY (buy_id) REFERENCES buy (id),
+	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
+	
+);
+
+
+/*
+	Таблица для хранения сборок в сборках
+*/
+-- Создание таблицы
+DROP TABLE IF EXISTS assembly_composition_asm;
+CREATE TABLE assembly_composition_asm (
+
+	asm_id_full integer NOT NULL,
+	asm_id integer NOT NULL,
+	counts integer,
+	change integer,
+	FOREIGN KEY (asm_id) REFERENCES assemblies (id),
+	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
+	
+);
+
+
+/*
+	Таблица для хранения стандартных в сборках
+*/
+-- Создание таблицы
+DROP TABLE IF EXISTS assembly_composition_stp;
+CREATE TABLE assembly_composition_stp (
+
+	asm_id_full integer NOT NULL,
+	stp_id integer NOT NULL,
+	counts integer,
+	change integer,
+	FOREIGN KEY (stp_id) REFERENCES standart_parts (id),
+	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
+	
+);
 
 
 
@@ -138,6 +220,30 @@ CREATE TABLE number_prefixes (
 	description varchar(100)
 		
 );
+
+
+
+
+
+
+
+-- Заполнение таблицы buy
+INSERT INTO buy (
+
+	number,
+	name,
+	manufacturer
+
+)
+
+-- Занесение данных в таблицу
+VALUES
+
+	('Тросс-VB', 'Тросс', 'Технопривод'),
+	('IP-DAR-250-AJ-12-32-AH', 'Клапан электромагнитный', 'Tecnord'),
+	('IP-DAR-250-AJ-24-32-AH', 'Клапан электромагнитный', 'Tecnord'),
+	('ICS-250-AJ-12-32-AH', 'Клапан электромагнитный', 'Tecnord');
+
 
 
 -- Заполнение таблицы our_product_parts
@@ -301,4 +407,47 @@ VALUES
 
 
 
+
+
+
+
+
+-- Создание таблцы для хранение ВЗК
+DROP TABLE IF EXISTS vzk;
+CREATE TABLE vzk (
+
+	id serial NOT NULL UNIQUE PRIMARY KEY,
+	number varchar(50) NOT NULL UNIQUE,
+	name varchar(50)
+	
+);
+
+-- Заполнение таблицы
+INSERT INTO vzk (
+
+	number,
+	name
+	
+)
+
+VALUES
+
+	('KEM.24.00', 'Клапан электромагнитный'),
+	('KEM.24.10', 'Клапан электромагнитный'),
+	('KKD.100.10.000', 'Клапан комбинированный'),
+	('KKD.100.30.100', 'Клапан комбинированный'),
+	('KKD.100.30.150', 'Клапан комбинированный'),
+	('KKD.100.30.180', 'Клапан комбинированный'),
+	('KKD.100.30.220', 'Клапан комбинированный'),
+	('KKD.100.30.280', 'Клапан комбинированный'),
+	('KPV.100.30.000', 'Клапан антикавитационный'),
+	('PGA.70.10', 'Пневмогидроаккумулятор'),
+	('RMW.G14.00', 'Шайба резинометаллическая'),
+	('ZMT.G14.00', 'Заглушка металлическая'),
+	('ZMT.G12.00', 'Заглушка металлическая'),
+	('ZMT.G34.00', 'Заглушка металлическая'),
+	('ZMT.M10.00', 'Заглушка металлическая'),
+	('ZPT.G14.00', 'Заглушка пластиковая'),
+	('ZPT.G12.00', 'Заглушка пластиковая'),
+	('ZPT.G34.00', 'Заглушка пластиковая');
 

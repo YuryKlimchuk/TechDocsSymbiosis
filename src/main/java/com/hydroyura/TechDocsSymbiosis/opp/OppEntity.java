@@ -1,6 +1,6 @@
 package com.hydroyura.TechDocsSymbiosis.opp;
 
-public class Opp {
+public class OppEntity {
 	
 	private int id;
 	private String number;
@@ -8,21 +8,9 @@ public class Opp {
 	private String status;
 	private String version;
 	private String update;
-	private int countsInAsm;
 	
+	public OppEntity() {}
 	
-	public Opp() {}
-	
-	public int getCountsInAsm() {
-		return countsInAsm;
-	}
-	
-	public void setCountsInAsm(int countsInAsm) {
-		this.countsInAsm = countsInAsm;
-	}
-	
-	
-
 	public int getId() {
 		return id;
 	}

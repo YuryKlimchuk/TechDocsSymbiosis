@@ -1,10 +1,12 @@
-@charset "UTF-8";
-
 
 
 table {
   font-size: 18px;
   border-collapse: collapse;
+}
+
+thead {
+	color: green;
 }
 
 td, th {
@@ -21,7 +23,3 @@ h2 {
 	color:#336633;
 	font-size: 24px;
 }
-
-
-
-   

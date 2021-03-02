@@ -2,15 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Свои детали</title>
+		<title>детали</title>
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-	    <p>Работа с деталями собственного производства</p>
+	    <h1>Детали собственного производства</h1>
 	    <br>
 	    <div>
 		    <ul>
-				<li><a href='list'>Список деталей</a></li>
-				<li><a href='#'>Добавить новый элемент</a></li>
+				<li><a href='list'>Просмотр списка деталей</a></li>
+				<li><a href='add'>Добавить новый элемент</a></li>
+				<li><a href='edit'>Редактировать список деталей</a></li>
 			</ul>
 		</div>
 		<br>

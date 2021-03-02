@@ -2,41 +2,53 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Редактирование opp</title>
+		<title>Свои детали</title>
 		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-	    <p>Редактирование параметров детали</p>
+		<a href="index">НАЗАД</a>
+	    <h1>Список своих деталей</h1>
+	    <h2>Редактирование таблицы</h2>
+	    <br>
 	    <br>
 	    <div>
-	    	<form th:action="@{/opp/edit/{id}(id=${opp.getId()})}" th:object="${opp}" th:method="POST">
-	            
-	            <div>
-	            	<input type="text" th:field="*{number}"/>
-		            <span>Обозначение</span> 
-	            </div>
-	            <div>
-	            	<input type="text" th:field="*{name}"/>
-		            <span>Наименование</span> 
-	            </div>
-	            <div>
-	            	<input type="text" th:field="*{status}"/>
-		            <span>Статус</span> 
-	            </div>
-	            <div>
-	            	<input type="text" th:field="*{version}"/>
-		            <span>Версия</span> 
-	            </div>
-	            <div>
-	            	<input type="text" th:field="*{update}"/>
-		            <span>Обновление</span> 
-	            </div>
-
-	            <input type="submit" value="Изменить" />
-            </form>
-	    </div>
-	    <br>
-	    <br>
+	    	<table>
+	    		<thead>
+	    			<tr>
+	    				<td>Поз.</td>
+	    				<td>id</td>
+	    				<td>Обозначение</td>
+	    				<td>Наименование</td>
+	    				<td>Статус</td>
+	    				<td>Версия</td>
+	    				<td>Дата</td>
+	    				<td>Удалить</td>
+	    				<td>Редактировать</td>
+	    			</tr>
+	    		</thead>
+	    			<tr th:if="${listOppFull.empty}">
+		            	<td colspan="7">Нет элементов в списке</td>
+	        		</tr>
+	    			<tr th:each="opp, status : ${listOppFull}">
+	    				<td th:text="${status.count}"></td>
+	    				<td th:text="${opp.id}"></td>
+	    				<td th:text="${opp.number}"></td>
+	    				<td th:text="${opp.name}"></td>
+	    				<td>
+	    					<span th:if="${opp.status == 'NOTE'}" th:text="'Извещение'"></span>
+	    					<span th:if="${opp.status == 'DESIGN'}" th:text="'Проектирование'"></span>
+	    					<span th:if="${opp.status == 'TASK'}" th:text="'Задание'"></span>
+	    				</td>
+	    				<td th:text="${opp.version}"></td>
+	    				<td th:text="${opp.update}"></td>
+	    				<td><a th:href="@{/opp/delete/{id}(id=${opp.getId()})}">Удалить</a></td>
+	    				<td><a th:href="@{/opp/edit/{id}(id=${opp.getId()})}">Редактировать</a></td>
+	    			</tr>
+	    		<tbody>
+	    		</tbody>
+	    	</table>
+		</div>
 		<br>
+		<a href="index">НАЗАД</a>
 	</body>
 </html>

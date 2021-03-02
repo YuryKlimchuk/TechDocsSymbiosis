@@ -1,8 +1,6 @@
 package com.hydroyura.TechDocsSymbiosis.asm;
 
-import java.util.Iterator;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -52,6 +50,48 @@ public class AsmServiceInterfaceImpl implements AsmServiceInterface {
 					asm_id,
 					asmCompositionForm.getListOringId().get(i),
 					asmCompositionForm.getListOringCounts().get(i),
+					-1);
+			
+		}
+		
+		for(int i = 0; i < asmCompositionForm.getListVzkId().size(); i++) {
+			
+			asmDao.addVzkInAsm(
+					asm_id,
+					asmCompositionForm.getListVzkId().get(i),
+					asmCompositionForm.getListVzkCounts().get(i),
+					-1);
+			
+		}
+		
+		
+		for(int i = 0; i < asmCompositionForm.getListBuyId().size(); i++) {
+			
+			asmDao.addBuyInAsm(
+					asm_id,
+					asmCompositionForm.getListBuyId().get(i),
+					asmCompositionForm.getListBuyCounts().get(i),
+					-1);
+			
+		}
+		
+		
+		for(int i = 0; i < asmCompositionForm.getListAsmId().size(); i++) {
+			
+			asmDao.addAsmInAsm(
+					asm_id,
+					asmCompositionForm.getListAsmId().get(i),
+					asmCompositionForm.getListAsmCounts().get(i),
+					-1);
+			
+		}
+		
+		for(int i = 0; i < asmCompositionForm.getListStpId().size(); i++) {
+			
+			asmDao.addStpInAsm(
+					asm_id,
+					asmCompositionForm.getListStpId().get(i),
+					asmCompositionForm.getListStpCounts().get(i),
 					-1);
 			
 		}
