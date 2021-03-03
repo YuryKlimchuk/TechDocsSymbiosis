@@ -43,6 +43,12 @@ public class OppEntity {
 		this.number = number;
 	}
 
+	@Override
+	public String toString() {
+		return "OppEntity [id=" + id + ", number=" + number + ", name=" + name + ", status=" + status + ", version="
+				+ version + ", update=" + update + "]";
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}

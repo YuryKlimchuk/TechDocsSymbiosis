@@ -11,6 +11,7 @@ public class Constants {
 	public static final String TABLE_NAME_STANDART_PARTS 				= "standart_parts";
 	public static final String TABLE_NAME_NUMBER_PREFIXES 				= "number_prefixes";
 	public static final String TABLE_NAME_OPP 							= "our_product_parts";
+	public static final String TABLE_NAME_OPP_DELETED 					= "our_product_parts_deleted";
 	public static final String TABLE_NAME_ASM 							= "assemblies";
 	
 	

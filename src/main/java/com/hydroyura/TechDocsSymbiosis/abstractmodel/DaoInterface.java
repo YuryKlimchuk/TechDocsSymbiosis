@@ -9,6 +9,7 @@ public interface DaoInterface<T> {
 	public List<T> getItemsBySearchFilter(SearchFilter searchFilter);
 	public boolean addItem(T item);
 	public boolean deleteItemById(int id);
+	public boolean addItemDeleted(T item);
 	public boolean changeItem(T oldItem, T newItem);
 	
 }

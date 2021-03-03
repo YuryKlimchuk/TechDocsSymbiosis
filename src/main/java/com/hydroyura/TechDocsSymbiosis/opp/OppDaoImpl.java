@@ -60,17 +60,51 @@ public class OppDaoImpl implements DaoInterface<OppEntity> {
 
 	@Override
 	public boolean addItem(OppEntity item) {
-		return false;
+		String query = "INSERT INTO " + Constants.TABLE_NAME_OPP + " ("  
+				+ Constants.TABLE_COLOMN_OPP_NAME + ", "
+				+ Constants.TABLE_COLOMN_OPP_NUMBER + ", "
+				+ Constants.TABLE_COLOMN_OPP_STATUS + ", "
+				+ Constants.TABLE_COLOMN_OPP_VERSION + ", "
+				+ Constants.TABLE_COLOMN_OPP_UPDATE + ") VALUES (?, ?, ?, ?, ?);";
+			
+		return jdbc.update(query, 
+				item.getName(),
+				item.getNumber(),
+				item.getStatus(),
+				item.getVersion(),
+				item.getUpdate()) == 1 ? true : false;
 	}
-
+	
+	@Override
+	public boolean addItemDeleted(OppEntity item) {
+		String query = "INSERT INTO " + Constants.TABLE_NAME_OPP_DELETED + " (" 
+				+ Constants.TABLE_COLOMN_OPP_ID + ", " 
+				+ Constants.TABLE_COLOMN_OPP_NAME + ", "
+				+ Constants.TABLE_COLOMN_OPP_NUMBER + ", "
+				+ Constants.TABLE_COLOMN_OPP_STATUS + ", "
+				+ Constants.TABLE_COLOMN_OPP_VERSION + ", "
+				+ Constants.TABLE_COLOMN_OPP_UPDATE + ") VALUES (?, ?, ?, ?, ?, ?);";
+			
+		return jdbc.update(query, 
+				item.getId(),
+				item.getName(),
+				item.getNumber(),
+				item.getStatus(),
+				item.getVersion(),
+				item.getUpdate()) == 1 ? true : false;
+	}
+	
 	@Override
 	public boolean deleteItemById(int id) {
-		return false;
+		addItemDeleted(getItemById(id));
+		String query = "DELETE FROM " + Constants.TABLE_NAME_OPP + " WHERE " + Constants.TABLE_COLOMN_OPP_ID + "=?;";
+		return jdbc.update(query, id) == 1 ? true : false;
 	}
 
 	@Override
 	public boolean changeItem(OppEntity oldItem, OppEntity newItem) {
 		return false;
 	}
+
 
 }

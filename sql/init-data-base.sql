@@ -181,6 +181,19 @@ CREATE TABLE our_product_parts (
 
 );
 
+-- Создание таблцы
+DROP TABLE IF EXISTS our_product_parts_deleted;
+CREATE TABLE our_product_parts_deleted (
+
+	id integer,
+	number varchar(50) NOT NULL,
+	name varchar(50) NOT NULL,
+	status varchar(50) NOT NULL,
+	version varchar(50) NOT NULL,
+	update varchar(50) NOT NULL
+
+);
+
 /*
 	Таблица для хранения номенклатуры УДАЛЕННЫХ резиновых колец.
 */

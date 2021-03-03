@@ -36,12 +36,12 @@ public class OppServiceImpl implements ServiceInterface<OppEntity>{
 
 	@Override
 	public boolean addItem(OppEntity item) {
-		return false;
+		return dao.addItem(item);
 	}
 
 	@Override
 	public boolean deleteItemById(int id) {
-		return false;
+		return dao.deleteItemById(id);
 	}
 
 	@Override
