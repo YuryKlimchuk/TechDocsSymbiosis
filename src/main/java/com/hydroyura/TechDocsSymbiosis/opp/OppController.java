@@ -47,6 +47,18 @@ public class OppController {
 		return "/opp/opp_edit";
 	}
 	
+	@GetMapping("/edit/{id}")
+	public String showOppEditEntityGet(@PathVariable("id") int id, Model model) {
+		model.addAttribute("editableOpp", service.getItemById(id));
+		return "/opp/opp_edit_entity";
+	}
+	
+	@PostMapping("/edit/{id}")
+	public String showOppEditEntityPost(@PathVariable("id") int id, 
+										@ModelAttribute("editableOpp") OppEntity editableOpp, Model model) {
+		service.changeItem(id, editableOpp);
+		return "redirect:/opp/edit/{id}";
+	}
 	
 	
 	@GetMapping("/add")

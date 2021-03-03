@@ -9,6 +9,6 @@ public interface ServiceInterface<T> {
 	public List<T> getItemsBySearchFilter(SearchFilter searchFilter);
 	public boolean addItem(T item);
 	public boolean deleteItemById(int id);
-	public boolean changeItem(T oldItem, T newItem);
+	public boolean changeItem(int id, T newItem);
 
 }

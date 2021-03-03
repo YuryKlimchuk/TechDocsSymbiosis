@@ -10,6 +10,6 @@ public interface DaoInterface<T> {
 	public boolean addItem(T item);
 	public boolean deleteItemById(int id);
 	public boolean addItemDeleted(T item);
-	public boolean changeItem(T oldItem, T newItem);
+	public boolean changeItem(int id, T newItem);
 	
 }

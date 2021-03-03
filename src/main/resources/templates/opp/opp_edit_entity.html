@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Свои детали</title>
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<a href="index">НАЗАД</a>
+	    <h1>Добавить новый элемент</h1>
+	    <br>
+	    <h2 th:text="${msg}"></h2>
+	    <div>
+	    	<form th:action="@{/opp/edit/{id}(id=${editableOpp.getId()})}" th:object="${editableOpp}" method="post">
+	    		<div>
+	    			<p>	    				
+	    				<input type="text" th:field="*{number}"/>
+	    				<span>Наименование</span>
+	    			</p>
+	    			<p>
+		    			<input type="text" th:field="*{name}"/>
+		    			<span>Обозначение</span>
+		    		</p>
+	    		</div>
+	    		<div>
+	    			<p>
+						<input type="radio" value="DESIGN" th:field="*{status}">
+						<span>Проектирование</span>
+					</p>
+					<p>
+						<input type="radio" value="TASK" th:field="*{status}">
+						<span>Задание</span>
+					</p>
+					<p>
+						<input type="radio" value="NOTE" th:field="*{status}">
+						<span>Извещение</span>
+					</p>
+	    		</div>
+	    		<div>
+	    			<p>	    				
+	    				<input type="text" th:field="*{version}"/>
+	    				<span>Версия</span>
+	    			</p>
+	    			<p>
+		    			<input type="text" th:field="*{update}"/>
+		    			<span>Дата обновления</span>
+		    		</p>
+	    		</div>
+	    		<br>
+	    		<input type="submit" value="Применить"/>
+	    	</form>
+	    </div>
+	    <br>
+	    <br>
+		<a href="index">НАЗАД</a>
+	</body>
+</html>

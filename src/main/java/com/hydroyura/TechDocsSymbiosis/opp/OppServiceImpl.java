@@ -45,8 +45,8 @@ public class OppServiceImpl implements ServiceInterface<OppEntity>{
 	}
 
 	@Override
-	public boolean changeItem(OppEntity oldItem, OppEntity newItem) {
-		return false;
+	public boolean changeItem(int id, OppEntity newItem) {
+		return dao.changeItem(id, newItem);
 	}
 
 }

@@ -1,9 +1,11 @@
 package com.hydroyura.TechDocsSymbiosis.opp;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.DaoInterface;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.SearchFilter;
 import com.hydroyura.TechDocsSymbiosis.init.Constants;
@@ -51,7 +53,7 @@ public class OppDaoImpl implements DaoInterface<OppEntity> {
 		} else {
 			query = query + " AND " + Constants.TABLE_COLOMN_OPP_STATUS + " IN ('NULL')";
 		}
-		query = query + ";";
+		query = query + "ORDER BY " + Constants.TABLE_COLOMN_OPP_NUMBER + ";";
 		
 		System.out.println("getItemsBySearchFilter2222: " + query);
 		
@@ -102,9 +104,24 @@ public class OppDaoImpl implements DaoInterface<OppEntity> {
 	}
 
 	@Override
-	public boolean changeItem(OppEntity oldItem, OppEntity newItem) {
-		return false;
-	}
+	public boolean changeItem(int id, OppEntity newItem) {
+		
+		String query = "UPDATE " + Constants.TABLE_NAME_OPP + " SET " 
+				+ Constants.TABLE_COLOMN_OPP_NAME + " =?, " 
+				+ Constants.TABLE_COLOMN_OPP_NUMBER + " =?, " 
+				+ Constants.TABLE_COLOMN_OPP_STATUS + " =?, " 
+				+ Constants.TABLE_COLOMN_OPP_VERSION + " =?, " 
+				+ Constants.TABLE_COLOMN_OPP_UPDATE + " =? WHERE "
+				+ Constants.TABLE_COLOMN_OPP_ID + "=?;";
+		
+		return jdbc.update(query, 
+				newItem.getName(), 
+				newItem.getNumber(),
+				newItem.getStatus(),
+				newItem.getVersion(),
+				newItem.getUpdate(),
+				id) == 1 ? true : false;
 
+	}
 
 }
