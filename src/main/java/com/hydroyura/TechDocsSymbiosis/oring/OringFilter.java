@@ -15,31 +15,22 @@ public class OringFilter implements SearchFilter{
 	
 	public OringFilter() {}
 	
-	
-	
+
 	public List<Float> getFloatList() {
 		return floatList;
 	}
-
-
 
 	public void setFloatList(List<Float> floatList) {
 		this.floatList = floatList;
 	}
 
-
-
 	public Map<Float, Boolean> getBooleanMap() {
 		return booleanMap;
 	}
 
-
-
 	public void setBooleanMap(Map<Float, Boolean> booleanMap) {
 		this.booleanMap = booleanMap;
 	}
-
-
 
 	public Map<String, Float> getFloatMap() {
 		return floatMap;

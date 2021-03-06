@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.DaoInterface;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.SearchFilter;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.ServiceInterface;
 
 @Component("OringServiceImpl")
+@Service
 public class OringServiceImpl implements ServiceInterface<OringEntity> {
 	
 	@Autowired

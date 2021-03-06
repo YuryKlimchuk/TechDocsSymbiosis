@@ -2,42 +2,73 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Список сборок</title>
+		<title>Сборочные единицы</title>
 		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-	    <p>Список сборочных единиц</p>
+		<a href="index">НАЗАД</a>
+	    <h1>Сборки</h1>
+	    <br>
+<!-- 	    <div>
+	    	<form th:action="@{/oring/list}" th:object="${oringListFilter}" method="post">
+	    		<div>
+	    			<p>	    				
+	    				<input type="text" th:field="*{floatMap['min']}"/>
+	    				<span>Минимальный внутренний диаметр, мм</span>
+	    			</p>
+	    			<p>
+		    			<input type="text" th:field="*{floatMap['max']}"/>
+		    			<span>Максимальный внутренний диаметр, мм</span>
+		    		</p>
+	    		</div>
+	    		<div>
+	    		
+	    			<th:block th:each="defaultValues : *{booleanMap}">
+	    				<p>
+	    					<input type="checkbox" th:checked="${defaultValues.value}" th:value="${defaultValues.key}" th:field="*{floatList}"/>
+	    					<span th:text="${defaultValues.key}"></span>
+	    				</p>
+	    			</th:block>
+	    		
+	    			 
+	    			 <span>Диаметры</span>
+	    		</div>
+	    		<br>
+	    		<input type="submit" value="Применить"/>
+	    	</form>
+	    </div>
+	    <br>
 	    <br>
 	    <br>
 	    <br>
 	    <div>
-	    	<p>Количество сборок:<span th:text="${asms.size()}"></span></p>>
-		    <table>
-	       		<tr>
-		            <th> id </th>
-		            <th> Обозначение </th>
-		            <th> Наименование </th>
-		            <th> Статус </th>
-		            <th> Версия </th>
-		            <th> Дата обновления </th>
-		            <th> Изменить </th>
-	        	</tr>
-    		
-		    		
-				<tr th:if="${asms.empty}">
-		            <td colspan="2"> No Books Available </td>
-	        	</tr>
-	       		<tr th:each="asm : ${asms}">
-		            <td><span th:text="${asm.id}"> Title </span></td>
-		            <td><a href="#"><span th:text="${asm.number}"> Author </span></a></td>
-		            <td><span th:text="${asm.name}"> Author </span></td>
-		            <td><span th:text="${asm.status}"> Author </span></td>
-		            <td><span th:text="${asm.version}"> Author </span></td>
-		            <td><span th:text="${asm.update}"> Author </span></td>
-		            <td><a th:href="@{/asm/edit/{id}(id=${asm.getId()})}">Редактировать</a></td>
-	       		</tr>
-		    </table>
-		</div>
+	    	<table>
+	    		<thead>
+	    			<tr>
+	    				<td>Поз.</td>
+	    				<td>id</td>
+	    				<td>Обозначение</td>
+	    				<td>Наименование</td>
+						<td>Сечение, мм</td>
+						<td>Внутренний диаметр, мм</td>
+	    			</tr>
+	    		</thead>
+	    			<tr th:if="${listOring.empty}">
+		            	<td colspan="7">Нет элементов в списке</td>
+	        		</tr>
+	    			<tr th:each="oring, status : ${listOring}">
+	    				<td th:text="${status.count}"></td>
+	    				<td th:text="${oring.id}"></td>
+	    				<td th:text="${oring.number}"></td>
+	    				<td th:text="${oring.name}"></td>
+	    				<td th:text="${oring.crossSection}"></td>
+	    				<td th:text="${oring.innerDiameter}"></td>
+	    			</tr>
+	    		<tbody>
+	    		</tbody>
+	    	</table>
+		</div> -->
 		<br>
+		<a href="index">НАЗАД</a>
 	</body>
 </html>

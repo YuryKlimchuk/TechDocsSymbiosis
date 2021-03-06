@@ -57,6 +57,7 @@
 	    				<td>Дата</td>
 	    			</tr>
 	    		</thead>
+	    		<tbody>
 	    			<tr th:if="${listOpp.empty}">
 		            	<td colspan="7">Нет элементов в списке</td>
 	        		</tr>
@@ -73,7 +74,6 @@
 	    				<td th:text="${opp.version}"></td>
 	    				<td th:text="${opp.update}"></td>
 	    			</tr>
-	    		<tbody>
 	    		</tbody>
 	    	</table>
 		</div>

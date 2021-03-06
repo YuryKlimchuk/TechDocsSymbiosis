@@ -1,10 +1,12 @@
-package com.hydroyura.TechDocsSymbiosis.asm;
+package com.hydroyura.TechDocsSymbiosis.asm.old;
 
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-@Component
+import com.hydroyura.TechDocsSymbiosis.asm.Asm;
+
+
 public interface AsmServiceInterface {
 	
 	

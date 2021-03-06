@@ -10,24 +10,90 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.hydroyura.TechDocsSymbiosis.buy.Buy;
-import com.hydroyura.TechDocsSymbiosis.buy.BuyServiceInterface;
 import com.hydroyura.TechDocsSymbiosis.opp.OppEntity;
-import com.hydroyura.TechDocsSymbiosis.opp.OppEntity;
-import com.hydroyura.TechDocsSymbiosis.oring.Oring;
-import com.hydroyura.TechDocsSymbiosis.oring.OringServiceInterface;
-import com.hydroyura.TechDocsSymbiosis.stp.Stp;
-import com.hydroyura.TechDocsSymbiosis.stp.StpServiceInterface;
-import com.hydroyura.TechDocsSymbiosis.vzk.Vzk;
-import com.hydroyura.TechDocsSymbiosis.vzk.VzkServiceInterface;
 
 @Controller
 @RequestMapping("/asm")
-@SessionAttributes("asmCompositionForm")
 public class AsmController {
 	
+	@Autowired
+	private AsmServiceImpl service;
+	
+
+	
+	@GetMapping("/index")
+	public String showAsmIndex() {
+		return "/asm/asm_index";
+	}
+	
+	@GetMapping("/list")
+	public String showAsmListGet() {
+		return "/asm/asm_list";
+	}
+	
+	@PostMapping("/list")
+	public String showAsmListPost() {
+		
+		return "redirect:/asm/list";
+	}
+	
+	
+	@GetMapping("/add")
+	public String showAsmAddGet(Model model) {
+		
+		if(model.getAttribute("asmComp") == null) {
+		
+			AsmComposition asmComp = new AsmComposition();
+			asmComp.setAsm(new AsmEntity());
+			model.addAttribute("asmComp", asmComp);
+			
+		}
+		
+		return "/asm/asm_add";
+	}
+	
+	
+	@PostMapping("/add")
+	public String showAsmAddPost(
+			@ModelAttribute("asmComp") AsmComposition asmComp,
+			@RequestParam(value="action", required = true) String action, RedirectAttributes redirectAttributes) {
+		
+		System.out.println(action);
+		
+		switch (action) {
+		case "addOpp":
+			asmComp.incOppCount();
+			break;
+		case "delOpp":
+			break;
+		case "addInDB":
+			break;
+		}	
+		
+		redirectAttributes.addFlashAttribute("asmComp", asmComp);
+		System.out.println("POST " + asmComp);
+		return "redirect:/asm/add";
+	}
+	
+	
+	
+	@ModelAttribute("oppList")
+	public List<OppEntity> getOppList() {
+		return service.getAllOpp();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
 	@Autowired
 	private AsmServiceInterface asmService;
 	//@Autowired
@@ -135,10 +201,7 @@ public class AsmController {
 	
 	
 	
-	/*
-	 * @ModelAttribute("oppList") public List<Opp> getOppList() { return
-	 * oppService.getOppList(); }
-	 */
+
 	
 	@ModelAttribute("oringList")
 	public List<Oring> getOringList() {
@@ -165,6 +228,6 @@ public class AsmController {
 		return buyService.getAll();
 	}
 
-	
+	*/
 	
 }

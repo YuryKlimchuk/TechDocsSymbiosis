@@ -1,12 +1,15 @@
-package com.hydroyura.TechDocsSymbiosis.asm;
+package com.hydroyura.TechDocsSymbiosis.asm.old;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+
+import com.hydroyura.TechDocsSymbiosis.asm.Asm;
+import com.hydroyura.TechDocsSymbiosis.asm.AsmRowMap;
 import com.hydroyura.TechDocsSymbiosis.init.Constants;
 
-@Component
+
 public class AsmDao {
 
 	private JdbcTemplate jdbc;

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Список сборок</title>
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+	    <p>Список сборочных единиц</p>
+	    <br>
+	    <br>
+	    <br>
+	    <div>
+	    	<p>Количество сборок:<span th:text="${asms.size()}"></span></p>>
+		    <table>
+	       		<tr>
+		            <th> id </th>
+		            <th> Обозначение </th>
+		            <th> Наименование </th>
+		            <th> Статус </th>
+		            <th> Версия </th>
+		            <th> Дата обновления </th>
+		            <th> Изменить </th>
+	        	</tr>
+    		
+		    		
+				<tr th:if="${asms.empty}">
+		            <td colspan="2"> No Books Available </td>
+	        	</tr>
+	       		<tr th:each="asm : ${asms}">
+		            <td><span th:text="${asm.id}"> Title </span></td>
+		            <td><a href="#"><span th:text="${asm.number}"> Author </span></a></td>
+		            <td><span th:text="${asm.name}"> Author </span></td>
+		            <td><span th:text="${asm.status}"> Author </span></td>
+		            <td><span th:text="${asm.version}"> Author </span></td>
+		            <td><span th:text="${asm.update}"> Author </span></td>
+		            <td><a th:href="@{/asm/edit/{id}(id=${asm.getId()})}">Редактировать</a></td>
+	       		</tr>
+		    </table>
+		</div>
+		<br>
+	</body>
+</html>
