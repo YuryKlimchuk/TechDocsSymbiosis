@@ -2,42 +2,45 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Редактирование O-Rings</title>
+		<title>Уплотнительные кольца</title>
 		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-	    <p>Редактирование параметров кольца</p>
+		<a href="index">НАЗАД</a>
+	    <h1>Список уплотнительных колец - O-Rings</h1>
 	    <br>
 	    <div>
-	    
-	    	<form th:action="@{/oring/edit/{id}(id=${oring.getId()})}" th:object="${oring}" th:method="POST">
-	            <div>
-	            	<input type="text" th:field="*{name}"/>
-		            <span>Наименование</span> 
-	            </div>
-	            <div>
-	            	<input type="text" th:field="*{number}"/>
-		            <span>Обозначение</span> 
-	            </div>
-	            <div>
-	            	<input type="text" th:field="*{crossSection}"/>
-		            <span>Сечение, мм</span> 
-	            </div>
-	            <div>
-	            	<input type="text" th:field="*{innerDiameter}"/>
-		            <span>Внутренний диаметр, мм</span> 
-	            </div>
-	            <div>
-	            	<input type="text" th:field="*{standart}"/>
-		            <span>Стандарт</span> 
-	            </div>
-	            <input type="submit" value="Изменить" />
-            </form>
-            
-         
-	    </div>
-	    <br>
-	    <br>
+	    	<table>
+	    		<thead>
+	    			<tr>
+	    				<td>Поз.</td>
+	    				<td>id</td>
+	    				<td>Обозначение</td>
+	    				<td>Наименование</td>
+						<td>Сечение, мм</td>
+						<td>Внутренний диаметр, мм</td>
+						<td>Удалить</td>
+	    				<td>Редактировать</td>
+	    			</tr>
+	    		</thead>
+	    			<tr th:if="${listOring.empty}">
+		            	<td colspan="7">Нет элементов в списке</td>
+	        		</tr>
+	    			<tr th:each="oring, status : ${listOring}">
+	    				<td th:text="${status.count}"></td>
+	    				<td th:text="${oring.id}"></td>
+	    				<td th:text="${oring.number}"></td>
+	    				<td th:text="${oring.name}"></td>
+	    				<td th:text="${oring.crossSection}"></td>
+	    				<td th:text="${oring.innerDiameter}"></td>
+	    				<td><a th:href="@{/oring/delete/{id}(id=${oring.getId()})}">Удалить</a></td>
+	    				<td><a th:href="@{/oring/edit/{id}(id=${oring.getId()})}">Редактировать</a></td>
+	    			</tr>
+	    		<tbody>
+	    		</tbody>
+	    	</table>
+		</div>
 		<br>
+		<a href="index">НАЗАД</a>
 	</body>
 </html>

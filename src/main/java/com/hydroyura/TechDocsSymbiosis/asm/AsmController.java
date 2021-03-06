@@ -32,8 +32,8 @@ public class AsmController {
 	private AsmServiceInterface asmService;
 	//@Autowired
 	//private OppServiceInterface oppService;
-	@Autowired
-	private OringServiceInterface oringService;
+	//@Autowired
+	//private OringServiceInterface oringService;
 	@Autowired
 	private StpServiceInterface stpService;
 	@Autowired

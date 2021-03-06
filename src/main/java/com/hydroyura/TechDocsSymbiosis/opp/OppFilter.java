@@ -21,11 +21,11 @@ public class OppFilter implements SearchFilter{
 
 	public OppFilter() {
 		System.out.println("oppFilter");
-		addStringElement("name", "");
-		addStringElement("number", "");
-		addStringElement("task", "task");
-		addStringElement("design", "design");
-		addStringElement("note", "note");
+		addStringElementInMap("name", "");
+		addStringElementInMap("number", "");
+		addStringElementInMap("task", "task");
+		addStringElementInMap("design", "design");
+		addStringElementInMap("note", "note");
 	}
 
 	@Override
@@ -37,13 +37,58 @@ public class OppFilter implements SearchFilter{
 	}
 
 	@Override
-	public void addStringElement(String key, String value) {
+	public void addStringElementInMap(String key, String value) {
 		this.stringMap.put(key, value);
 	}
 
 	@Override
-	public String getStringElement(String key) {
+	public String getStringElementFromMap(String key) {
 		return this.stringMap.get(key);
 	}
+
+	@Override
+	public void addFloatElementInMap(String key, Float value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Float getFloatElementFromMap(String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addBooleanElementInMap(Float key, Boolean value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Boolean getBooleanElementFromMap(Float key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addFloatElementInList(Float value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Float getFloatElementFromList(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getFloatListSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
 
 }

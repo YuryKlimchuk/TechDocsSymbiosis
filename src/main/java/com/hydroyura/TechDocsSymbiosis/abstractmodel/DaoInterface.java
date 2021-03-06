@@ -11,5 +11,6 @@ public interface DaoInterface<T> {
 	public boolean deleteItemById(int id);
 	public boolean addItemDeleted(T item);
 	public boolean changeItem(int id, T newItem);
+	public List<Float> getFloatList();
 	
 }

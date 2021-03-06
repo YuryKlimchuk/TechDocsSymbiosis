@@ -1,16 +1,17 @@
 package com.hydroyura.TechDocsSymbiosis.opp;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.DaoInterface;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.SearchFilter;
 import com.hydroyura.TechDocsSymbiosis.init.Constants;
 
 @Component("OppDaoImpl")
+@Repository
 public class OppDaoImpl implements DaoInterface<OppEntity> {
 
 	@Autowired
@@ -33,15 +34,15 @@ public class OppDaoImpl implements DaoInterface<OppEntity> {
 		
 		String query = "SELECT * FROM " + Constants.TABLE_NAME_OPP;
 		
-		String name = searchFilter.getStringElement(Constants.TABLE_COLOMN_OPP_NAME);
-		String number = searchFilter.getStringElement(Constants.TABLE_COLOMN_OPP_NUMBER);
+		String name = searchFilter.getStringElementFromMap(Constants.TABLE_COLOMN_OPP_NAME);
+		String number = searchFilter.getStringElementFromMap(Constants.TABLE_COLOMN_OPP_NUMBER);
 		
 		query = query + " WHERE " + Constants.TABLE_COLOMN_OPP_NAME + " LIKE '%" + name + "%'";
 		query = query + " AND " + Constants.TABLE_COLOMN_OPP_NUMBER + " LIKE '%" + number + "%'";
 		
-		boolean task = searchFilter.getStringElement("task") != null ? true : false;  
-		boolean note = searchFilter.getStringElement("note") != null ? true : false;     
-		boolean design = searchFilter.getStringElement("design") != null ? true : false;  
+		boolean task = searchFilter.getStringElementFromMap("task") != null ? true : false;  
+		boolean note = searchFilter.getStringElementFromMap("note") != null ? true : false;     
+		boolean design = searchFilter.getStringElementFromMap("design") != null ? true : false;  
 		
 		if(task || note || design) {
 			query = query + " AND " + Constants.TABLE_COLOMN_OPP_STATUS + " IN (";
@@ -121,7 +122,12 @@ public class OppDaoImpl implements DaoInterface<OppEntity> {
 				newItem.getVersion(),
 				newItem.getUpdate(),
 				id) == 1 ? true : false;
+	}
 
+	@Override
+	public List<Float> getFloatList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

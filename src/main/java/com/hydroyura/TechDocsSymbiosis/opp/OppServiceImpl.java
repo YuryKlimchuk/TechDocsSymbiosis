@@ -49,4 +49,10 @@ public class OppServiceImpl implements ServiceInterface<OppEntity>{
 		return dao.changeItem(id, newItem);
 	}
 
+	@Override
+	public List<Float> getFloatList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

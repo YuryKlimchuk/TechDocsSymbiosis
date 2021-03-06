@@ -17,7 +17,6 @@ public class OppRowMap implements RowMapper<OppEntity> {
 		if(Constants.isThere(rs, Constants.TABLE_COLOMN_OPP_STATUS)) oppEntity.setStatus(rs.getString(Constants.TABLE_COLOMN_OPP_STATUS));
 		if(Constants.isThere(rs, Constants.TABLE_COLOMN_OPP_VERSION)) oppEntity.setVersion(rs.getString(Constants.TABLE_COLOMN_OPP_VERSION));
 		if(Constants.isThere(rs, Constants.TABLE_COLOMN_OPP_UPDATE)) oppEntity.setUpdate(rs.getString(Constants.TABLE_COLOMN_OPP_UPDATE));
-		//if(Constants.isThere(rs, Constants.TABLE_COLOMN_ASM_COMP_OPP_COUNTS)) opp.setCountsInAsm(rs.getInt(Constants.TABLE_COLOMN_ASM_COMP_OPP_COUNTS));
 		
 		return oppEntity;
 	}

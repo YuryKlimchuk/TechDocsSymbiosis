@@ -1,19 +1,15 @@
 package com.hydroyura.TechDocsSymbiosis.oring;
 
-public class Oring {
-	
+public class OringEntity {
 	
 	private int id;
-	
-	
 	private String name;
 	private String number;
 	private String standart;
 	private float crossSection;
 	private float innerDiameter;
 	
-	
-	public Oring() {}
+	public OringEntity() {}
 
 	public int getId() {
 		return id;
@@ -63,8 +59,4 @@ public class Oring {
 		this.innerDiameter = innerDiameter;
 	}
 
-	
-	
-	
-	
 }

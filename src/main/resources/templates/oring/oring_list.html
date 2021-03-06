@@ -2,59 +2,73 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Резиновые кольца, O-Rings</title>
+		<title>Уплотнительные кольца</title>
 		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-	    <p>Список уплотнительных колец</p>
+		<a href="index">НАЗАД</a>
+	    <h1>Список уплотнительных колец - O-Rings</h1>
 	    <br>
 	    <div>
-	    	<form action="#" th:action="@{/oring/list}" th:object="${oringFilter}" method="post">
-	      		<div>
-		      		<ul>
-			            <li th:each="crossSection : ${crossSectionEnable}" >
-			                <input type="checkbox" th:value="${crossSection}" th:field="*{crossSectionListSelected}"/>
-			                <span th:text="${crossSection}"></span> 
-			            </li>
-		            </ul>
-	            </div>
-	            <div>
-	            	<input type="text" th:field="*{minInnerDiameter}"/>
-		            <span>Мин. диаметр, мм</span> 
-	            </div>
-	            <div>
-	            	<input type="text" th:field="*{maxInnerDiameter}"/>
-		            <span>Макс. диаметр, мм</span> 
-	            </div>
-	            <input type="submit" value="Submit" />
-            </form>
+	    	<form th:action="@{/oring/list}" th:object="${oringListFilter}" method="post">
+	    		<div>
+	    			<p>	    				
+	    				<input type="text" th:field="*{floatMap['min']}"/>
+	    				<span>Минимальный внутренний диаметр, мм</span>
+	    			</p>
+	    			<p>
+		    			<input type="text" th:field="*{floatMap['max']}"/>
+		    			<span>Максимальный внутренний диаметр, мм</span>
+		    		</p>
+	    		</div>
+	    		<div>
+	    		
+	    			<th:block th:each="defaultValues : *{booleanMap}">
+	    				<p>
+	    					<input type="checkbox" th:checked="${defaultValues.value}" th:value="${defaultValues.key}" th:field="*{floatList}"/>
+	    					<span th:text="${defaultValues.key}"></span>
+	    				</p>
+	    			</th:block>
+	    		
+	    			 
+	    			 <span>Диаметры</span>
+	    		</div>
+	    		<br>
+	    		<input type="submit" value="Применить"/>
+	    	</form>
 	    </div>
 	    <br>
 	    <br>
+	    <br>
+	    <br>
 	    <div>
-		    <table>
-			
-	       		<tr>
-		            <th> id </th>
-		            <th> Обозначение </th>
-		            <th> Стандарт </th>
-		            <th> Удалить </th>
-		            <th> Редактировать </th>
-	        	</tr>
-    		
-		    		
-				<tr th:if="${orings.empty}">
-		            <td colspan="2"> No Books Available </td>
-	        	</tr>
-	       		<tr th:each="oring : ${orings}">
-		            <td><span th:text="${oring.id}"> Title </span></td>
-		            <td><a href="#"><span th:text="${oring.name + ' ' + oring.number}"> Author </span></a></td>
-		            <td><span th:text="${oring.standart}"> Author </span></td>
-		            <td><a th:href="@{/oring/delete/{id}(id=${oring.getId()})}">Удалить</a></td>
-		            <td><a th:href="@{/oring/edit/{id}(id=${oring.getId()})}">Редактировать</a></td>
-	       		</tr>
-		    </table>
+	    	<table>
+	    		<thead>
+	    			<tr>
+	    				<td>Поз.</td>
+	    				<td>id</td>
+	    				<td>Обозначение</td>
+	    				<td>Наименование</td>
+						<td>Сечение, мм</td>
+						<td>Внутренний диаметр, мм</td>
+	    			</tr>
+	    		</thead>
+	    			<tr th:if="${listOring.empty}">
+		            	<td colspan="7">Нет элементов в списке</td>
+	        		</tr>
+	    			<tr th:each="oring, status : ${listOring}">
+	    				<td th:text="${status.count}"></td>
+	    				<td th:text="${oring.id}"></td>
+	    				<td th:text="${oring.number}"></td>
+	    				<td th:text="${oring.name}"></td>
+	    				<td th:text="${oring.crossSection}"></td>
+	    				<td th:text="${oring.innerDiameter}"></td>
+	    			</tr>
+	    		<tbody>
+	    		</tbody>
+	    	</table>
 		</div>
 		<br>
+		<a href="index">НАЗАД</a>
 	</body>
 </html>

@@ -10,7 +10,7 @@
 	    <h1>Список своих деталей</h1>
 	    <br>
 	    <div>
-	    	<form th:action="@{/opp/list}" th:object="${listFilter}" method="post">
+	    	<form th:action="@{/opp/list}" th:object="${oppListFilter}" method="post">
 	    		<div>
 	    			<p>	    				
 	    				<input type="text" th:field="*{stringMap['name']}"/>
