@@ -18,7 +18,7 @@ public class AsmComposition {
 
 	public boolean incOppCount() {
 		asmOppId.add(null);
-		asmOppCount.add(Integer.valueOf(1));
+		asmOppCount.add(1);
 		return true;
 	}
 	

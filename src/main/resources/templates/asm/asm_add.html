@@ -62,15 +62,15 @@
 	    					</thead>
 	    					<tbody>
 	    						<tr th:each="i : ${#numbers.sequence(0, asmComp.asmOppId.size()-1)}">
-	    							<td th:text="${i + 1}"></td>
+	    							<td th:text="${i+1}"></td>
 	    							<td>
-	    								<select th:field="${asmComp.asmOppId[0]}">
+	    								<select th:field="${asmComp.asmOppId[__${i}__]}">
 						                    <option value="">Nothing selected</option>
 						                    <option th:each="opp : ${oppList}" th:value="${opp.id}" th:text="${opp.number}"/>
 		                				</select>	
 	    							</td>
 	    							<td>
-	    								<input type="text" th:field="*{asmOppCount[0]}" th:value="*{asmOppCount[0]}">
+	    								<input type="text" th:field="*{asmOppCount[__${i}__]}" th:value="*{asmOppCount[__${i}__]}">
 	    							</td>
 	    						</tr>
 	    					</tbody>
