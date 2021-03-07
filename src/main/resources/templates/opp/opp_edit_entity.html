@@ -6,7 +6,7 @@
 		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-		<a href="index">НАЗАД</a>
+		<a href="../edit">НАЗАД</a>
 	    <h1>Добавить новый элемент</h1>
 	    <br>
 	    <h2 th:text="${msg}"></h2>
@@ -14,11 +14,11 @@
 	    	<form th:action="@{/opp/edit/{id}(id=${editableOpp.getId()})}" th:object="${editableOpp}" method="post">
 	    		<div>
 	    			<p>	    				
-	    				<input type="text" th:field="*{number}"/>
+	    				<input type="text" th:field="*{name}"/>
 	    				<span>Наименование</span>
 	    			</p>
 	    			<p>
-		    			<input type="text" th:field="*{name}"/>
+		    			<input type="text" th:field="*{number}"/>
 		    			<span>Обозначение</span>
 		    		</p>
 	    		</div>
@@ -52,6 +52,6 @@
 	    </div>
 	    <br>
 	    <br>
-		<a href="index">НАЗАД</a>
+		<a href="../edit">НАЗАД</a>
 	</body>
 </html>

@@ -12,13 +12,51 @@ public class AsmComposition {
 	private List<Integer> asmOppId = new ArrayList<>();
 	private List<Integer> asmOppCount = new ArrayList<>();
 	
+	public List<Integer> getAsmOringId() {
+		return asmOringId;
+	}
+
+	public List<Integer> getAsmOringCount() {
+		return asmOringCount;
+	}
+
+	public void setAsmOringId(List<Integer> asmOringId) {
+		this.asmOringId = asmOringId;
+	}
+
+	public void setAsmOringCount(List<Integer> asmOringCount) {
+		this.asmOringCount = asmOringCount;
+	}
+
+	private List<Integer> asmOringId = new ArrayList<>();
+	private List<Integer> asmOringCount = new ArrayList<>();
+	
 	public AsmComposition() {
 		incOppCount();
+		incOringCount();
 	}
 
 	public boolean incOppCount() {
 		asmOppId.add(null);
 		asmOppCount.add(1);
+		return true;
+	}
+	
+	public boolean decOppCount() {
+		asmOppId.remove(asmOppId.size()-1);
+		asmOppCount.remove(asmOppCount.size()-1);
+		return true;
+	}
+	
+	public boolean incOringCount() {
+		asmOringId.add(null);
+		asmOringCount.add(1);
+		return true;
+	}
+	
+	public boolean decOringCount() {
+		asmOringId.remove(asmOppId.size()-1);
+		asmOringCount.remove(asmOppCount.size()-1);
 		return true;
 	}
 	

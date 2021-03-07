@@ -52,7 +52,9 @@ public class OringServiceImpl implements ServiceInterface<OringEntity> {
 	
 	public float getMinInnerDiamter() {
 		List<OringEntity> list = getAll();
-		float min = list.get(0).getInnerDiameter();
+		
+		//float min = list.get(0).getInnerDiameter();
+		float min = 10000f;
 		for (OringEntity oring : list) {
 			if(oring.getInnerDiameter() < min) {
 				min = oring.getInnerDiameter();
@@ -63,7 +65,8 @@ public class OringServiceImpl implements ServiceInterface<OringEntity> {
 	
 	public float getMaxInnerDiamter() {
 		List<OringEntity> list = getAll();
-		float max = list.get(0).getInnerDiameter();
+		//float max = list.get(0).getInnerDiameter();
+		float max = -10000f;
 		for (OringEntity oring : list) {
 			if(oring.getInnerDiameter() > max) {
 				max = oring.getInnerDiameter();

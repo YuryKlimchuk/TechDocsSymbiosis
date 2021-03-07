@@ -13,13 +13,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hydroyura.TechDocsSymbiosis.opp.OppEntity;
+import com.hydroyura.TechDocsSymbiosis.opp.OppFilter;
+import com.hydroyura.TechDocsSymbiosis.oring.OringEntity;
 
 @Controller
 @RequestMapping("/asm")
 public class AsmController {
 	
 	@Autowired
-	private AsmServiceImpl service;
+	private AsmCompServiceImpl service;
 	
 
 	
@@ -67,8 +69,17 @@ public class AsmController {
 			asmComp.incOppCount();
 			break;
 		case "delOpp":
+			asmComp.decOppCount();
+			break;
+		case "addOring":
+			asmComp.incOringCount();
+			break;
+		case "delOring":
+			asmComp.decOringCount();
 			break;
 		case "addInDB":
+			service.addItem(asmComp);
+			asmComp = new AsmComposition();
 			break;
 		}	
 		
@@ -84,8 +95,15 @@ public class AsmController {
 		return service.getAllOpp();
 	}
 	
+	@ModelAttribute("oringList")
+	public List<OringEntity> getOringList() {
+		return service.getAllOring();
+	}
 	
-	
+	@ModelAttribute("listAsm")
+	public List<AsmEntity> getItemsBySearchFilter() {
+		return service.getAllAsm();
+	}
 	
 	
 	

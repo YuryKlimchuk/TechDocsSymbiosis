@@ -12,46 +12,50 @@ import com.hydroyura.TechDocsSymbiosis.abstractmodel.SearchFilter;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.ServiceInterface;
 import com.hydroyura.TechDocsSymbiosis.opp.OppEntity;
 import com.hydroyura.TechDocsSymbiosis.opp.OppServiceImpl;
+import com.hydroyura.TechDocsSymbiosis.oring.OringEntity;
+import com.hydroyura.TechDocsSymbiosis.oring.OringServiceImpl;
 
-@Component("AsmServiceImpl")
+@Component("AsmCompServiceImpl")
 @Service
-public class AsmServiceImpl implements ServiceInterface<AsmEntity> {
-	
-	@Autowired
-	private OppServiceImpl oppService;
+public class AsmCompServiceImpl implements ServiceInterface<AsmComposition> {
 
+	@Autowired
+	@Qualifier("AsmCompDaoImpl")
+	private DaoInterface<AsmComposition> dao;
 	
 	@Autowired
 	@Qualifier("AsmDaoImpl")
-	private DaoInterface<AsmEntity> dao;
+	private DaoInterface<AsmEntity> asmDao;
 	
+	@Autowired
+	@Qualifier("OppServiceImpl")
+	private OppServiceImpl oppService;
 	
-	public List<OppEntity> getAllOpp() {
-		return oppService.getAll();
-	}
+	@Autowired
+	@Qualifier("OringServiceImpl")
+	private OringServiceImpl oringService;
 	
 	@Override
-	public List<AsmEntity> getAll() {
+	public List<AsmComposition> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public AsmEntity getItemById(int id) {
+	public AsmComposition getItemById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<AsmEntity> getItemsBySearchFilter(SearchFilter searchFilter) {
+	public List<AsmComposition> getItemsBySearchFilter(SearchFilter searchFilter) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean addItem(AsmEntity item) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean addItem(AsmComposition item) {
+		return dao.addItem(item);
 	}
 
 	@Override
@@ -61,7 +65,7 @@ public class AsmServiceImpl implements ServiceInterface<AsmEntity> {
 	}
 
 	@Override
-	public boolean changeItem(int id, AsmEntity newItem) {
+	public boolean changeItem(int id, AsmComposition newItem) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -70,6 +74,18 @@ public class AsmServiceImpl implements ServiceInterface<AsmEntity> {
 	public List<Float> getFloatList() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public List<OppEntity> getAllOpp() {
+		return oppService.getAll();
+	}
+	
+	public List<OringEntity> getAllOring() {
+		return oringService.getAll();
+	}
+	
+	public List<AsmEntity> getAllAsm() {
+		return asmDao.getAll();
 	}
 
 }

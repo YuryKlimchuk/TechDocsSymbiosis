@@ -15,11 +15,11 @@
 	    	<form th:action="@{/asm/add}" th:object="${asmComp}" method="post">
 	    		<div>
 	    			<p>	    				
-	    				<input type="text" th:field="*{asm.number}"/>
+	    				<input type="text" th:field="*{asm.name}"/>
 	    				<span>Наименование</span>
 	    			</p>
 	    			<p>
-		    			<input type="text" th:field="*{asm.name}"/>
+		    			<input type="text" th:field="*{asm.number}"/>
 		    			<span>Обозначение</span>
 		    		</p>
 	    		</div>
@@ -71,6 +71,36 @@
 	    							</td>
 	    							<td>
 	    								<input type="text" th:field="*{asmOppCount[__${i}__]}" th:value="*{asmOppCount[__${i}__]}">
+	    							</td>
+	    						</tr>
+	    					</tbody>
+	    				</table>
+					</div>
+	    		</div>
+	    		<div>
+	    			<h3>Входящие Кольца (O-Rings)</h3>
+	    			<div>
+	    				<button type="submit" name="action" value="addOring">Добавить строку</button>
+		            	<button type="submit" name="action" value="delOring">Удалить строку</button>
+	    				<table>
+	    					<thead>
+	    						<tr>
+	    							<td>№</td>
+	    							<td>Обозначение</td>
+	    							<td>Кол.</td>
+	    						</tr>
+	    					</thead>
+	    					<tbody>
+	    						<tr th:each="i : ${#numbers.sequence(0, asmComp.asmOringId.size()-1)}">
+	    							<td th:text="${i+1}"></td>
+	    							<td>
+	    								<select th:field="${asmComp.asmOringId[__${i}__]}">
+						                    <option value="">Nothing selected</option>
+						                    <option th:each="oring : ${oringList}" th:value="${oring.id}" th:text="${oring.number}"/>
+		                				</select>	
+	    							</td>
+	    							<td>
+	    								<input type="text" th:field="*{asmOringCount[__${i}__]}" th:value="*{asmOringCount[__${i}__]}">
 	    							</td>
 	    						</tr>
 	    					</tbody>

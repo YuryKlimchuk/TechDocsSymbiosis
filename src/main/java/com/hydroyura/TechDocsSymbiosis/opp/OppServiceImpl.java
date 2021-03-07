@@ -32,7 +32,6 @@ public class OppServiceImpl implements ServiceInterface<OppEntity>{
 
 	@Override
 	public List<OppEntity> getItemsBySearchFilter(SearchFilter searchFilter) {
-		System.out.println("SERVICE");
 		return dao.getItemsBySearchFilter(searchFilter);
 	}
 

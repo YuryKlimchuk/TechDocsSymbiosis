@@ -9,7 +9,7 @@
 		<a href="index">НАЗАД</a>
 	    <h1>Сборки</h1>
 	    <br>
-<!-- 	    <div>
+<!--  	    <div>
 	    	<form th:action="@{/oring/list}" th:object="${oringListFilter}" method="post">
 	    		<div>
 	    			<p>	    				
@@ -39,7 +39,7 @@
 	    </div>
 	    <br>
 	    <br>
-	    <br>
+	    <br>-->
 	    <br>
 	    <div>
 	    	<table>
@@ -49,25 +49,21 @@
 	    				<td>id</td>
 	    				<td>Обозначение</td>
 	    				<td>Наименование</td>
-						<td>Сечение, мм</td>
-						<td>Внутренний диаметр, мм</td>
 	    			</tr>
 	    		</thead>
-	    			<tr th:if="${listOring.empty}">
+	    			<tr th:if="${listAsm.empty}">
 		            	<td colspan="7">Нет элементов в списке</td>
 	        		</tr>
-	    			<tr th:each="oring, status : ${listOring}">
+	    			<tr th:each="asm, status : ${listAsm}">
 	    				<td th:text="${status.count}"></td>
-	    				<td th:text="${oring.id}"></td>
-	    				<td th:text="${oring.number}"></td>
-	    				<td th:text="${oring.name}"></td>
-	    				<td th:text="${oring.crossSection}"></td>
-	    				<td th:text="${oring.innerDiameter}"></td>
+	    				<td th:text="${asm.id}"></td>
+	    				<td th:text="${asm.number}"></td>
+	    				<td th:text="${asm.name}"></td>
 	    			</tr>
 	    		<tbody>
 	    		</tbody>
 	    	</table>
-		</div> -->
+		</div> 
 		<br>
 		<a href="index">НАЗАД</a>
 	</body>

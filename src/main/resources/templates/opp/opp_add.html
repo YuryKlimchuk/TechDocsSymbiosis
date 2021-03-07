@@ -14,11 +14,11 @@
 	    	<form th:action="@{/opp/add}" th:object="${opp}" method="post">
 	    		<div>
 	    			<p>	    				
-	    				<input type="text" th:field="*{number}"/>
+	    				<input type="text" th:field="*{name}"/>
 	    				<span>Наименование</span>
 	    			</p>
 	    			<p>
-		    			<input type="text" th:field="*{name}"/>
+		    			<input type="text" th:field="*{number}"/>
 		    			<span>Обозначение</span>
 		    		</p>
 	    		</div>

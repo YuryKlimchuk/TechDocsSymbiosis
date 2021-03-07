@@ -31,11 +31,18 @@ public class OringDaoImpl implements DaoInterface<OringEntity> {
 
 	@Override
 	public List<OringEntity> getItemsBySearchFilter(SearchFilter searchFilter) {
-		String query = "SELECT * FROM " + Constants.TABLE_NAME_ORINGS 
-				+ " WHERE " + Constants.TABLE_COLOMN_ORINGS_INTERNAL_DIAMETER + " BETWEEN "
-				+ searchFilter.getFloatElementFromMap("min") + " AND " + searchFilter.getFloatElementFromMap("max")
-				+ " AND " + Constants.TABLE_COLOMN_ORINGS_CROSS_SECTION + " IN(";
-				
+		String query;
+		if(searchFilter.getFloatElementFromMap("min") != searchFilter.getFloatElementFromMap("max")) {
+			query = "SELECT * FROM " + Constants.TABLE_NAME_ORINGS 
+					+ " WHERE " + Constants.TABLE_COLOMN_ORINGS_INTERNAL_DIAMETER + " BETWEEN "
+					+ searchFilter.getFloatElementFromMap("min") + " AND " + searchFilter.getFloatElementFromMap("max")
+					+ " AND " + Constants.TABLE_COLOMN_ORINGS_CROSS_SECTION + " IN(";
+		} else {
+			query = "SELECT * FROM " + Constants.TABLE_NAME_ORINGS 
+					+ " WHERE " + Constants.TABLE_COLOMN_ORINGS_INTERNAL_DIAMETER + " BETWEEN 0 AND 1000"
+					+ " AND " + Constants.TABLE_COLOMN_ORINGS_CROSS_SECTION + " IN(";
+		}	
+		
 		if(searchFilter.getFloatListSize() != 0) {
 			for(int i = 0; i < searchFilter.getFloatListSize(); i ++) {
 				query = query + "'" + searchFilter.getFloatElementFromList(i) + "',";
@@ -73,7 +80,7 @@ public class OringDaoImpl implements DaoInterface<OringEntity> {
 
 	@Override
 	public boolean deleteItemById(int id) {
-		addItemDeleted(getItemById(id));
+		//addItemDeleted(getItemById(id));
 		String query = "DELETE FROM " + Constants.TABLE_NAME_ORINGS + " WHERE " + Constants.TABLE_COLOMN_ORINGS_ID + "=?;";
 		return jdbc.update(query, id) == 1 ? true : false;
 	}
@@ -108,6 +115,12 @@ public class OringDaoImpl implements DaoInterface<OringEntity> {
 				+ " ORDER BY " + Constants.TABLE_COLOMN_ORINGS_CROSS_SECTION + ";";
 		
 		return jdbc.queryForList(query, Float.class);	
+	}
+
+	@Override
+	public int addItemWithIdReturn(OringEntity item) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }

@@ -14,11 +14,11 @@
 	    	<form th:action="@{/oring/add}" th:object="${oring}" method="post">
 	    		<div>
 	    			<p>	    				
-	    				<input type="text" th:field="*{number}"/>
+	    				<input type="text" th:field="*{name}"/>
 	    				<span>Наименование</span>
 	    			</p>
 	    			<p>
-		    			<input type="text" th:field="*{name}"/>
+		    			<input type="text" th:field="*{number}"/>
 		    			<span>Обозначение</span>
 		    		</p>
 		    		<p>

@@ -99,7 +99,7 @@ public class OppDaoImpl implements DaoInterface<OppEntity> {
 	
 	@Override
 	public boolean deleteItemById(int id) {
-		addItemDeleted(getItemById(id));
+		//addItemDeleted(getItemById(id));
 		String query = "DELETE FROM " + Constants.TABLE_NAME_OPP + " WHERE " + Constants.TABLE_COLOMN_OPP_ID + "=?;";
 		return jdbc.update(query, id) == 1 ? true : false;
 	}
@@ -128,6 +128,12 @@ public class OppDaoImpl implements DaoInterface<OppEntity> {
 	public List<Float> getFloatList() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int addItemWithIdReturn(OppEntity item) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
