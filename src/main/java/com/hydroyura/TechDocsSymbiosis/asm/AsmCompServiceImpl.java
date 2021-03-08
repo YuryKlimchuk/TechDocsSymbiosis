@@ -88,4 +88,10 @@ public class AsmCompServiceImpl implements ServiceInterface<AsmComposition> {
 		return asmDao.getAll();
 	}
 
+	@Override
+	public List<String> getStringList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

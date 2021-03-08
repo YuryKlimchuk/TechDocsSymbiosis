@@ -122,5 +122,11 @@ public class OringDaoImpl implements DaoInterface<OringEntity> {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public List<String> getStringList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

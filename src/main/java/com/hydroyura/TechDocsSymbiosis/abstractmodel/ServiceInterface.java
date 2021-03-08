@@ -11,5 +11,5 @@ public interface ServiceInterface<T> {
 	public boolean deleteItemById(int id);
 	public boolean changeItem(int id, T newItem);
 	public List<Float> getFloatList();
-
+	public List<String> getStringList();
 }

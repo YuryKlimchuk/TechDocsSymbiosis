@@ -16,7 +16,6 @@ import org.springframework.stereotype.Repository;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.DaoInterface;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.SearchFilter;
 import com.hydroyura.TechDocsSymbiosis.init.Constants;
-import com.hydroyura.TechDocsSymbiosis.opp.OppRowMap;
 
 
 
@@ -113,6 +112,12 @@ public class AsmDaoImpl implements DaoInterface<AsmEntity> {
 
 
 		return (int) keyHolder.getKey();
+	}
+
+	@Override
+	public List<String> getStringList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

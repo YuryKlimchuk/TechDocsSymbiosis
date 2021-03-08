@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hydroyura.TechDocsSymbiosis.opp.OppEntity;
-import com.hydroyura.TechDocsSymbiosis.opp.OppFilter;
 import com.hydroyura.TechDocsSymbiosis.oring.OringEntity;
 
 @Controller

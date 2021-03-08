@@ -7,12 +7,12 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.hydroyura.TechDocsSymbiosis.init.Constants;
 
-public class StpRowMap implements RowMapper<Stp> {
+public class StpRowMap implements RowMapper<StpEntity> {
 
 	@Override
-	public Stp mapRow(ResultSet rs, int rowNum) throws SQLException {
+	public StpEntity mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
-		Stp stp = new Stp();
+		StpEntity stp = new StpEntity();
 		
 		
 		if(Constants.isThere(rs, Constants.TABLE_COLOMN_STP_ID)) stp.setId(rs.getInt(Constants.TABLE_COLOMN_STP_ID));

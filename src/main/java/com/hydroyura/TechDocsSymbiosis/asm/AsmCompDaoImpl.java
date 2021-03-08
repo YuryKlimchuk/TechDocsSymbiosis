@@ -5,8 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -115,6 +113,12 @@ public class AsmCompDaoImpl implements DaoInterface<AsmComposition>{
 	public int addItemWithIdReturn(AsmComposition item) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<String> getStringList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

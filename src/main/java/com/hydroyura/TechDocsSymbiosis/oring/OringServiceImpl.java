@@ -80,6 +80,12 @@ public class OringServiceImpl implements ServiceInterface<OringEntity> {
 		return dao.getFloatList();
 	}
 
+	@Override
+	public List<String> getStringList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 }

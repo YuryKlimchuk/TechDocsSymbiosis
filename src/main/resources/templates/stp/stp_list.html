@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Стандартные изделия</title>
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<a href="index">НАЗАД</a>
+	    <h1>Стандартные изделия</h1>
+	    <br>
+	    
+	    <div>
+	    	<form th:action="@{/stp/list}" th:object="${stpFilter}" method="post">
+	    		<div>
+	    			<p>Тип стандартного изделия</p>
+					<select th:field="*{stringMap['STP_TYPE']}">
+						<option value="ALL_TYPES">Все типы</option>
+						<option th:each="type : ${stpTypies}" th:value="${type}" th:text="${type}"/>
+		            </select>	
+	    		</div>
+	    		<br>
+	    		<br>
+	    		<input type="submit" value="Применить"/>
+	    	</form>
+	    </div>
+	    <br>
+	    <br>
+	    <br>
+	    <br>
+	    <div>
+	    	<table>
+	    		<thead>
+	    			<tr>
+	    				<td>Поз.</td>
+	    				<td>id</td>
+	    				<td>Наименование</td>
+	    				<td>Обозначение</td>
+	    				<td>Стандарт</td>
+	    			</tr>
+	    		</thead>
+	    		<tbody>
+	    			<tr th:if="${sortedStpList.empty}">
+		            	<td colspan="7">Нет элементов в списке</td>
+	        		</tr>
+	    			<tr th:each="stp, status : ${sortedStpList}">
+	    				<td th:text="${status.count}"></td>
+	    				<td th:text="${stp.id}"></td>
+	    				<td th:text="${stp.name}"></td>
+	    				<td th:text="${stp.number}"></td>
+	    				<td th:text="${stp.standart}"></td>
+
+	    			</tr>
+	    		</tbody>
+	    	</table>
+		</div>
+		<br>
+		<a href="index">НАЗАД</a>
+	</body>
+</html>

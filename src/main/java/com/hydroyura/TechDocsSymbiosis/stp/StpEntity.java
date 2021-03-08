@@ -1,10 +1,14 @@
-package com.hydroyura.TechDocsSymbiosis.vzk;
+package com.hydroyura.TechDocsSymbiosis.stp;
 
-public class Vzk {
+public class StpEntity {
 	
 	
 	private int id;
-	private String name, number;
+	private String name;
+	private String number;
+	private String standart;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -23,8 +27,11 @@ public class Vzk {
 	public void setNumber(String number) {
 		this.number = number;
 	}
+	public String getStandart() {
+		return standart;
+	}
+	public void setStandart(String standart) {
+		this.standart = standart;
+	}
 	
-	
-	
-
 }

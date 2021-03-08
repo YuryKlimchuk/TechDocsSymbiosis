@@ -136,4 +136,10 @@ public class OppDaoImpl implements DaoInterface<OppEntity> {
 		return 0;
 	}
 
+	@Override
+	public List<String> getStringList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

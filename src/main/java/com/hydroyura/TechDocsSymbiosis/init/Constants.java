@@ -23,7 +23,7 @@ public class Constants {
 	public static final String TABLE_NAME_ASM_COMP_STP					= "assembly_composition_stp";
 
 	
-	public static final String TABLE_NAME_ST 							= "standart_parts";
+	public static final String TABLE_NAME_STP 							= "standart_parts";
 	public static final String TABLE_NAME_VZK 							= "vzk";
 	public static final String TABLE_NAME_BUY  							= "buy";
 	//-------------------------------------------------------------------------------------
@@ -39,13 +39,6 @@ public class Constants {
 	public static final String TABLE_COLOMN_BUY_NUMBER 					= "number";
 	public static final String TABLE_COLOMN_BUY_NAME 					= "name";
 	public static final String TABLE_COLOMN_BUY_MANUFACTURER 			= "manufacturer";
-	//-------------------------------------------------------------------------------------
-	
-	// Название столбцов таблицы standart_parts
-	public static final String TABLE_COLOMN_ST_ID 						= "id";
-	public static final String TABLE_COLOMN_ST_NAME 					= "name";
-	public static final String TABLE_COLOMN_ST_NUMBER 					= "number";
-	public static final String TABLE_COLOMN_ST_STANDART 				= "standart";
 	//-------------------------------------------------------------------------------------
 	
 	// Название столбцов таблицы orings

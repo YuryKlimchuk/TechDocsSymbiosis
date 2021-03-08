@@ -1,4 +1,4 @@
-package com.hydroyura.TechDocsSymbiosis.opp;
+package com.hydroyura.TechDocsSymbiosis.stp;
 
 import java.util.List;
 
@@ -11,43 +11,47 @@ import com.hydroyura.TechDocsSymbiosis.abstractmodel.DaoInterface;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.SearchFilter;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.ServiceInterface;
 
-
-@Component("OppServiceImpl")
+@Component("StpServiceImpl")
 @Service
-public class OppServiceImpl implements ServiceInterface<OppEntity>{
-
-	@Autowired
-	@Qualifier("OppDaoImpl")
-	private DaoInterface<OppEntity> dao;
+public class StpServiceImpl implements ServiceInterface<StpEntity> {
 	
+	
+	@Autowired
+	@Qualifier("StpDaoImpl")
+	private DaoInterface<StpEntity> dao;
+	
+
 	@Override
-	public List<OppEntity> getAll() {
+	public List<StpEntity> getAll() {
 		return dao.getAll();
 	}
 
 	@Override
-	public OppEntity getItemById(int id) {
-		return dao.getItemById(id);
+	public StpEntity getItemById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public List<OppEntity> getItemsBySearchFilter(SearchFilter searchFilter) {
+	public List<StpEntity> getItemsBySearchFilter(SearchFilter searchFilter) {
 		return dao.getItemsBySearchFilter(searchFilter);
 	}
 
 	@Override
-	public boolean addItem(OppEntity item) {
+	public boolean addItem(StpEntity item) {
 		return dao.addItem(item);
 	}
 
 	@Override
 	public boolean deleteItemById(int id) {
-		return dao.deleteItemById(id);
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
-	public boolean changeItem(int id, OppEntity newItem) {
-		return dao.changeItem(id, newItem);
+	public boolean changeItem(int id, StpEntity newItem) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
@@ -58,8 +62,7 @@ public class OppServiceImpl implements ServiceInterface<OppEntity>{
 
 	@Override
 	public List<String> getStringList() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getStringList();
 	}
 
 }
