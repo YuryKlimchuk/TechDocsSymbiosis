@@ -2,17 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Взаимозаменяемые изделия</title>
+		<title>Взаимозаменяемые комплектующие</title>
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-	    <p>Tecnord HydroControl BoschRexroth</p>
+	    <h1>Взаимозаменяемые комплектующие</h1>
 	    <br>
 	    <div>
 		    <ul>
-				<li><a href='list'>Список ВКЗ</a></li>
-				<li><a href='add'>Добавить новый ВКЗ</a></li>
+				<li><a href="list">Просмотр списка деталей</a></li>
+				<li><a href="add">Добавить новый элемент</a></li>
+				<li><a href="edit">Редактировать список деталей</a></li>
 			</ul>
 		</div>
 		<br>
+		<a href="../../">назад в главное меню</a>
 	</body>
 </html>

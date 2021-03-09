@@ -58,6 +58,7 @@ public class AsmCompDaoImpl implements DaoInterface<AsmComposition>{
 				+ Constants.TABLE_COLOMN_ASM_COMP_OPP_CHANGE + ") VALUES (?, ?, ?, ?);";
 		
 		for(int i = 0; i < item.getAsmOppId().size(); i++) {
+			if(!item.getAsmOppId().get(i).equals(-654))
 			jdbc.update(query, 
 					asmID,
 					item.getAsmOppId().get(i),
@@ -73,6 +74,7 @@ public class AsmCompDaoImpl implements DaoInterface<AsmComposition>{
 				+ Constants.TABLE_COLOMN_ASM_COMP_ORING_CHANGE + ") VALUES (?, ?, ?, ?);";
 		
 		for(int i = 0; i < item.getAsmOringId().size(); i++) {
+			if(!item.getAsmOringId().get(i).equals(-654))
 			jdbc.update(query, 
 					asmID,
 					item.getAsmOringId().get(i),
@@ -80,6 +82,65 @@ public class AsmCompDaoImpl implements DaoInterface<AsmComposition>{
 					-1);
 		}
 		
+		query = "INSERT INTO " + Constants.TABLE_NAME_ASM_COMP_VZK + " ("  
+				+ Constants.TABLE_COLOMN_ASM_COMP_VZK_ASM_FULL_ID + ", "
+				+ Constants.TABLE_COLOMN_ASM_COMP_VZK_VZK_ID + ", "
+				+ Constants.TABLE_COLOMN_ASM_COMP_VZK_COUNTS + ", "
+				+ Constants.TABLE_COLOMN_ASM_COMP_VZK_CHANGE + ") VALUES (?, ?, ?, ?);";
+		
+		for(int i = 0; i < item.getAsmVzkId().size(); i++) {
+			if(!item.getAsmVzkId().get(i).equals(-654))
+			jdbc.update(query, 
+					asmID,
+					item.getAsmVzkId().get(i),
+					item.getAsmVzkCount().get(i),
+					-1);
+		}
+		
+		query = "INSERT INTO " + Constants.TABLE_NAME_ASM_COMP_BUY + " ("  
+				+ Constants.TABLE_COLOMN_ASM_COMP_BUY_ASM_FULL_ID + ", "
+				+ Constants.TABLE_COLOMN_ASM_COMP_BUY_BUY_ID + ", "
+				+ Constants.TABLE_COLOMN_ASM_COMP_BUY_COUNTS + ", "
+				+ Constants.TABLE_COLOMN_ASM_COMP_BUY_CHANGE + ") VALUES (?, ?, ?, ?);";
+		
+		for(int i = 0; i < item.getAsmBuyId().size(); i++) {
+			if(!item.getAsmBuyId().get(i).equals(-654))
+			jdbc.update(query, 
+					asmID,
+					item.getAsmBuyId().get(i),
+					item.getAsmBuyCount().get(i),
+					-1);
+		}
+		
+		query = "INSERT INTO " + Constants.TABLE_NAME_ASM_COMP_ASM + " ("  
+				+ Constants.TABLE_COLOMN_ASM_COMP_ASM_ASM_FULL_ID + ", "
+				+ Constants.TABLE_COLOMN_ASM_COMP_ASM_ASM_ID + ", "
+				+ Constants.TABLE_COLOMN_ASM_COMP_ASM_COUNTS + ", "
+				+ Constants.TABLE_COLOMN_ASM_COMP_ASM_CHANGE + ") VALUES (?, ?, ?, ?);";
+		
+		for(int i = 0; i < item.getAsmAsmId().size(); i++) {
+			if(!item.getAsmAsmId().get(i).equals(-654))
+			jdbc.update(query, 
+					asmID,
+					item.getAsmAsmId().get(i),
+					item.getAsmAsmCount().get(i),
+					-1);
+		}
+		
+		query = "INSERT INTO " + Constants.TABLE_NAME_ASM_COMP_STP + " ("  
+				+ Constants.TABLE_COLOMN_ASM_COMP_STP_ASM_FULL_ID + ", "
+				+ Constants.TABLE_COLOMN_ASM_COMP_STP_STP_ID + ", "
+				+ Constants.TABLE_COLOMN_ASM_COMP_STP_COUNTS + ", "
+				+ Constants.TABLE_COLOMN_ASM_COMP_STP_CHANGE + ") VALUES (?, ?, ?, ?);";
+		
+		for(int i = 0; i < item.getAsmStpId().size(); i++) {
+			if(!item.getAsmStpId().get(i).equals(-654))
+			jdbc.update(query, 
+					asmID,
+					item.getAsmStpId().get(i),
+					item.getAsmStpCount().get(i),
+					-1);
+		}
 		
 		
 		return true;

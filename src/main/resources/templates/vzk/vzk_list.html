@@ -2,40 +2,56 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Взаимозаменяемые изделия</title>
+		<title>Взаимозаменяемые комплектующие</title>
 		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-	    <p>Список VZK</p>
+		<a href="index">НАЗАД</a>
+	    <h1>Взаимозаменяемые комплектующие</h1>
+	    <br>
+	    
+	    <div>
+	    	<form th:action="@{/vzk/list}" th:object="${vzkFilter}" method="post">
+	    		<div>
+	    			<p>Тип Взаимозаменяемые комплектующие</p>
+					<select th:field="*{stringMap['VZK_TYPE']}">
+						<option value="ALL_TYPES">Все типы</option>
+						<option th:each="type : ${vzkTypies}" th:value="${type}" th:text="${type}"/>
+		            </select>	
+	    		</div>
+	    		<br>
+	    		<br>
+	    		<input type="submit" value="Применить"/>
+	    	</form>
+	    </div>
+	    <br>
+	    <br>
+	    <br>
 	    <br>
 	    <div>
-			<table>
-				<tr>
-					<th>Поз.</th>
-					<th>id</th>
-					<th>Обозначение</th>
-					<th>Наименование</th>
-					<th>Действие</th>
-				</tr>
-				<tr th:each="vzk, status : ${vzks}">
-					<td>
-						<span th:text="${status.count}"></span>
-					</td>
-					<td>
-						<span th:text="${vzk.id}"></span>
-					</td>
-					<td>
-						<span th:text="${vzk.number}"></span>
-					</td>
-					<td>
-						<span th:text="${vzk.name}"></span>
-					</td>
-					<td>
-						<a href="#">Редактировать</a>
-					</td>
-				</tr>
-			</table>
+	    	<table>
+	    		<thead>
+	    			<tr>
+	    				<td>Поз.</td>
+	    				<td>id</td>
+	    				<td>Наименование</td>
+	    				<td>Обозначение</td>
+	    			</tr>
+	    		</thead>
+	    		<tbody>
+	    			<tr th:if="${sortedVzkList.empty}">
+		            	<td colspan="4">Нет элементов в списке</td>
+	        		</tr>
+	    			<tr th:each="vzk, status : ${sortedVzkList}">
+	    				<td th:text="${status.count}"></td>
+	    				<td th:text="${vzk.id}"></td>
+	    				<td th:text="${vzk.name}"></td>
+	    				<td th:text="${vzk.number}"></td>
+	    			</tr>
+	    		</tbody>
+	    	</table>
 		</div>
 		<br>
+		<a href="index">НАЗАД</a>
 	</body>
 </html>

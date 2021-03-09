@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Покупные изделия</title>
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<a href="index">НАЗАД</a>
+	    <h1>Добавить новый элемент</h1>
+	    <br>
+	    <h2 th:text="${msg}"></h2>
+	    <div>
+	    	<form th:action="@{/buy/add}" th:object="${buy}" method="post">
+	    		<div>
+	    			<p>	    				
+	    				<input type="text" th:field="*{name}"/>
+	    				<span>Наименование</span>
+	    			</p>
+	    			<p>
+		    			<input type="text" th:field="*{number}"/>
+		    			<span>Обозначение</span>
+		    		</p>
+	    			<p>	    				
+	    				<input type="text" th:field="*{manufacturer}"/>
+	    				<span>Производитель</span>
+	    			</p>
+	    		</div>
+	    		<br>
+	    		<input type="submit" value="Применить"/>
+	    	</form>
+	    </div>
+	    <br>
+	    <br>
+		<a href="index">НАЗАД</a>
+	</body>
+</html>

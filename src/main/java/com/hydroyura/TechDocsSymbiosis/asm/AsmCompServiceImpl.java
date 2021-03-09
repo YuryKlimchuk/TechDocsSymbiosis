@@ -14,6 +14,7 @@ import com.hydroyura.TechDocsSymbiosis.opp.OppEntity;
 import com.hydroyura.TechDocsSymbiosis.opp.OppServiceImpl;
 import com.hydroyura.TechDocsSymbiosis.oring.OringEntity;
 import com.hydroyura.TechDocsSymbiosis.oring.OringServiceImpl;
+import com.hydroyura.TechDocsSymbiosis.vzk.VzkServiceImpl;
 
 @Component("AsmCompServiceImpl")
 @Service
@@ -35,6 +36,7 @@ public class AsmCompServiceImpl implements ServiceInterface<AsmComposition> {
 	@Qualifier("OringServiceImpl")
 	private OringServiceImpl oringService;
 	
+
 	@Override
 	public List<AsmComposition> getAll() {
 		// TODO Auto-generated method stub

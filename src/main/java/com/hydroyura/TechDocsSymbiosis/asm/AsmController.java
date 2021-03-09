@@ -3,6 +3,7 @@ package com.hydroyura.TechDocsSymbiosis.asm;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.hydroyura.TechDocsSymbiosis.buy.BuyEntity;
+import com.hydroyura.TechDocsSymbiosis.buy.BuyServiceImpl;
 import com.hydroyura.TechDocsSymbiosis.opp.OppEntity;
 import com.hydroyura.TechDocsSymbiosis.oring.OringEntity;
+import com.hydroyura.TechDocsSymbiosis.stp.StpEntity;
+import com.hydroyura.TechDocsSymbiosis.stp.StpServiceImpl;
+import com.hydroyura.TechDocsSymbiosis.vzk.VzkEntity;
+import com.hydroyura.TechDocsSymbiosis.vzk.VzkServiceImpl;
 
 @Controller
 @RequestMapping("/asm")
@@ -22,10 +29,35 @@ public class AsmController {
 	@Autowired
 	private AsmCompServiceImpl service;
 	
+	
+	@Autowired
+	@Qualifier("VzkServiceImpl")
+	private VzkServiceImpl vzkService;
+	
+	@Autowired
+	@Qualifier("BuyServiceImpl")
+	private BuyServiceImpl buyService;
+	
+	@Autowired
+	@Qualifier("StpServiceImpl")
+	private StpServiceImpl stpService;
+	
+	@Autowired
+	@Qualifier("AsmServiceImpl")
+	private AsmServiceImpl asmService;
 
 	
 	@GetMapping("/index")
 	public String showAsmIndex() {
+		
+		Integer inval= -654;
+		
+		if(inval.equals(-654))
+			System.out.print("TRUE");
+		
+		if(!inval.equals(-654))
+			System.out.print("FALSE");
+		
 		return "/asm/asm_index";
 	}
 	
@@ -64,6 +96,30 @@ public class AsmController {
 		System.out.println(action);
 		
 		switch (action) {
+		case "addAsm":
+			asmComp.incAsmCount();
+			break;
+		case "delAsm":
+			asmComp.decAsmCount();
+			break;
+		case "addStp":
+			asmComp.incStpCount();
+			break;
+		case "delStp":
+			asmComp.decStpCount();
+			break;
+		case "addBuy":
+			asmComp.incBuyCount();
+			break;
+		case "delBuy":
+			asmComp.decBuyCount();
+			break;
+		case "addVzk":
+			asmComp.incVzkCount();
+			break;
+		case "delVzk":
+			asmComp.decVzkCount();
+			break;
 		case "addOpp":
 			asmComp.incOppCount();
 			break;
@@ -98,6 +154,29 @@ public class AsmController {
 	public List<OringEntity> getOringList() {
 		return service.getAllOring();
 	}
+	
+	
+	@ModelAttribute("vzkList")
+	public List<VzkEntity> getVzkList() {
+		return vzkService.getAll();
+	}
+	
+	@ModelAttribute("buyList")
+	public List<BuyEntity> getBuyList() {
+		return buyService.getAll();
+	}
+	
+	@ModelAttribute("stpList")
+	public List<StpEntity> getStpList() {
+		return stpService.getAll();
+	}
+	
+	@ModelAttribute("asmList")
+	public List<AsmEntity> getAsmList() {
+		return asmService.getAll();
+	}
+	
+
 	
 	@ModelAttribute("listAsm")
 	public List<AsmEntity> getItemsBySearchFilter() {

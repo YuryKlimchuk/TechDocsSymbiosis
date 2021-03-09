@@ -2,33 +2,60 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Покупнуха</title>
+		<title>Покупные изделия</title>
 		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-	    <p>Покупные детали</p>
+		<a href="index">НАЗАД</a>
+	    <h1>Покупные изделия (изготовленные другим производителем)</h1>
 	    <br>
-		<h2>Список покупных изделий</h2>
-		<table class="container">
-			<thead>
-				<tr>
-					<td><h2>Поз.</h2></td>
-					<td><h2>ID</h2></td>
-					<td><h2>Обозначение</h2></td>
-					<td><h2>Наименвоание</h2></td>
-					<td><h2>Производитель</h2></td>
-				</tr>
-			</thead>
-				<tr th:each="buy, status : ${buyies}">
-					<td><span th:text="${status.count}"></span></td>
-					<td><span th:text="${buy.id}"></span></td>
-					<td><span th:text="${buy.number}"></span></td>
-					<td><span th:text="${buy.name}"></span></td>
-					<td><span th:text="${buy.manufacturer}"></span></td>
-				</tr>
-			<tbody>
-			
-			</tbody>
-		</table>
+	    
+	    <div>
+	    	<form th:action="@{/buy/list}" th:object="${buyFilter}" method="post">
+	    		<div>
+	    			<p>Производитель</p>
+					<select th:field="*{stringMap['BUY_TYPE']}">
+						<option value="ALL_TYPES">Все</option>
+						<option th:each="type : ${buyTypies}" th:value="${type}" th:text="${type}"/>
+		            </select>	
+	    		</div>
+	    		<br>
+	    		<br>
+	    		<input type="submit" value="Применить"/>
+	    	</form>
+	    </div> 
+	    <br>
+	    <br>
+	    <br>
+	    <br>
+	    <div>
+	    	<table>
+	    		<thead>
+	    			<tr>
+	    				<td>Поз.</td>
+	    				<td>id</td>
+	    				<td>Наименование</td>
+	    				<td>Обозначение</td>
+	    				<td>Производитель</td>
+	    			</tr>
+	    		</thead>
+	    		<tbody>
+	    			<tr th:if="${sortedBuyList.empty}">
+		            	<td colspan="7">Нет элементов в списке</td>
+	        		</tr>
+	    			<tr th:each="buy, status : ${sortedBuyList}">
+	    				<td th:text="${status.count}"></td>
+	    				<td th:text="${buy.id}"></td>
+	    				<td th:text="${buy.name}"></td>
+	    				<td th:text="${buy.number}"></td>
+	    				<td th:text="${buy.manufacturer}"></td>
+
+	    			</tr>
+	    		</tbody>
+	    	</table>
+		</div>
+		<br>
+		
+		<a href="index">НАЗАД</a>
 	</body>
 </html>

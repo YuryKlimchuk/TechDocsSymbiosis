@@ -61,11 +61,14 @@
 	    						</tr>
 	    					</thead>
 	    					<tbody>
+<!-- 	    						<tr th:if="${listAsm.empty}">
+		            				<td colspan="7">Нет элементов в списке</td>
+	        					</tr> -->
 	    						<tr th:each="i : ${#numbers.sequence(0, asmComp.asmOppId.size()-1)}">
 	    							<td th:text="${i+1}"></td>
 	    							<td>
 	    								<select th:field="${asmComp.asmOppId[__${i}__]}">
-						                    <option value="">Nothing selected</option>
+						                    <option value="-654">Nothing selected</option>
 						                    <option th:each="opp : ${oppList}" th:value="${opp.id}" th:text="${opp.number}"/>
 		                				</select>	
 	    							</td>
@@ -73,10 +76,12 @@
 	    								<input type="text" th:field="*{asmOppCount[__${i}__]}" th:value="*{asmOppCount[__${i}__]}">
 	    							</td>
 	    						</tr>
+	    						
 	    					</tbody>
 	    				</table>
 					</div>
 	    		</div>
+	    		<!-- ------------------------------------------------------------------------- -->
 	    		<div>
 	    			<h3>Входящие Кольца (O-Rings)</h3>
 	    			<div>
@@ -95,12 +100,136 @@
 	    							<td th:text="${i+1}"></td>
 	    							<td>
 	    								<select th:field="${asmComp.asmOringId[__${i}__]}">
-						                    <option value="">Nothing selected</option>
+						                    <option value="-654">Nothing selected</option>
 						                    <option th:each="oring : ${oringList}" th:value="${oring.id}" th:text="${oring.number}"/>
 		                				</select>	
 	    							</td>
 	    							<td>
 	    								<input type="text" th:field="*{asmOringCount[__${i}__]}" th:value="*{asmOringCount[__${i}__]}">
+	    							</td>
+	    						</tr>
+	    					</tbody>
+	    				</table>
+					</div>
+	    		</div>
+	    		<!-- ------------------------------------------------------------------------- -->
+	    		<div>
+	    			<h3>Взаимозаменяемые детали (ВКЗ)</h3>
+	    			<div>
+	    				<button type="submit" name="action" value="addVzk">Добавить строку</button>
+		            	<button type="submit" name="action" value="delVzk">Удалить строку</button>
+	    				<table>
+	    					<thead>
+	    						<tr>
+	    							<td>№</td>
+	    							<td>Обозначение</td>
+	    							<td>Кол.</td>
+	    						</tr>
+	    					</thead>
+	    					<tbody>
+	    						<tr th:each="i : ${#numbers.sequence(0, asmComp.asmVzkId.size()-1)}">
+	    							<td th:text="${i+1}"></td>
+	    							<td>
+	    								<select th:field="${asmComp.asmVzkId[__${i}__]}">
+						                    <option value="-654">Nothing selected</option>
+						                    <option th:each="vzk : ${vzkList}" th:value="${vzk.id}" th:text="${vzk.number}"/>
+		                				</select>	
+	    							</td>
+	    							<td>
+	    								<input type="text" th:field="*{asmVzkCount[__${i}__]}" th:value="*{asmVzkCount[__${i}__]}">
+	    							</td>
+	    						</tr>
+	    					</tbody>
+	    				</table>
+					</div>
+	    		</div>
+	    		<!-- ------------------------------------------------------------------------- -->
+	    		<div>
+	    			<h3>Покупные изделия (BUY)</h3>
+	    			<div>
+	    				<button type="submit" name="action" value="addBuy">Добавить строку</button>
+		            	<button type="submit" name="action" value="delBuy">Удалить строку</button>
+	    				<table>
+	    					<thead>
+	    						<tr>
+	    							<td>№</td>
+	    							<td>Обозначение</td>
+	    							<td>Кол.</td>
+	    						</tr>
+	    					</thead>
+	    					<tbody>
+	    						<tr th:each="i : ${#numbers.sequence(0, asmComp.asmOringId.size()-1)}">
+	    							<td th:text="${i+1}"></td>
+	    							<td>
+	    								<select th:field="${asmComp.asmBuyId[__${i}__]}">
+						                    <option value="-654">Nothing selected</option>
+						                    <option th:each="buy : ${buyList}" th:value="${buy.id}" th:text="${buy.number}"/>
+		                				</select>	
+	    							</td>
+	    							<td>
+	    								<input type="text" th:field="*{asmBuyCount[__${i}__]}" th:value="*{asmBuyCount[__${i}__]}">
+	    							</td>
+	    						</tr>
+	    					</tbody>
+	    				</table>
+					</div>
+	    		</div>
+	    		<!-- ------------------------------------------------------------------------- -->
+	    		<div>
+	    			<h3>Стандартные изделия (STP)</h3>
+	    			<div>
+	    				<button type="submit" name="action" value="addStp">Добавить строку</button>
+		            	<button type="submit" name="action" value="delStp">Удалить строку</button>
+	    				<table>
+	    					<thead>
+	    						<tr>
+	    							<td>№</td>
+	    							<td>Обозначение</td>
+	    							<td>Кол.</td>
+	    						</tr>
+	    					</thead>
+	    					<tbody>
+	    						<tr th:each="i : ${#numbers.sequence(0, asmComp.asmOringId.size()-1)}">
+	    							<td th:text="${i+1}"></td>
+	    							<td>
+	    								<select th:field="${asmComp.asmStpId[__${i}__]}">
+						                    <option value="-654">Nothing selected</option>
+						                    <option th:each="stp : ${stpList}" th:value="${stp.id}" th:text="${stp.number + ' ' + stp.name}"/>
+		                				</select>	
+	    							</td>
+	    							<td>
+	    								<input type="text" th:field="*{asmStpCount[__${i}__]}" th:value="*{asmStpCount[__${i}__]}">
+	    							</td>
+	    						</tr>
+	    					</tbody>
+	    				</table>
+					</div>
+	    		</div>
+	    		<!-- ------------------------------------------------------------------------- -->
+	    		<div>
+	    			<h3>Сборочные единицы (Asm)</h3>
+	    			<div>
+	    				<button type="submit" name="action" value="addAsm">Добавить строку</button>
+		            	<button type="submit" name="action" value="delAsm">Удалить строку</button>
+	    				<table>
+	    					<thead>
+	    						<tr>
+	    							<td>№</td>
+	    							<td>Обозначение</td>
+	    							<td>Кол.</td>
+	    						</tr>
+	    					</thead>
+	    					<tbody>
+	    						<tr th:each="i : ${#numbers.sequence(0, asmComp.asmAsmId.size()-1)}">
+	    							<td th:text="${i+1}"></td>
+	    							<td>
+	    								<select th:field="${asmComp.asmAsmId[__${i}__]}">
+						                    <option value="-654">Nothing selected</option>
+						                    <option th:each="asm : ${asmList}" th:value="${asm.id}" th:text="${asm.number}"/>
+		                				</select>	
+	    							</td>
+	    							<td>
+	    								<input type="text" th:field="*{asmAsmCount[__${i}__]}" th:value="*{asmAsmCount[__${i}__]}">
 	    							</td>
 	    						</tr>
 	    					</tbody>
