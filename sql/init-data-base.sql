@@ -1,3 +1,6 @@
+
+
+
 /*
 	Таблица для хранения номенклатуры сборок.
 */
@@ -43,6 +46,8 @@ CREATE TABLE our_product_parts (
 /*
 	Таблица для хранения деталей в сборках
 */
+ALTER TABLE assembly_composition_opp RENAME COLUMN opp_id TO id;  
+
 DROP TABLE IF EXISTS assembly_composition_opp;
 CREATE TABLE assembly_composition_opp (
 
@@ -478,15 +483,15 @@ INSERT INTO orings (
 -- Занесение данных в таблицу
 VALUES
 
-	(1.9, 14.6, 'O-Ring', '14,6x1,9 NBR80', 'ISO3601-1'),
-	(1.9, 20.5, 'O-Ring', '20,5x1,9 NBR80', 'ISO3601-1'),
-	(1.9, 18.5, 'O-Ring', '18,5x1,9 NBR80', 'ISO3601-1'),
+	--(1.9, 14.6, 'O-Ring', '14,6x1,9 NBR80', 'ISO3601-1'),
+	--(1.9, 20.5, 'O-Ring', '20,5x1,9 NBR80', 'ISO3601-1'),
+	--(1.9, 18.5, 'O-Ring', '18,5x1,9 NBR80', 'ISO3601-1'),
 	(1.9, 4.7, 'O-Ring', '4,7x1,9 NBR80', 'ISO3601-1'),
 	(1.9, 8.7, 'O-Ring', '8,7x1,9 NBR80', 'ISO3601-1'),
 	(1.9, 7.7, 'O-Ring', '7,7x1,9 NBR80', 'ISO3601-1'),
 	(1.9, 9.7, 'O-Ring', '9,7x1,9 NBR80', 'ISO3601-1'),
 	(1.9, 10.6, 'O-Ring', '10,6x1,9 NBR80', 'ISO3601-1'),
-	(1.9, 16.6, 'O-Ring', '16,6x1,9 NBR80', 'ISO3601-1'),
+	--(1.9, 16.6, 'O-Ring', '16,6x1,9 NBR80', 'ISO3601-1'),
 	(1.9, 17.5, 'O-Ring', '17,5x1,9 NBR80', 'ISO3601-1'),	
 	(2.5, 23.5, 'O-Ring', '23,5x2,5 NBR80', 'ISO3601-1'),
 	(1.9, 16.5, 'O-Ring', '16,5x1,9 NBR80', 'ISO3601-1'),
@@ -505,7 +510,7 @@ VALUES
 	(2.5, 63.5, 'O-Ring', '63,5x2,5 NBR80', 'ISO3601-1'),
 	(1.4, 5.7, 'O-Ring', '5,7x1,4 NBR80', 'ISO3601-1'),
 	(2.5, 17.5, 'O-Ring', '17,5x2,5 NBR80', 'ISO3601-1'),
-	(1.9, 15.6, 'O-Ring', '15,6x1,9 NBR80', 'ISO3601-1'),	
+	--(1.9, 15.6, 'O-Ring', '15,6x1,9 NBR80', 'ISO3601-1'),	
 	(3.5, 60, 'O-Ring', '60x3,5 NBR80', 'ISO3601-1');
 
 	

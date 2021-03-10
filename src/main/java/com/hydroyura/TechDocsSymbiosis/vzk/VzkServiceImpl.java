@@ -66,4 +66,10 @@ public class VzkServiceImpl implements ServiceInterface<VzkEntity> {
 		return dao.getStringList();
 	}
 
+	@Override
+	public List<VzkEntity> getAllFromTableByIntCreteria(String tableName, int creteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

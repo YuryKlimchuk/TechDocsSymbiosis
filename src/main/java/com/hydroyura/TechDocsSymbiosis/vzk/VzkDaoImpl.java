@@ -11,9 +11,6 @@ import org.springframework.stereotype.Repository;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.DaoInterface;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.SearchFilter;
 import com.hydroyura.TechDocsSymbiosis.init.Constants;
-import com.hydroyura.TechDocsSymbiosis.opp.OppRowMap;
-import com.hydroyura.TechDocsSymbiosis.stp.StpEntity;
-import com.hydroyura.TechDocsSymbiosis.stp.StpRowMap;
 
 
 @Component("VzkDaoImpl")
@@ -102,6 +99,18 @@ public class VzkDaoImpl implements DaoInterface<VzkEntity> {
 				+ " ORDER BY " + Constants.TABLE_COLOMN_VZK_NAME + ";";
 		
 		return jdbc.queryForList(query, String.class);	
+	}
+
+	@Override
+	public List<VzkEntity> getAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<VzkEntity> getAllFromTableByCreteria(String tableName, int creteria) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

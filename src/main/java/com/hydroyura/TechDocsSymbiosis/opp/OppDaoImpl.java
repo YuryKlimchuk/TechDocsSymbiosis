@@ -142,4 +142,16 @@ public class OppDaoImpl implements DaoInterface<OppEntity> {
 		return null;
 	}
 
+	@Override
+	public List<OppEntity> getAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OppEntity> getAllFromTableByCreteria(String tableName, int creteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

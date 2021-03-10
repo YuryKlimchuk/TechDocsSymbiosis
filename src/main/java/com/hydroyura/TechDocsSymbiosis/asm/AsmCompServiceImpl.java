@@ -96,4 +96,12 @@ public class AsmCompServiceImpl implements ServiceInterface<AsmComposition> {
 		return null;
 	}
 
+
+
+	@Override
+	public List<AsmComposition> getAllFromTableByIntCreteria(String tableName, int creteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

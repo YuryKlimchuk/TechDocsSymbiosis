@@ -65,4 +65,12 @@ public class BuyServiceImpl implements ServiceInterface<BuyEntity> {
 		return dao.getStringList();
 	}
 
+	@Override
+	public List<BuyEntity> getAllFromTableByIntCreteria(String tableName, int creteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 }

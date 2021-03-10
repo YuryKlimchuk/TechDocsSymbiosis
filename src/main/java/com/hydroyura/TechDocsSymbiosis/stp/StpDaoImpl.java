@@ -98,4 +98,16 @@ public class StpDaoImpl implements DaoInterface<StpEntity>{
 		return jdbc.queryForList(query, String.class);	
 	}
 
+	@Override
+	public List<StpEntity> getAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<StpEntity> getAllFromTableByCreteria(String tableName, int creteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

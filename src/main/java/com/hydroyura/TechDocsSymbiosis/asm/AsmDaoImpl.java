@@ -120,6 +120,18 @@ public class AsmDaoImpl implements DaoInterface<AsmEntity> {
 		return null;
 	}
 
+	@Override
+	public List<AsmEntity> getAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<AsmEntity> getAllFromTableByCreteria(String tableName, int creteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	
 }

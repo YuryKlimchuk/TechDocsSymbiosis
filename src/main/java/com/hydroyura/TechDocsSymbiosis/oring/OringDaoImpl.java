@@ -128,5 +128,17 @@ public class OringDaoImpl implements DaoInterface<OringEntity> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List<OringEntity> getAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OringEntity> getAllFromTableByCreteria(String tableName, int creteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

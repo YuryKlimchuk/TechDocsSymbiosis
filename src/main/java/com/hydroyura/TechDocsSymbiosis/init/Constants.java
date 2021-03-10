@@ -128,6 +128,13 @@ public class Constants {
 	public static final String TABLE_COLOMN_ASM_COMP_STP_COUNTS 		= "counts";
 	public static final String TABLE_COLOMN_ASM_COMP_STP_CHANGE 		= "change";
 	//-------------------------------------------------------------------------------------
+	
+	// Название столбцов таблицы composition
+	public static final String TABLE_COLOMN_COMPOSITION_ASM_ID			= "asm_id_full";
+	public static final String TABLE_COLOMN_COMPOSITION_ENTITY_ID		= "id";
+	public static final String TABLE_COLOMN_COMPOSITION_ENTITY_COUNTS	= "counts";
+	public static final String TABLE_COLOMN_COMPOSITION_ENTITY_CHANGE 	= "change";
+	//-------------------------------------------------------------------------------------	
 
 	
 	public static boolean isThere(ResultSet rs, String column){

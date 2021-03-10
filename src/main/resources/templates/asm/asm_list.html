@@ -49,6 +49,9 @@
 	    				<td>id</td>
 	    				<td>Обозначение</td>
 	    				<td>Наименование</td>
+	    				<td>Статус</td>
+	    				<td>Версия</td>
+	    				<td>Обновлен</td>
 	    			</tr>
 	    		</thead>
 	    			<tr th:if="${listAsm.empty}">
@@ -57,8 +60,11 @@
 	    			<tr th:each="asm, status : ${listAsm}">
 	    				<td th:text="${status.count}"></td>
 	    				<td th:text="${asm.id}"></td>
-	    				<td th:text="${asm.number}"></td>
+	    				<td><a th:href="@{/partofasm/index/{id}(id=${asm.getId()})}" th:text="${asm.number}"></a></td>
 	    				<td th:text="${asm.name}"></td>
+	    				<td th:text="${asm.status}"></td>
+	    				<td th:text="${asm.version}"></td>
+	    				<td th:text="${asm.update}"></td>
 	    			</tr>
 	    		<tbody>
 	    		</tbody>

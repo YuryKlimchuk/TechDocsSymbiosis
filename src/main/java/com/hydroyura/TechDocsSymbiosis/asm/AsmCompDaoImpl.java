@@ -28,19 +28,16 @@ public class AsmCompDaoImpl implements DaoInterface<AsmComposition>{
 	
 	@Override
 	public List<AsmComposition> getAll() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public AsmComposition getItemById(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<AsmComposition> getItemsBySearchFilter(SearchFilter searchFilter) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -148,19 +145,16 @@ public class AsmCompDaoImpl implements DaoInterface<AsmComposition>{
 
 	@Override
 	public boolean deleteItemById(int id) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean addItemDeleted(AsmComposition item) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean changeItem(int id, AsmComposition newItem) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -178,6 +172,18 @@ public class AsmCompDaoImpl implements DaoInterface<AsmComposition>{
 
 	@Override
 	public List<String> getStringList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<AsmComposition> getAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<AsmComposition> getAllFromTableByCreteria(String tableName, int creteria) {
 		// TODO Auto-generated method stub
 		return null;
 	}

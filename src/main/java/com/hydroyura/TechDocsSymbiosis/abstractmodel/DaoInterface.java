@@ -14,5 +14,7 @@ public interface DaoInterface<T> {
 	public boolean changeItem(int id, T newItem);
 	public List<Float> getFloatList();
 	public List<String> getStringList();
+	public List<T> getAll(int id);
+	public List<T> getAllFromTableByCreteria(String tableName, int creteria);
 	
 }

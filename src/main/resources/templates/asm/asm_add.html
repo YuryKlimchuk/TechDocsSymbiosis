@@ -158,7 +158,7 @@
 	    						</tr>
 	    					</thead>
 	    					<tbody>
-	    						<tr th:each="i : ${#numbers.sequence(0, asmComp.asmOringId.size()-1)}">
+	    						<tr th:each="i : ${#numbers.sequence(0, asmComp.asmBuyId.size()-1)}">
 	    							<td th:text="${i+1}"></td>
 	    							<td>
 	    								<select th:field="${asmComp.asmBuyId[__${i}__]}">
@@ -189,7 +189,7 @@
 	    						</tr>
 	    					</thead>
 	    					<tbody>
-	    						<tr th:each="i : ${#numbers.sequence(0, asmComp.asmOringId.size()-1)}">
+	    						<tr th:each="i : ${#numbers.sequence(0, asmComp.asmStpId.size()-1)}">
 	    							<td th:text="${i+1}"></td>
 	    							<td>
 	    								<select th:field="${asmComp.asmStpId[__${i}__]}">

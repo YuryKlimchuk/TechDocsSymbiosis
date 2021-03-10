@@ -87,5 +87,12 @@ public class OringServiceImpl implements ServiceInterface<OringEntity> {
 	}
 
 
+	@Override
+	public List<OringEntity> getAllFromTableByIntCreteria(String tableName, int creteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }

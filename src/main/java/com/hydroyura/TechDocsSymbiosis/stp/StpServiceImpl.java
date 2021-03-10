@@ -65,4 +65,10 @@ public class StpServiceImpl implements ServiceInterface<StpEntity> {
 		return dao.getStringList();
 	}
 
+	@Override
+	public List<StpEntity> getAllFromTableByIntCreteria(String tableName, int creteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

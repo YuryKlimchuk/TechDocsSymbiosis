@@ -1,4 +1,4 @@
-package com.hydroyura.TechDocsSymbiosis.asm;
+package com.hydroyura.TechDocsSymbiosis.asm.partofasm;
 
 import java.util.List;
 
@@ -6,39 +6,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
+import com.hydroyura.TechDocsSymbiosis.abstractmodel.DaoInterface;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.SearchFilter;
 import com.hydroyura.TechDocsSymbiosis.abstractmodel.ServiceInterface;
 
-
-@Component("AsmServiceImpl")
+@Component("PartOfAsmServiceImpl")
 @Service
-public class AsmServiceImpl implements ServiceInterface<AsmEntity> {
+public class PartOfAsmServiceImpl implements ServiceInterface<PartOfAsmEntity> {
 
-	
 	@Autowired
-	@Qualifier("AsmDaoImpl")
-	private AsmDaoImpl dao;
+	@Qualifier("PartOfAsmDaoImpl")
+	private DaoInterface<PartOfAsmEntity> dao;
 	
 	@Override
-	public List<AsmEntity> getAll() {
-		return dao.getAll();
-	}
-
-	@Override
-	public AsmEntity getItemById(int id) {
+	public List<PartOfAsmEntity> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<AsmEntity> getItemsBySearchFilter(SearchFilter searchFilter) {
+	public PartOfAsmEntity getItemById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean addItem(AsmEntity item) {
+	public List<PartOfAsmEntity> getItemsBySearchFilter(SearchFilter searchFilter) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addItem(PartOfAsmEntity item) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -50,7 +49,7 @@ public class AsmServiceImpl implements ServiceInterface<AsmEntity> {
 	}
 
 	@Override
-	public boolean changeItem(int id, AsmEntity newItem) {
+	public boolean changeItem(int id, PartOfAsmEntity newItem) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -68,11 +67,10 @@ public class AsmServiceImpl implements ServiceInterface<AsmEntity> {
 	}
 
 
-
 	@Override
-	public List<AsmEntity> getAllFromTableByIntCreteria(String tableName, int creteria) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<PartOfAsmEntity> getAllFromTableByIntCreteria(String tableName, int creteria) {
+		return dao.getAllFromTableByCreteria(tableName, creteria);
 	}
+
 
 }

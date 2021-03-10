@@ -62,4 +62,12 @@ public class OppServiceImpl implements ServiceInterface<OppEntity>{
 		return null;
 	}
 
+	@Override
+	public List<OppEntity> getAllFromTableByIntCreteria(String tableName, int creteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 }

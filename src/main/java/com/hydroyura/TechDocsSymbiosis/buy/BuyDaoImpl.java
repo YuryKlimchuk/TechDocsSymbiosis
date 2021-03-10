@@ -96,4 +96,16 @@ public class BuyDaoImpl implements DaoInterface<BuyEntity> {
 		return jdbc.queryForList(query, String.class);	
 	}
 
+	@Override
+	public List<BuyEntity> getAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BuyEntity> getAllFromTableByCreteria(String tableName, int creteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
