@@ -2,16 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Уплотнительные кольца</title>
+		<title>O-Rings</title>
 		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-		<a href="index">НАЗАД</a>
+		<a href="../oring/">НАЗАД</a>
 	    <h1>Добавить новый элемент</h1>
 	    <br>
 	    <h2 th:text="${msg}"></h2>
 	    <div>
-	    	<form th:action="@{/oring/add}" th:object="${oring}" method="post">
+	    	<form th:action="@{/oring/add}" th:object="${item}" method="post">
 	    		<div>
 	    			<p>	    				
 	    				<input type="text" th:field="*{name}"/>
@@ -22,12 +22,12 @@
 		    			<span>Обозначение</span>
 		    		</p>
 		    		<p>
-		    			<input type="text" th:field="*{crossSection}"/>
-		    			<span>Сечение, мм</span>
+		    			<input type="text" th:field="*{innerDiameter}"/>
+		    			<span>Внутренний диаметр</span>
 		    		</p>
 		    		<p>
-		    			<input type="text" th:field="*{innerDiameter}"/>
-		    			<span>Внутренний диаметр, мм</span>
+		    			<input type="text" th:field="*{crossSection}"/>
+		    			<span>Сечение</span>
 		    		</p>
 		    		<p>
 		    			<input type="text" th:field="*{standart}"/>
@@ -40,6 +40,6 @@
 	    </div>
 	    <br>
 	    <br>
-		<a href="index">НАЗАД</a>
+		<a href="../oring/">НАЗАД</a>
 	</body>
 </html>

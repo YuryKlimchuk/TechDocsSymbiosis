@@ -2,32 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Уплотнительные кольца</title>
-		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+		<title>O-Rings</title>
+		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-		<a href="index">НАЗАД</a>
+		<a href="../edit">НАЗАД</a>
 	    <h1>Добавить новый элемент</h1>
 	    <br>
 	    <h2 th:text="${msg}"></h2>
 	    <div>
-	    	<form th:action="@{/oring/edit/{id}(id=${editableOring.getId()})}" th:object="${editableOring}" method="post">
+	    	<form th:action="@{/oring/edit/{id}(id=${editableItem.getId()})}" th:object="${editableItem}" method="post">
 	    		<div>
 	    			<p>	    				
-	    				<input type="text" th:field="*{number}"/>
+	    				<input type="text" th:field="*{name}"/>
 	    				<span>Наименование</span>
 	    			</p>
 	    			<p>
-		    			<input type="text" th:field="*{name}"/>
+		    			<input type="text" th:field="*{number}"/>
 		    			<span>Обозначение</span>
 		    		</p>
 		    		<p>
-		    			<input type="text" th:field="*{crossSection}"/>
-		    			<span>Сечение, мм</span>
+		    			<input type="text" th:field="*{innerDiameter}"/>
+		    			<span>Внутренний диаметр</span>
 		    		</p>
 		    		<p>
-		    			<input type="text" th:field="*{innerDiameter}"/>
-		    			<span>Внутренний диаметр, мм</span>
+		    			<input type="text" th:field="*{crossSection}"/>
+		    			<span>Сечение</span>
 		    		</p>
 		    		<p>
 		    			<input type="text" th:field="*{standart}"/>
@@ -40,6 +40,6 @@
 	    </div>
 	    <br>
 	    <br>
-		<a href="index">НАЗАД</a>
+		<a href="../edit">НАЗАД</a>
 	</body>
 </html>

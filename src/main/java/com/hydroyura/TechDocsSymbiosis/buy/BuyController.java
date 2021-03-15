@@ -2,84 +2,54 @@ package com.hydroyura.TechDocsSymbiosis.buy;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.hydroyura.TechDocsSymbiosis.abstractmodel.SearchFilter;
+import com.hydroyura.TechDocsSymbiosis.basicclasses.ControllerBasic;
+import com.hydroyura.TechDocsSymbiosis.basicclasses.ItemsListFilter;
+import com.hydroyura.TechDocsSymbiosis.basicclasses.ServiceBasic;
 
 @Controller
 @RequestMapping("/buy")
-@SessionAttributes("buyFilter")
-public class BuyController {
-
+public class BuyController extends ControllerBasic<BuyEntity>{
 	
 	@Autowired
-	@Qualifier("BuyServiceImpl")
-	private BuyServiceImpl service;
-	
-	
-	@GetMapping("/index")
-	public String showBuyIndex() {
-		return "/buy/buy_index";
-	}
-	
-	@GetMapping("/list")
-	public String showBuyListGet() {
-		return "/buy/buy_list";
-	}
-	
-	@PostMapping("/list")
-	public String showBuyListPost() {
-		return "redirect:/buy/list";
-	}
-	
-	@GetMapping("/add")
-	public String showBuyAddListGet(Model model) {
-		model.addAttribute("buy", new BuyEntity());
-		return "/buy/buy_add";
-	}
-	
-	@PostMapping("/add")
-	public String showBuyAddListPost(@ModelAttribute("buy") BuyEntity buy, 
-			RedirectAttributes redirectAttributes) {
-		
-		if(service.addItem(buy)) {
-			redirectAttributes.addFlashAttribute("msg", "Элемент добавлен успешно");
-		} else {
-			redirectAttributes.addFlashAttribute("msg", "Добавить элемент не получилось, проверьте вводимые данные");
-		}
-		
-		return "redirect:/buy/add";
-	}
-	
-	
-	
-	
-	
-	@ModelAttribute("buyFilter")
-	public SearchFilter getFilter() {
-		SearchFilter buyFilter = new BuyFilter();
-		buyFilter.addStringElementInMap("BUY_TYPE", "ALL_TYPES");
-		return buyFilter;
-	}
-	
-	@ModelAttribute("sortedBuyList")
-	public List<BuyEntity> getBuyListByFilter(@ModelAttribute("buyFilter") SearchFilter buyFilter) {
-		return service.getItemsBySearchFilter(buyFilter);
+	public BuyController(@Qualifier("BuyService") ServiceBasic<BuyEntity> service) {
+		super(service);
 	}
 
-	@ModelAttribute("buyTypies")
-	public List<String> getBuyTypies() {
-		return service.getStringList();
+	@PostConstruct
+	public void init() {
+	   INDEX = "/buy/buy_index";
+	   LIST_GET = "/buy/buy_list";
+	   LIST_POST = "redirect:/buy/list";
+	   EDIT_GET = "/buy/buy_edit";
+	   ADD_GET = "/buy/buy_add";
+	   ADD_POST = "redirect:/buy/add";
+	   DELETE_GET = "redirect:/buy/edit";
+	   EDIT_ITEM_GET = "/buy/buy_edit_entity";
+	   EDIT_ITEM_POST = "redirect:/buy/edit/{id}";	
 	}
-	
-	
-}
+
+	@Override
+	public List<BuyEntity> getItemsFiltered(@ModelAttribute("filter") ItemsListFilter filter) {
+		if(filter.getStringMap().get("NAME") == null && filter.getStringMap().get("NUMBER") == null)
+			return service.getItemsByNameAndNumber("", "");
+		else return service.getItemsByNameAndNumber(filter.getStringMap().get("NAME"), filter.getStringMap().get("NUMBER")); 
+	}
+
+	@Override
+	public String showAddGet(Model model) {
+		model.addAttribute("item", new BuyEntity());
+		return ADD_GET;
+	}
+
+}	
+
+

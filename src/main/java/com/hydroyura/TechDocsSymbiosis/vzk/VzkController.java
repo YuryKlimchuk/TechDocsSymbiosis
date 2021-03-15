@@ -2,75 +2,53 @@ package com.hydroyura.TechDocsSymbiosis.vzk;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.hydroyura.TechDocsSymbiosis.abstractmodel.ServiceInterface;
+import com.hydroyura.TechDocsSymbiosis.basicclasses.ControllerBasic;
+import com.hydroyura.TechDocsSymbiosis.basicclasses.ItemsListFilter;
+import com.hydroyura.TechDocsSymbiosis.basicclasses.ServiceBasic;
 
 @Controller
 @RequestMapping("/vzk")
-@SessionAttributes("vzkFilter")
-public class VzkController {
-
+public class VzkController extends ControllerBasic<VzkEntity>{
 	
 	@Autowired
-	@Qualifier("VzkServiceImpl")
-	private ServiceInterface<VzkEntity> service;
-	
-	@GetMapping("/index")
-	public String showIndex() {
-		return "/vzk/vzk_index";
+	public VzkController(@Qualifier("VzkService")ServiceBasic<VzkEntity> service) {
+		super(service);
 	}
 	
-	@GetMapping("/list")
-	public String showListGet() {
-		return "/vzk/vzk_list";	
+	@PostConstruct
+	public void init() {
+	   INDEX = "/vzk/vzk_index";
+	   LIST_GET = "/vzk/vzk_list";
+	   LIST_POST = "redirect:/vzk/list";
+	   EDIT_GET = "/vzk/vzk_edit";
+	   ADD_GET = "/vzk/vzk_add";
+	   ADD_POST = "redirect:/vzk/add";
+	   DELETE_GET = "redirect:/vzk/edit";
+	   EDIT_ITEM_GET = "/vzk/vzk_edit_entity";
+	   EDIT_ITEM_POST = "redirect:/vzk/edit/{id}";	
 	}
-	
-	@PostMapping("/list")
-	public String showListPost() {
-		return "redirect:/vzk/list";	
+
+	@Override
+	public List<VzkEntity> getItemsFiltered(@ModelAttribute("filter") ItemsListFilter filter) {
+		if(filter.getStringMap().get("NAME") == null && filter.getStringMap().get("NUMBER") == null)
+			return service.getItemsByNameAndNumber("", "");
+		else return service.getItemsByNameAndNumber(filter.getStringMap().get("NAME"), filter.getStringMap().get("NUMBER")); 
 	}
-	
-	@GetMapping("/add")
+
+	@Override
 	public String showAddGet(Model model) {
-		model.addAttribute("entity", new VzkEntity());
-		return "/vzk/vzk_add";
+		model.addAttribute("item", new VzkEntity());
+		return ADD_GET;
 	}
 	
-	@PostMapping("/add")
-	public String showAddPost(@ModelAttribute("entity") VzkEntity entity, RedirectAttributes redirectAttributes) {
-		if(service.addItem(entity)) {
-			redirectAttributes.addFlashAttribute("msg", "Элемент добавлен успешно");
-		} else {
-			redirectAttributes.addFlashAttribute("msg", "Добавить элемент не получилось, проверьте вводимые данные");
-		}
-		return "redirect:/vzk/add";
-	}
-	
-	@ModelAttribute("vzkFilter")
-	public VzkFilter getFilter() {
-		VzkFilter vzkFilter = new VzkFilter();
-		vzkFilter.addStringElementInMap("VZK_TYPE", "ALL_TYPES");
-		return vzkFilter;
-	}
-	
-	@ModelAttribute("sortedVzkList")
-	public List<VzkEntity> getVzkListByFilter(@ModelAttribute("vzkFilter") VzkFilter vzkFilter) {
-		return service.getItemsBySearchFilter(vzkFilter);
-	}
-	
-	@ModelAttribute("vzkTypies")
-	public List<String> getVzkTypies() {
-		return service.getStringList();
-	}
 	
 }

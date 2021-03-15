@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Свои детали</title>
+		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<a href="index">НАЗАД</a>
+	    <h1>Список своих деталей</h1>
+	    <br>
+	    <div>
+	    	<form th:action="@{/opp/list}" th:object="${oppListFilter}" method="post">
+	    		<div>
+	    			<p>	    				
+	    				<input type="text" th:field="*{stringMap['name']}"/>
+	    				<span>Наименование</span>
+	    			</p>
+	    			<p>
+		    			<input type="text" th:field="*{stringMap['number']}"/>
+		    			<span>Обозначение</span>
+		    		</p>
+	    		</div>
+	    		<br>
+	    		<div>
+	    			<p>
+		    			<input type="checkbox" name="one" th:value="'note'" th:field="*{stringMap['note']}"/>
+		    			<span>Извещение</span>
+					</p>
+					<p>
+		    			<input type="checkbox" name="two" th:value="'task'" th:field="*{stringMap['task']}"/>
+		    			<span>Задание</span>
+					</p>
+					<p>	
+		    			<input type="checkbox" name="three" th:value="'design'" th:field="*{stringMap['design']}"/>
+		    			<span>Проектирование</span>
+		    		</p>
+	    		</div>
+	    		<br>
+	    		<input type="submit" value="Применить"/>
+	    	</form>
+	    </div>
+	    <br>
+	    <br>
+	    <br>
+	    <br>
+	    <div>
+	    	<table>
+	    		<thead>
+	    			<tr>
+	    				<td>Поз.</td>
+	    				<td>id</td>
+	    				<td>Обозначение</td>
+	    				<td>Наименование</td>
+	    				<td>Статус</td>
+	    				<td>Версия</td>
+	    				<td>Дата</td>
+	    			</tr>
+	    		</thead>
+	    		<tbody>
+	    			<tr th:if="${listOpp.empty}">
+		            	<td colspan="7">Нет элементов в списке</td>
+	        		</tr>
+	    			<tr th:each="opp, status : ${listOpp}">
+	    				<td th:text="${status.count}"></td>
+	    				<td th:text="${opp.id}"></td>
+	    				<td th:text="${opp.number}"></td>
+	    				<td th:text="${opp.name}"></td>
+	    				<td>
+	    					<span th:if="${opp.status == 'NOTE'}" th:text="'Извещение'"></span>
+	    					<span th:if="${opp.status == 'DESIGN'}" th:text="'Проектирование'"></span>
+	    					<span th:if="${opp.status == 'TASK'}" th:text="'Задание'"></span>
+	    				</td>
+	    				<td th:text="${opp.version}"></td>
+	    				<td th:text="${opp.update}"></td>
+	    			</tr>
+	    		</tbody>
+	    	</table>
+		</div>
+		<br>
+		<a href="index">НАЗАД</a>
+	</body>
+</html>

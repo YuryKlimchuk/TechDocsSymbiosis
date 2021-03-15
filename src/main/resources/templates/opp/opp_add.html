@@ -6,12 +6,12 @@
 		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-		<a href="index">НАЗАД</a>
+		<a href="../opp/">НАЗАД</a>
 	    <h1>Добавить новый элемент</h1>
 	    <br>
 	    <h2 th:text="${msg}"></h2>
 	    <div>
-	    	<form th:action="@{/opp/add}" th:object="${opp}" method="post">
+	    	<form th:action="@{/opp/add}" th:object="${item}" method="post">
 	    		<div>
 	    			<p>	    				
 	    				<input type="text" th:field="*{name}"/>
@@ -52,6 +52,6 @@
 	    </div>
 	    <br>
 	    <br>
-		<a href="index">НАЗАД</a>
+		<a href="../opp/">НАЗАД</a>
 	</body>
 </html>

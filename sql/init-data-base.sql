@@ -62,6 +62,7 @@ CREATE TABLE assembly_composition_opp (
 /*
 	Таблица для хранения деталей в сборках
 */
+ALTER TABLE assembly_composition_oring RENAME COLUMN oring_id TO id; 
 DROP TABLE IF EXISTS assembly_composition_oring;
 CREATE TABLE assembly_composition_oring (
 

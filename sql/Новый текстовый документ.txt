@@ -1,0 +1,3 @@
+select * from our_product_parts where number like '%RGR100-11%'
+
+select * from our_product_parts where status in ('TASK')

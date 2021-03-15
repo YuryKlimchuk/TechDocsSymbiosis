@@ -2,60 +2,50 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Покупные изделия</title>
-		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+		<title>Покупные детали</title>
+		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-		<a href="index">НАЗАД</a>
-	    <h1>Покупные изделия (изготовленные другим производителем)</h1>
+		<a href="../buy/">НАЗАД</a>
+	    <h1>ВЗК</h1>
 	    <br>
-	    
+  	    <form th:action="@{/buy/list}" th:object="${filter}" method="post">
+	    	<div>
+	    		<p>	    				
+	   				<input type="text" th:field="*{stringMap['NAME']}"/>
+	   				<span>Наименование</span>
+	    		</p>
+	    		<p>
+	    			<input type="text" th:field="*{stringMap['NUMBER']}"/>
+	    			<span>Обозначение</span>
+		    	</p>
+	    	</div>
+            <button class="button" type="submit">Обновить</button><br>
+	    </form>
 	    <div>
-	    	<form th:action="@{/buy/list}" th:object="${buyFilter}" method="post">
-	    		<div>
-	    			<p>Производитель</p>
-					<select th:field="*{stringMap['BUY_TYPE']}">
-						<option value="ALL_TYPES">Все</option>
-						<option th:each="type : ${buyTypies}" th:value="${type}" th:text="${type}"/>
-		            </select>	
-	    		</div>
-	    		<br>
-	    		<br>
-	    		<input type="submit" value="Применить"/>
-	    	</form>
-	    </div> 
-	    <br>
-	    <br>
-	    <br>
-	    <br>
-	    <div>
-	    	<table>
-	    		<thead>
-	    			<tr>
-	    				<td>Поз.</td>
-	    				<td>id</td>
-	    				<td>Наименование</td>
-	    				<td>Обозначение</td>
-	    				<td>Производитель</td>
-	    			</tr>
-	    		</thead>
-	    		<tbody>
-	    			<tr th:if="${sortedBuyList.empty}">
-		            	<td colspan="7">Нет элементов в списке</td>
-	        		</tr>
-	    			<tr th:each="buy, status : ${sortedBuyList}">
-	    				<td th:text="${status.count}"></td>
-	    				<td th:text="${buy.id}"></td>
-	    				<td th:text="${buy.name}"></td>
-	    				<td th:text="${buy.number}"></td>
-	    				<td th:text="${buy.manufacturer}"></td>
-
-	    			</tr>
-	    		</tbody>
+	    	<div>
+	    	<table id="list_of_items">
+	   			<tr>
+	   				<td>Поз.</td>
+	   				<td>id</td>
+	   				<td>Обозначение</td>
+	   				<td>Наименование</td>
+	   				<td>Проиводитель</td>
+	   			</tr>
+	   			<tr th:if="${items.empty}">
+	            	<td colspan="8">Нет элементов в списке</td>
+	       		</tr>
+	   			<tr th:each="item, status : ${items}">
+	   				<td th:text="${status.count}"></td>
+	   				<td th:text="${item.id}"></td>
+	   				<td><a href="#" th:text="${item.number}"></a></td>
+	   				<td th:text="${item.name}"></td>
+	   				<td th:text="${item.manufacturer}"></td>
+	   				
+	   			</tr>
 	    	</table>
 		</div>
 		<br>
-		
-		<a href="index">НАЗАД</a>
+		<a href="../vzk/">НАЗАД</a>
 	</body>
 </html>

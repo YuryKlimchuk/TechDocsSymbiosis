@@ -2,73 +2,55 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Уплотнительные кольца</title>
-		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+		<title>Orings</title>
+		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-		<a href="index">НАЗАД</a>
-	    <h1>Список уплотнительных колец - O-Rings</h1>
+		<a href="../../">НАЗАД</a>
+	    <h1>Уплотнительные кольца</h1>
 	    <br>
+  	    <form th:action="@{/oring/list}" th:object="${filter}" method="post">
+	    	<div>
+	    		<p>	    				
+	   				<input type="text" th:field="*{stringMap['NAME']}"/>
+	   				<span>Наименование</span>
+	    		</p>
+	    		<p>
+	    			<input type="text" th:field="*{stringMap['NUMBER']}"/>
+	    			<span>Обозначение</span>
+		    	</p>
+	    	</div>
+            <button class="button" type="submit">Обновить</button><br>
+	    </form>
 	    <div>
-	    	<form th:action="@{/oring/list}" th:object="${oringListFilter}" method="post">
-	    		<div>
-	    			<p>	    				
-	    				<input type="text" th:field="*{floatMap['min']}"/>
-	    				<span>Минимальный внутренний диаметр, мм</span>
-	    			</p>
-	    			<p>
-		    			<input type="text" th:field="*{floatMap['max']}"/>
-		    			<span>Максимальный внутренний диаметр, мм</span>
-		    		</p>
-	    		</div>
-	    		<div>
-	    		
-	    			<th:block th:each="defaultValues : *{booleanMap}">
-	    				<p>
-	    					<input type="checkbox" th:checked="${defaultValues.value}" th:value="${defaultValues.key}" th:field="*{floatList}"/>
-	    					<span th:text="${defaultValues.key}"></span>
-	    				</p>
-	    			</th:block>
-	    		
-	    			 
-	    			 <span>Диаметры</span>
-	    		</div>
-	    		<br>
-	    		<input type="submit" value="Применить"/>
-	    	</form>
-	    </div>
-	    <br>
-	    <br>
-	    <br>
-	    <br>
-	    <div>
-	    	<table>
-	    		<thead>
-	    			<tr>
-	    				<td>Поз.</td>
-	    				<td>id</td>
-	    				<td>Обозначение</td>
-	    				<td>Наименование</td>
-						<td>Сечение, мм</td>
-						<td>Внутренний диаметр, мм</td>
-	    			</tr>
-	    		</thead>
-	    			<tr th:if="${listOring.empty}">
-		            	<td colspan="7">Нет элементов в списке</td>
-	        		</tr>
-	    			<tr th:each="oring, status : ${listOring}">
-	    				<td th:text="${status.count}"></td>
-	    				<td th:text="${oring.id}"></td>
-	    				<td th:text="${oring.number}"></td>
-	    				<td th:text="${oring.name}"></td>
-	    				<td th:text="${oring.crossSection}"></td>
-	    				<td th:text="${oring.innerDiameter}"></td>
-	    			</tr>
-	    		<tbody>
-	    		</tbody>
+	    	<div>
+	    	<table id="list_of_items">
+	   			<tr>
+	   				<td>Поз.</td>
+	   				<td>id</td>
+	   				<td>Обозначение</td>
+	   				<td>Наименование</td>
+	   				<td>Внутренний диаметр, мм</td>
+	   				<td>Сечение, мм</td>
+	   				<td>Удалить</td>
+	    			<td>Редактировать</td>
+	   			</tr>
+	   			<tr th:if="${items.empty}">
+	            	<td colspan="8">Нет элементов в списке</td>
+	       		</tr>
+	   			<tr th:each="item, status : ${items}">
+	   				<td th:text="${status.count}"></td>
+	   				<td th:text="${item.id}"></td>
+	   				<td><a th:href="@{/data/oring/{id}(id=${item.getId()})}" th:text="${item.number}"></a></td>
+	   				<td th:text="${item.name}"></td>
+	   				<td th:text="${item.innerDiameter}"></td>
+	   				<td th:text="${item.crossSection}"></td>
+	   				<td><a th:href="@{/oring/delete/{id}(id=${item.getId()})}">Удалить</a></td>
+	    			<td><a th:href="@{/oring/edit/{id}(id=${item.getId()})}">Редактировать</a></td>
+	   			</tr>
 	    	</table>
 		</div>
 		<br>
-		<a href="index">НАЗАД</a>
+		<a href="../../">НАЗАД</a>
 	</body>
 </html>

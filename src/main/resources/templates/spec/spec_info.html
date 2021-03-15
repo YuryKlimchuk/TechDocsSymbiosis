@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Спецификация</title>
+		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<a href="../asm/">НАЗАД</a>
+	    <h1>Спецификация</h1>
+	    <br>
+	    	<table id="list_of_items">
+	   			<tr>
+	   				<td>Обозначение</td>
+	   				<td th:text="${spec.asm.number}"/>
+	   			</tr>
+	   			<tr>
+	   				<td>Наименование</td>
+	   				<td th:text="${spec.asm.name}"/>
+	   			</tr>
+	    	</table>
+		<br>
+		<br>
+			<th:block th:unless="${spec.oppsMap.empty}">
+				<table id="spec">
+					<thead>
+						<tr>
+							<td colspan="2"><b>Детали</b></td>
+						</tr>
+						<tr>
+							<td><b>Обозначение</b></td>
+							<td><b>Кол.</b></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="item : ${spec.oppsMap}">
+							<td th:text="${item['key']}"/>
+							<td th:text="${item['value']}"/>
+						</tr>
+					</tbody>
+				</table>
+			</th:block>
+			<th:block th:unless="${spec.oringsMap.empty}">
+				<table id="spec">
+					<thead>
+						<tr>
+							<td colspan="2"><b>Кольца</b></td>
+						</tr>
+						<tr>
+							<td><b>Обозначение</b></td>
+							<td><b>Кол.</b></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="item : ${spec.oringsMap}">
+							<td th:text="${item['key']}"/>
+							<td th:text="${item['value']}"/>
+						</tr>
+					</tbody>
+				</table>
+			</th:block>
+		<a href="../asm/">НАЗАД</a>
+	</body>
+</html>

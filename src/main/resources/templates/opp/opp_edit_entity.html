@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Свои детали</title>
-		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
 	</head>
 	<body>
 		<a href="../edit">НАЗАД</a>
@@ -11,7 +11,7 @@
 	    <br>
 	    <h2 th:text="${msg}"></h2>
 	    <div>
-	    	<form th:action="@{/opp/edit/{id}(id=${editableOpp.getId()})}" th:object="${editableOpp}" method="post">
+	    	<form th:action="@{/opp/edit/{id}(id=${editableItem.getId()})}" th:object="${editableItem}" method="post">
 	    		<div>
 	    			<p>	    				
 	    				<input type="text" th:field="*{name}"/>

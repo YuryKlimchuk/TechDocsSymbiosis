@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Сборочные единицы</title>
+		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<a href="../asm/">НАЗАД</a>
+	    <h1>Список своих деталей</h1>
+	    <h2>Редактирование таблицы</h2>
+	    <br>
+	    <h2 th:text="${msg}"></h2>
+	    <br>
+	    <div>
+	    	<table id="list_of_items">
+	   			<tr>
+	   				<td>Поз.</td>
+	   				<td>id</td>
+	   				<td>Обозначение</td>
+	   				<td>Наименование</td>
+	   				<td>Статус</td>
+	   				<td>Версия</td>
+	   				<td>Дата</td>
+	   				<td>Удалить</td>
+	    			<td>Редактировать</td>
+	   			</tr>
+	   			<tr th:if="${items.empty}">
+	            	<td colspan="7">Нет элементов в списке</td>
+	       		</tr>
+	   			<tr th:each="item, status : ${items}">
+	   				<td th:text="${status.count}"></td>
+	   				<td th:text="${item.id}"></td>
+	   				<td><a href="#" th:text="${item.number}"></a></td>
+	   				<td th:text="${item.name}"></td>
+	   				<td>
+	   					<span th:if="${item.status == 'NOTE'}" th:text="'Извещение'"></span>
+	   					<span th:if="${item.status == 'DESIGN'}" th:text="'Проектирование'"></span>
+	   					<span th:if="${item.status == 'TASK'}" th:text="'Задание'"></span>
+	   				</td>
+	   				<td th:text="${item.version}"></td>
+	   				<td th:text="${item.update}"></td>
+	   				<td><a th:href="@{/opp/delete/{id}(id=${item.getId()})}">Удалить</a></td>
+	    			<td><a th:href="@{/opp/edit/{id}(id=${item.getId()})}">Редактировать</a></td>
+	   			</tr>
+	    	</table>
+		</div>
+		<br>
+		<a href="../asm/">НАЗАД</a>
+	</body>
+</html>

@@ -2,16 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Взаимозаменяемые комплектующие</title>
+		<title>Взаимозаменяемые изделия</title>
 		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-		<a href="index">НАЗАД</a>
+		<a href="../vzk/">НАЗАД</a>
 	    <h1>Добавить новый элемент</h1>
 	    <br>
 	    <h2 th:text="${msg}"></h2>
 	    <div>
-	    	<form th:action="@{/vzk/add}" th:object="${entity}" method="post">
+	    	<form th:action="@{/vzk/add}" th:object="${item}" method="post">
 	    		<div>
 	    			<p>	    				
 	    				<input type="text" th:field="*{name}"/>
@@ -28,6 +28,6 @@
 	    </div>
 	    <br>
 	    <br>
-		<a href="index">НАЗАД</a>
+		<a href="../vzk/">НАЗАД</a>
 	</body>
 </html>

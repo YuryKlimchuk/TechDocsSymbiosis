@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Стандартные изделия</title>
+		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<a href="../edit">НАЗАД</a>
+	    <h1>Добавить новый элемент</h1>
+	    <br>
+	    <h2 th:text="${msg}"></h2>
+	    <div>
+	    	<form th:action="@{/opp/edit/{id}(id=${editableItem.getId()})}" th:object="${editableItem}" method="post">
+	    		<div>
+	    			<p>	    				
+	    				<input type="text" th:field="*{name}"/>
+	    				<span>Наименование</span>
+	    			</p>
+	    			<p>
+		    			<input type="text" th:field="*{number}"/>
+		    			<span>Обозначение</span>
+		    		</p>
+		    		<p>
+		    			<input type="text" th:field="*{standart}"/>
+		    			<span>Стандарт</span>
+		    		</p>
+	    		</div>
+	    		<br>
+	    		<input type="submit" value="Применить"/>
+	    	</form>
+	    </div>
+	    <br>
+	    <br>
+		<a href="../edit">НАЗАД</a>
+	</body>
+</html>

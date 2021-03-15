@@ -3,74 +3,55 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Сборочные единицы</title>
-		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-		<a href="index">НАЗАД</a>
-	    <h1>Сборки</h1>
+		<a href="../asm/">НАЗАД</a>
+	    <h1>Сборочные единицы</h1>
 	    <br>
-<!--  	    <div>
-	    	<form th:action="@{/oring/list}" th:object="${oringListFilter}" method="post">
-	    		<div>
-	    			<p>	    				
-	    				<input type="text" th:field="*{floatMap['min']}"/>
-	    				<span>Минимальный внутренний диаметр, мм</span>
-	    			</p>
-	    			<p>
-		    			<input type="text" th:field="*{floatMap['max']}"/>
-		    			<span>Максимальный внутренний диаметр, мм</span>
-		    		</p>
-	    		</div>
-	    		<div>
-	    		
-	    			<th:block th:each="defaultValues : *{booleanMap}">
-	    				<p>
-	    					<input type="checkbox" th:checked="${defaultValues.value}" th:value="${defaultValues.key}" th:field="*{floatList}"/>
-	    					<span th:text="${defaultValues.key}"></span>
-	    				</p>
-	    			</th:block>
-	    		
-	    			 
-	    			 <span>Диаметры</span>
-	    		</div>
-	    		<br>
-	    		<input type="submit" value="Применить"/>
-	    	</form>
-	    </div>
-	    <br>
-	    <br>
-	    <br>-->
-	    <br>
+  	    <form th:action="@{/opp/list}" th:object="${filter}" method="post">
+	    	<div>
+	    		<p>	    				
+	   				<input type="text" th:field="*{stringMap['NAME']}"/>
+	   				<span>Наименование</span>
+	    		</p>
+	    		<p>
+	    			<input type="text" th:field="*{stringMap['NUMBER']}"/>
+	    			<span>Обозначение</span>
+		    	</p>
+	    	</div>
+            <button class="button" type="submit">Обновить</button><br>
+	    </form>
 	    <div>
-	    	<table>
-	    		<thead>
-	    			<tr>
-	    				<td>Поз.</td>
-	    				<td>id</td>
-	    				<td>Обозначение</td>
-	    				<td>Наименование</td>
-	    				<td>Статус</td>
-	    				<td>Версия</td>
-	    				<td>Обновлен</td>
-	    			</tr>
-	    		</thead>
-	    			<tr th:if="${listAsm.empty}">
-		            	<td colspan="7">Нет элементов в списке</td>
-	        		</tr>
-	    			<tr th:each="asm, status : ${listAsm}">
-	    				<td th:text="${status.count}"></td>
-	    				<td th:text="${asm.id}"></td>
-	    				<td><a th:href="@{/partofasm/index/{id}(id=${asm.getId()})}" th:text="${asm.number}"></a></td>
-	    				<td th:text="${asm.name}"></td>
-	    				<td th:text="${asm.status}"></td>
-	    				<td th:text="${asm.version}"></td>
-	    				<td th:text="${asm.update}"></td>
-	    			</tr>
-	    		<tbody>
-	    		</tbody>
+	    	<table id="list_of_items">
+	   			<tr>
+	   				<td>Поз.</td>
+	   				<td>id</td>
+	   				<td>Обозначение</td>
+	   				<td>Наименование</td>
+	   				<td>Статус</td>
+	   				<td>Версия</td>
+	   				<td>Дата</td>
+	   			</tr>
+	   			<tr th:if="${itemsFiltered.empty}">
+	            	<td colspan="7">Нет элементов в списке</td>
+	       		</tr>
+	   			<tr th:each="item, status : ${itemsFiltered}">
+	   				<td th:text="${status.count}"></td>
+	   				<td th:text="${item.id}"></td>
+	   				<td><a th:href="@{/spec/{id}(id=${item.getId()})}" th:text="${item.number}"></a></td>
+	   				<td th:text="${item.name}"></td>
+	   				<td>
+	   					<span th:if="${item.status == 'NOTE'}" th:text="'Извещение'"></span>
+	   					<span th:if="${item.status == 'DESIGN'}" th:text="'Проектирование'"></span>
+	   					<span th:if="${item.status == 'TASK'}" th:text="'Задание'"></span>
+	   				</td>
+	   				<td th:text="${item.version}"></td>
+	   				<td th:text="${item.update}"></td>
+	   			</tr>
 	    	</table>
-		</div> 
+		</div>
 		<br>
-		<a href="index">НАЗАД</a>
+		<a href="../asm/">НАЗАД</a>
 	</body>
 </html>

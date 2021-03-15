@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Сборочные единицы</title>
+		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<a href="../edit">НАЗАД</a>
+	    <h1>Добавить новый элемент</h1>
+	    <br>
+	    <h2 th:text="${msg}"></h2>
+	    <div>
+	    	<form th:action="@{/asm/edit/{id}(id=${editableItem.getId()})}" th:object="${editableItem}" method="post">
+	    		<div>
+	    			<p>	    				
+	    				<input type="text" th:field="*{name}"/>
+	    				<span>Наименование</span>
+	    			</p>
+	    			<p>
+		    			<input type="text" th:field="*{number}"/>
+		    			<span>Обозначение</span>
+		    		</p>
+	    		</div>
+	    		<div>
+	    			<p>
+						<input type="radio" value="DESIGN" th:field="*{status}">
+						<span>Проектирование</span>
+					</p>
+					<p>
+						<input type="radio" value="TASK" th:field="*{status}">
+						<span>Задание</span>
+					</p>
+					<p>
+						<input type="radio" value="NOTE" th:field="*{status}">
+						<span>Извещение</span>
+					</p>
+	    		</div>
+	    		<div>
+	    			<p>	    				
+	    				<input type="text" th:field="*{version}"/>
+	    				<span>Версия</span>
+	    			</p>
+	    			<p>
+		    			<input type="text" th:field="*{update}"/>
+		    			<span>Дата обновления</span>
+		    		</p>
+	    		</div>
+	    		<br>
+	    		<input type="submit" value="Применить"/>
+	    	</form>
+	    </div>
+	    <br>
+	    <br>
+		<a href="../edit">НАЗАД</a>
+	</body>
+</html>

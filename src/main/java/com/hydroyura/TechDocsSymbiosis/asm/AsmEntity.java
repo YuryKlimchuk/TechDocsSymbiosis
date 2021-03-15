@@ -2,22 +2,15 @@ package com.hydroyura.TechDocsSymbiosis.asm;
 
 public class AsmEntity {
 	
-	@Override
-	public String toString() {
-		return "AsmEntity [id=" + id + ", number=" + number + ", name=" + name + ", status=" + status + ", version="
-				+ version + ", update=" + update + "]";
-	}
-
 	private int id;
 	private String number;
 	private String name;
 	private String status;
 	private String version;
 	private String update;
-
-
+	
 	public AsmEntity() {}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -50,6 +43,12 @@ public class AsmEntity {
 		this.number = number;
 	}
 
+	@Override
+	public String toString() {
+		return "ASMEntity [id=" + id + ", number=" + number + ", name=" + name + ", status=" + status + ", version="
+				+ version + ", update=" + update + "]";
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -65,5 +64,4 @@ public class AsmEntity {
 	public void setUpdate(String update) {
 		this.update = update;
 	}
-	
 }
