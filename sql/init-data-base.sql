@@ -52,10 +52,10 @@ DROP TABLE IF EXISTS assembly_composition_opp;
 CREATE TABLE assembly_composition_opp (
 
 	asm_id_full integer NOT NULL,
-	opp_id integer NOT NULL,
+	id integer NOT NULL,
 	counts integer,
 	change integer,
-	FOREIGN KEY (opp_id) REFERENCES our_product_parts (id),
+	FOREIGN KEY (id) REFERENCES our_product_parts (id),
 	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
 	
 );
@@ -67,10 +67,10 @@ DROP TABLE IF EXISTS assembly_composition_oring;
 CREATE TABLE assembly_composition_oring (
 
 	asm_id_full integer NOT NULL,
-	oring_id integer NOT NULL,
+	id integer NOT NULL,
 	counts integer,
 	change integer,
-	FOREIGN KEY (oring_id) REFERENCES orings (id),
+	FOREIGN KEY (id) REFERENCES orings (id),
 	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
 	
 );
@@ -177,10 +177,10 @@ DROP TABLE IF EXISTS assembly_composition_opp;
 CREATE TABLE assembly_composition_opp (
 
 	asm_id_full integer NOT NULL,
-	opp_id integer NOT NULL,
+	id integer NOT NULL,
 	counts integer,
 	change integer,
-	FOREIGN KEY (opp_id) REFERENCES our_product_parts (id),
+	FOREIGN KEY (id) REFERENCES our_product_parts (id),
 	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
 	
 );
@@ -193,10 +193,10 @@ DROP TABLE IF EXISTS assembly_composition_oring;
 CREATE TABLE assembly_composition_oring (
 
 	asm_id_full integer NOT NULL,
-	oring_id integer NOT NULL,
+	id integer NOT NULL,
 	counts integer,
 	change integer,
-	FOREIGN KEY (oring_id) REFERENCES orings (id),
+	FOREIGN KEY (id) REFERENCES orings (id),
 	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
 	
 );
@@ -210,10 +210,10 @@ DROP TABLE IF EXISTS assembly_composition_buy;
 CREATE TABLE assembly_composition_buy (
 
 	asm_id_full integer NOT NULL,
-	buy_id integer NOT NULL,
+	id integer NOT NULL,
 	counts integer,
 	change integer,
-	FOREIGN KEY (buy_id) REFERENCES buy (id),
+	FOREIGN KEY (id) REFERENCES buy (id),
 	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
 	
 );
@@ -227,10 +227,10 @@ DROP TABLE IF EXISTS assembly_composition_asm;
 CREATE TABLE assembly_composition_asm (
 
 	asm_id_full integer NOT NULL,
-	asm_id integer NOT NULL,
+	id integer NOT NULL,
 	counts integer,
 	change integer,
-	FOREIGN KEY (asm_id) REFERENCES assemblies (id),
+	FOREIGN KEY (id) REFERENCES assemblies (id),
 	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
 	
 );
@@ -244,10 +244,10 @@ DROP TABLE IF EXISTS assembly_composition_stp;
 CREATE TABLE assembly_composition_stp (
 
 	asm_id_full integer NOT NULL,
-	stp_id integer NOT NULL,
+	id integer NOT NULL,
 	counts integer,
 	change integer,
-	FOREIGN KEY (stp_id) REFERENCES standart_parts (id),
+	FOREIGN KEY (id) REFERENCES standart_parts (id),
 	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
 	
 );
@@ -257,10 +257,10 @@ DROP TABLE IF EXISTS assembly_composition_vzk;
 CREATE TABLE assembly_composition_vzk (
 
 	asm_id_full integer NOT NULL,
-	vzk_id integer NOT NULL,
+	id integer NOT NULL,
 	counts integer,
 	change integer,
-	FOREIGN KEY (vzk_id) REFERENCES vzk (id),
+	FOREIGN KEY (id) REFERENCES vzk (id),
 	FOREIGN KEY (asm_id_full) REFERENCES assemblies (id)
 	
 );
@@ -370,6 +370,9 @@ INSERT INTO buy (
 -- Занесение данных в таблицу
 VALUES
 
+	('D4 1363', 'Клапан предохранительный', 'HydroControl'),
+	('D4 918000401', 'Клапан контроля', 'HydroControl'),
+	
 	('Тросс-VB', 'Тросс', 'Технопривод'),
 	('IP-DAR-250-AJ-12-32-AH', 'Клапан электромагнитный', 'Tecnord'),
 	('IP-DAR-250-AJ-24-32-AH', 'Клапан электромагнитный', 'Tecnord'),
@@ -390,6 +393,20 @@ INSERT INTO our_product_parts (
 
 -- Занесение данных в таблицу
 VALUES
+
+	('RGE100-80001', 'Корпус секции', 'DESIGN', '', ''),
+	('RGE100-80001-01', 'Корпус секции', 'DESIGN', '', ''),
+	('RGE100-80001-02', 'Корпус секции', 'DESIGN', '', ''),
+	('RGE100-80001-03', 'Корпус секции', 'DESIGN', '', ''),
+	('RGE100-80001-04', 'Корпус секции', 'DESIGN', '', ''),
+	('RGE100-80001-05', 'Корпус секции', 'DESIGN', '', '');
+
+
+	('RGR100-25001-09', 'Крышка нагнетательная', 'DESIGN', '', ''),
+	
+	('RGR100-25002', 'Заглушка', 'DESIGN', '', ''),
+	('RGR100-25003', 'Переходник', 'DESIGN', '', '');
+	
 
 	('RGR100-10001',    'Стакан', 'NOTE', 'RG51-17', '04.04.2017'),
 	('RGR100-10003',    'Толкатель', 'NOTE', 'RG81-19', '12.02.2019'),
@@ -529,6 +546,9 @@ INSERT INTO standart_parts (
 -- Занесение данных в таблицу
 VALUES
 
+	('16x19-II', 'Прокладка', 'ГОСТ19752-84'),
+	('22 M1', 'Прокладка', 'ГОСТ23358-87');
+
 	('M5x12', 'Винт', 'ISO4762'),
 	('M5x14', 'Винт', 'ISO4762'),
 	('M5x25', 'Винт', 'ISO4762'),
@@ -566,8 +586,10 @@ VALUES
 	('KEM.24.00', 'Клапан электромагнитный'),
 	('KEM.24.10', 'Клапан электромагнитный'),
 	('KKD.100.10.000', 'Клапан комбинированный'),
+	('KKD.100.30.050', 'Клапан комбинированный'),
 	('KKD.100.30.100', 'Клапан комбинированный'),
 	('KKD.100.30.150', 'Клапан комбинированный'),
+	('KKD.100.30.170', 'Клапан комбинированный'),
 	('KKD.100.30.180', 'Клапан комбинированный'),
 	('KKD.100.30.220', 'Клапан комбинированный'),
 	('KKD.100.30.280', 'Клапан комбинированный'),

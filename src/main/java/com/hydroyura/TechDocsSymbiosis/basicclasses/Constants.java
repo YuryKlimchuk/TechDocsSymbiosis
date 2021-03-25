@@ -26,6 +26,8 @@ public class Constants {
 	public static final String TABLE_NAME_STP 							= "standart_parts";
 	public static final String TABLE_NAME_VZK 							= "vzk";
 	public static final String TABLE_NAME_BUY  							= "buy";
+	
+	public static final String TABLE_NAME_PRODUCT  						="products";
 	//-------------------------------------------------------------------------------------
 	
 	// Название столбцов таблицы vzk
@@ -144,8 +146,13 @@ public class Constants {
 	public static final String ROW_MAPPER_STP						 	= "stp";
 	public static final String ROW_MAPPER_VZK						 	= "vzk";
 	
-	
-	
+	// Название столбцов таблицы product
+	public static final String TABLE_COLOMN_PRODUCT_ID 					= "id";
+	public static final String TABLE_COLOMN_PRODUCT_NUMBER 				= "number";
+	public static final String TABLE_COLOMN_PRODUCT_NAME 				= "name";
+	public static final String TABLE_COLOMN_PRODUCT_DESCRIPTION			= "description";
+	//-------------------------------------------------------------------------------------	
+
 	
 	
 	public static boolean isThere(ResultSet rs, String column){

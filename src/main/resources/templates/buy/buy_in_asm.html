@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Вхождение элемента в сборку</title>
+		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+	    <h1>Редактирование вхождение элемента в сборку</h1>
+	    <h2 th:text="${'Id детали = ' + id}"></h2>
+	    <h2 th:text="${'Id сборки = ' + asmid}"></h2> 
+	    <br>
+	    <form th:object="${dataAsm}" method="POST">
+	    	<input type="hidden" th:field="*{asmId}" th:value="*{asmId}">
+	    	<!-- <input type="hidden" th:field="*{change}" th:value="*{change}">  -->
+	    	<p>
+	   			<select th:field="*{count}">
+		    		<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}" th:selected="${i} eq ${dataAsm.count}"/>
+		    	</select>
+		    	<span>Количество</span>
+	    	</p>
+	    	<p>
+		    	<select th:field=*{id}>
+		    		<option th:each="item : ${items}" th:text="${item.number}" th:value="${item.id}" th:selected="${item.id} eq *{id}"/>
+		    	</select>
+		    	<!-- <input type="hidden" th:field="*{number}" th:value=""> -->
+		    	<span>Обозначение</span>
+	    	</p>
+	    	<button type="submit" name="" value="1">Сохранить</button>
+	    </form>
+	</body>
+</html>
+
+
+
+
+
+
+

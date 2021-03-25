@@ -3,6 +3,16 @@ package com.hydroyura.TechDocsSymbiosis.data;
 public class DataAsm {
 
 	private int id, asmId, count, change;
+	
+	private String number;
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
 
 	public int getId() {
 		return id;
@@ -10,6 +20,14 @@ public class DataAsm {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "DataAsm [id=" + id + ", asmId=" + asmId + ", count=" + count + ", change=" + change + ", number="
+				+ number + "]";
 	}
 
 	public int getAsmId() {

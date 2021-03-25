@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Спецификация Развернутая</title>
+		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<h1>Spec detailed</h1>
+		<span th:text="${id}"></span>
+		<table>
+			<tr>
+				<td>Обозначение</td>
+				<td>Кол.</td>
+			</tr>
+			<tr	th:each="item : ${map}">
+				<td th:text="${item['key']}"/>
+				<td th:text="${item['value']}"/>
+			</tr>
+		</table>
+	</body>
+</html>

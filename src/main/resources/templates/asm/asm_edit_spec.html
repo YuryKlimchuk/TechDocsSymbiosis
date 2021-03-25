@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Сборочные единицы</title>
+		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
+	</head>
+	<body>
+	    <h1>Редактирование состава сборки</h1>
+	    <h2 th:text="${asm.number + ' ' + asm.name}"></h2>
+	    <br>
+		<br>
+		<!-- OPP -->
+		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${oppDataAsm}">
+			<table id="spec">
+				<tr>
+					<td colspan="4">
+						<b>Детали</b>
+					</td>
+				</tr>
+				<tr>
+					<td>Наименование</td>
+					<td>Кол.</td>
+					<td>Удалить</td>
+					<td>Редактировать</td>
+				</tr>
+				<th:block th:unless="${asmSpec.opps.empty}">
+					<tr th:each="item : ${asmSpec.opps}">
+						<td th:text="${item.number}"/>
+						<td th:text="${item.count}"/>
+						<td>
+							<!-- <input type="hidden" th:field="*{asmId}" th:value="${asm.id}"> -->
+							<button type="submit" name="delete_opp" th:value="${item.id}">Удалить</button>
+						</td>
+						<td>
+							<button type="submit" name="edit_opp" th:value="${item.id}">Редактировать</button>
+						</td>
+					</tr>
+				</th:block>
+				<th:block th:if="${oppAddRowFlag}">
+					<tr>
+						<td>
+							<select th:field="*{id}">
+								<option th:each="item : ${oppList}" th:text="${item.number}" th:value="${item.id}">
+							</select>
+						</td>
+						<td>
+							<select th:field="*{count}">
+		    					<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}"/>
+		    				</select>
+						</td>	
+						<td colspan="2">
+							-
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<button type="submit" name="save_row_opp" value="1">Сохранить</button>
+						</td>
+					</tr>
+				</th:block>
+				<th:block th:unless="${oppAddRowFlag}">
+					<tr>
+						<td colspan="4">
+							<button type="submit" name="add_row_opp" value="1">Добавить строку</button>
+						</td>
+					</tr>
+				</th:block>
+			</table>
+		</form>
+		<!-- ORINGS -->
+		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${oppDataAsm}">
+			<table id="spec">
+				<tr>
+					<td colspan="4">
+						<b>Кольцо резиновые (O-Ring)</b>
+					</td>
+				</tr>
+				<tr>
+					<td>Наименование</td>
+					<td>Кол.</td>
+					<td>Удалить</td>
+					<td>Редактировать</td>
+				</tr>
+				<th:block th:unless="${asmSpec.orings.empty}">
+					<tr th:each="item : ${asmSpec.orings}">
+						<td th:text="${item.number}"/>
+						<td th:text="${item.count}"/>
+						<td>
+							<!-- <input type="hidden" th:field="*{asmId}" th:value="${asm.id}"> -->
+							<button type="submit" name="delete_oring" th:value="${item.id}">Удалить</button>
+						</td>
+						<td>
+							<button type="submit" name="edit_oring" th:value="${item.id}">Редактировать</button>
+						</td>
+					</tr>
+				</th:block>
+				<th:block th:if="${oringAddRowFlag}">
+					<tr>
+						<td>
+							<select th:field="*{id}">
+								<option th:each="item : ${oringList}" th:text="${item.number}" th:value="${item.id}">
+							</select>
+						</td>
+						<td>
+							<select th:field="*{count}">
+		    					<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}"/>
+		    				</select>
+						</td>	
+						<td colspan="2">
+							-
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<button type="submit" name="save_row_oring" value="1">Сохранить</button>
+						</td>
+					</tr>
+				</th:block>
+				<th:block th:unless="${oringAddRowFlag}">
+					<tr>
+						<td colspan="4">
+							<button type="submit" name="add_row_oring" value="1">Добавить строку</button>
+						</td>
+					</tr>
+				</th:block>
+			</table>
+		</form>
+		<!-- ORINGS -->
+		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${vzkDataAsm}">
+			<table id="spec">
+				<tr>
+					<td colspan="4">
+						<b>ВЗК</b>
+					</td>
+				</tr>
+				<tr>
+					<td>Наименование</td>
+					<td>Кол.</td>
+					<td>Удалить</td>
+					<td>Редактировать</td>
+				</tr>
+				<th:block th:unless="${asmSpec.vzks.empty}">
+					<tr th:each="item : ${asmSpec.vzks}">
+						<td th:text="${item.number}"/>
+						<td th:text="${item.count}"/>
+						<td>
+							<!-- <input type="hidden" th:field="*{asmId}" th:value="${asm.id}"> -->
+							<button type="submit" name="delete_vzk" th:value="${item.id}">Удалить</button>
+						</td>
+						<td>
+							<button type="submit" name="edit_vzk" th:value="${item.id}">Редактировать</button>
+						</td>
+					</tr>
+				</th:block>
+				<th:block th:if="${vzkAddRowFlag}">
+					<tr>
+						<td>
+							<select th:field="*{id}">
+								<option th:each="item : ${vzkList}" th:text="${item.number}" th:value="${item.id}">
+							</select>
+						</td>
+						<td>
+							<select th:field="*{count}">
+		    					<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}"/>
+		    				</select>
+						</td>	
+						<td colspan="2">
+							-
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<button type="submit" name="save_row_vzk" value="1">Сохранить</button>
+						</td>
+					</tr>
+				</th:block>
+				<th:block th:unless="${vzkAddRowFlag}">
+					<tr>
+						<td colspan="4">
+							<button type="submit" name="add_row_vzk" value="1">Добавить строку</button>
+						</td>
+					</tr>
+				</th:block>
+			</table>
+		</form>
+		<!-- STP -->
+		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${stpDataAsm}">
+			<table id="spec">
+				<tr>
+					<td colspan="4">
+						<b>Стандартные изделия</b>
+					</td>
+				</tr>
+				<tr>
+					<td>Наименование</td>
+					<td>Кол.</td>
+					<td>Удалить</td>
+					<td>Редактировать</td>
+				</tr>
+				<th:block th:unless="${asmSpec.stps.empty}">
+					<tr th:each="item : ${asmSpec.stps}">
+						<td th:text="${item.number}"/>
+						<td th:text="${item.count}"/>
+						<td>
+							<!-- <input type="hidden" th:field="*{asmId}" th:value="${asm.id}"> -->
+							<button type="submit" name="delete_stp" th:value="${item.id}">Удалить</button>
+						</td>
+						<td>
+							<button type="submit" name="edit_stp" th:value="${item.id}">Редактировать</button>
+						</td>
+					</tr>
+				</th:block>
+				<th:block th:if="${stpAddRowFlag}">
+					<tr>
+						<td>
+							<select th:field="*{id}">
+								<option th:each="item : ${stpList}" th:text="${item.number}" th:value="${item.id}">
+							</select>
+						</td>
+						<td>
+							<select th:field="*{count}">
+		    					<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}"/>
+		    				</select>
+						</td>	
+						<td colspan="2">
+							-
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<button type="submit" name="save_row_stp" value="1">Сохранить</button>
+						</td>
+					</tr>
+				</th:block>
+				<th:block th:unless="${stpAddRowFlag}">
+					<tr>
+						<td colspan="4">
+							<button type="submit" name="add_row_stp" value="1">Добавить строку</button>
+						</td>
+					</tr>
+				</th:block>
+			</table>
+		</form>
+		<!-- BUY -->
+		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${buyDataAsm}">
+			<table id="spec">
+				<tr>
+					<td colspan="4">
+						<b>Покупные изделия</b>
+					</td>
+				</tr>
+				<tr>
+					<td>Наименование</td>
+					<td>Кол.</td>
+					<td>Удалить</td>
+					<td>Редактировать</td>
+				</tr>
+				<th:block th:unless="${asmSpec.buys.empty}">
+					<tr th:each="item : ${asmSpec.buys}">
+						<td th:text="${item.number}"/>
+						<td th:text="${item.count}"/>
+						<td>
+							<!-- <input type="hidden" th:field="*{asmId}" th:value="${asm.id}"> -->
+							<button type="submit" name="delete_buy" th:value="${item.id}">Удалить</button>
+						</td>
+						<td>
+							<button type="submit" name="edit_buy" th:value="${item.id}">Редактировать</button>
+						</td>
+					</tr>
+				</th:block>
+				<th:block th:if="${buyAddRowFlag}">
+					<tr>
+						<td>
+							<select th:field="*{id}">
+								<option th:each="item : ${buyList}" th:text="${item.number}" th:value="${item.id}">
+							</select>
+						</td>
+						<td>
+							<select th:field="*{count}">
+		    					<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}"/>
+		    				</select>
+						</td>	
+						<td colspan="2">
+							-
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<button type="submit" name="save_row_buy" value="1">Сохранить</button>
+						</td>
+					</tr>
+				</th:block>
+				<th:block th:unless="${buyAddRowFlag}">
+					<tr>
+						<td colspan="4">
+							<button type="submit" name="add_row_buy" value="1">Добавить строку</button>
+						</td>
+					</tr>
+				</th:block>
+			</table>
+		</form>
+		<!-- ASM< -->
+		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${asmDataAsm}">
+			<table id="spec">
+				<tr>
+					<td colspan="4">
+						<b>Сборочные единицы</b>
+					</td>
+				</tr>
+				<tr>
+					<td>Наименование</td>
+					<td>Кол.</td>
+					<td>Удалить</td>
+					<td>Редактировать</td>
+				</tr>
+				<th:block th:unless="${asmSpec.asms.empty}">
+					<tr th:each="item : ${asmSpec.asms}">
+						<td th:text="${item.number}"/>
+						<td th:text="${item.count}"/>
+						<td>
+							<!-- <input type="hidden" th:field="*{asmId}" th:value="${asm.id}"> -->
+							<button type="submit" name="delete_asm" th:value="${item.id}">Удалить</button>
+						</td>
+						<td>
+							<button type="submit" name="edit_asm" th:value="${item.id}">Редактировать</button>
+						</td>
+					</tr>
+				</th:block>
+				<th:block th:if="${asmAddRowFlag}">
+					<tr>
+						<td>
+							<select th:field="*{id}">
+								<option th:each="item : ${asmList}" th:text="${item.number}" th:value="${item.id}">
+							</select>
+						</td>
+						<td>
+							<select th:field="*{count}">
+		    					<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}"/>
+		    				</select>
+						</td>	
+						<td colspan="2">
+							-
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<button type="submit" name="save_row_asm" value="1">Сохранить</button>
+						</td>
+					</tr>
+				</th:block>
+				<th:block th:unless="${asmAddRowFlag}">
+					<tr>
+						<td colspan="4">
+							<button type="submit" name="add_row_asm" value="1">Добавить строку</button>
+						</td>
+					</tr>
+				</th:block>
+			</table>
+		</form>
+		<br>
+		<a href="../../">назад в главное меню</a>
+	</body>
+</html>

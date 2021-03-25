@@ -35,6 +35,8 @@ public class OppController extends ControllerBasic<OppEntity>{
 	   DELETE_GET = "redirect:/opp/edit";
 	   EDIT_ITEM_GET = "/opp/opp_edit_entity";
 	   EDIT_ITEM_POST = "redirect:/opp/edit/{id}";	
+	   ITEM_IN_ASM_GET = "/opp/opp_in_asm";
+	   ITEM_IN_ASM_POST = "redirect:/asm/edit_spec/{asmid}";
 	}
 
 	@Override

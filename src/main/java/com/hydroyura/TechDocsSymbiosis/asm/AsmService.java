@@ -22,4 +22,6 @@ public class AsmService extends ServiceBasic<AsmEntity> {
 		itemMapper = new AsmItemMap();
 	}
 	
+
+	
 }

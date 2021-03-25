@@ -24,6 +24,7 @@
 	   				<td>Дата</td>
 	   				<td>Удалить</td>
 	    			<td>Редактировать</td>
+	    			<td>Изменить состав</td>
 	   			</tr>
 	   			<tr th:if="${items.empty}">
 	            	<td colspan="7">Нет элементов в списке</td>
@@ -40,8 +41,9 @@
 	   				</td>
 	   				<td th:text="${item.version}"></td>
 	   				<td th:text="${item.update}"></td>
-	   				<td><a th:href="@{/opp/delete/{id}(id=${item.getId()})}">Удалить</a></td>
-	    			<td><a th:href="@{/opp/edit/{id}(id=${item.getId()})}">Редактировать</a></td>
+	   				<td><a th:href="@{/asm/delete/{id}(id=${item.getId()})}">Удалить</a></td>
+	    			<td><a th:href="@{/asm/edit/{id}(id=${item.getId()})}">Редактировать</a></td>
+	    			<td><a th:href="@{/asm/edit_spec/{id}(id=${item.getId()})}">Изменить состав</a></td>
 	   			</tr>
 	    	</table>
 		</div>

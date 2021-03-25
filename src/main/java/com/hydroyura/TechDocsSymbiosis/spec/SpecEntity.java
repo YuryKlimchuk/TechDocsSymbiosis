@@ -14,7 +14,24 @@ public class SpecEntity {
 	private Map<String, Integer> oppsMap, oringsMap, buysMap, stpsMap, vzksMap, asmsMap;
 	
 	
+	public void printLists() {
+		System.out.println("opps = " + opps);
+		System.out.println("orings = " + orings);
+		System.out.println("buys = " + buys);
+		System.out.println("stps = " + stps);
+		System.out.println("vzks = " + vzks);
+		System.out.println("asms = " + asms);
+	}
 	
+	
+
+	@Override
+	public String toString() {
+		return "SpecEntity [asm=" + asm + ", opps=" + opps + ", orings=" + orings + ", buys=" + buys + ", stps=" + stps
+				+ ", vzks=" + vzks + ", asms=" + asms + ", oppsMap=" + oppsMap + ", oringsMap=" + oringsMap
+				+ ", buysMap=" + buysMap + ", stpsMap=" + stpsMap + ", vzksMap=" + vzksMap + ", asmsMap=" + asmsMap
+				+ "]";
+	}
 
 	public AsmEntity getAsm() {
 		return asm;
@@ -119,5 +136,5 @@ public class SpecEntity {
 	public void setAsms(List<DataAsm> asms) {
 		this.asms = asms;
 	}
-
+	
 }
