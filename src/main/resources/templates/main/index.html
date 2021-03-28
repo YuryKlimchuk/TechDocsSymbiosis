@@ -2,24 +2,48 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Главная</title>
-		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
+		<title>TechDocsSymbiosis - TDS</title>
+		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
 	</head>
 	<body>
-	    <h1>Главная страница</h1>
-	    <br>
-	    <div>
-		    <ul>
-				<li><a href='opp/'>Детали собственного производства</a></li>
-				<li><a href='oring/'>O-Rings (Кольца уплотнительные)</a></li>
-				<li><a href='asm/'>Сборочные единицы</a></li>
-				<li><a href='stp/'>Стандартные изделия</a></li>
-				<li><a href='buy/'>Покупные изделия</a></li>
-				<li><a href='vzk/'>Взаимозаменяемые комплектующие</a></li>
-				<li><a href='product/'>Продукция</a></li>
-			</ul>
+		<nav>
+		  <ul>
+		    <li>
+		      <a href="product/">Продукция</a>
+		    </li>
+		    <li>
+		      <a href="asm/">Сборки</a>
+		    </li>
+		    <li>
+		      <a href="opp/">Детали</a>
+		    </li>
+		    <li>
+		      <a href="oring/">O-rings</a>
+		    </li>
+		    <li>
+		      <a href="stp/">Стандартные изделия</a>
+		    </li>
+		    <li>
+		      <a href="vzk/">Взаимозаменяемые комплектующие</a>
+		    </li>
+		    <li>
+		      <a href="buy/">Покупные изделия</a>
+		    </li>
+		  </ul>
+		</nav>
+		<h2 align="center">
+			Описание разделов	
+		</h2>	
+		<div class="main_text_block">
+			<p>
+				1. <b>Продукция</b> с обозначениями, габаритные чретежи.
+			</p>
+			<p>
+				2. Сборочные единицы. 
+			</p>
+			<p>
+				3. Детали собственного производства.
+			</p>
 		</div>
-		<br>
 	</body>
 </html>
-

@@ -3,31 +3,57 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Взаимозаменяемые изделия</title>
-		<link th:href="@{/styles/style.css}" rel="stylesheet" />	
+		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
 	</head>
 	<body>
+		<nav>
+		  <ul>
+		    <li>
+		      <a href="../../product/">Продукция</a>
+		    </li>
+		    <li>
+		      <a href="../../asm/">Сборки</a>
+		    </li>
+		    <li>
+		      <a href="../../opp/">Детали</a>
+		    </li>
+		    <li>
+		      <a href="../../oring/">O-rings</a>
+		    </li>
+		    <li>
+		      <a href="../../stp/">Стандартные изделия</a>
+		    </li>
+		    <li>
+		      <a href="../../vzk/">Взаимозаменяемые комплектующие</a>
+		    </li>
+		    <li>
+		      <a href="../../buy/">Покупные изделия</a>
+		    </li>
+		  </ul>
+		</nav>
 		<a href="../vzk/">НАЗАД</a>
-	    <h1>Добавить новый элемент</h1>
+		<h2 align="center">
+			Взаимозаменяемые комплектующие - <span class="underline_text">Добавить новый элемент</span>
+		</h2>
 	    <br>
 	    <h2 th:text="${msg}"></h2>
-	    <div>
-	    	<form th:action="@{/vzk/add}" th:object="${item}" method="post">
-	    		<div>
-	    			<p>	    				
-	    				<input type="text" th:field="*{name}"/>
-	    				<span>Наименование</span>
-	    			</p>
-	    			<p>
-		    			<input type="text" th:field="*{number}"/>
-		    			<span>Обозначение</span>
-		    		</p>
-	    		</div>
-	    		<br>
-	    		<input type="submit" value="Применить"/>
-	    	</form>
-	    </div>
+	    <form class="form-style-9" th:action="@{/vzk/add}" th:object="${item}" method="post">
+			<h2 align="center">
+				Ввод данных
+			</h2>
+			<ul>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Наименование" th:field="*{name}"/>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Обозначение" th:field="*{number}"/>
+				</li>
+				<li>
+					<input type="submit" value="Применить" />
+				</li>
+			</ul>
+		</form>	
 	    <br>
 	    <br>
-		<a href="../vzk/">НАЗАД</a>
 	</body>
 </html>
