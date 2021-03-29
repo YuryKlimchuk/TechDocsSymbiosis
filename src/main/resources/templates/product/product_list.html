@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Сборочные единицы</title>
+		<title>Продукция</title>
 		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
 	</head>
 	<body>
@@ -31,11 +31,11 @@
 		    </li>
 		  </ul>
 		</nav>
-		<a href="../asm/">НАЗАД</a>
+		<a href="../product/">НАЗАД</a>
 		<h2 align="center">
-			Детали - <span class="underline_text">Список элементов</span>
+			Продукция - <span class="underline_text">Список элементов</span>
 		</h2>
-		<form class="form-style-9" th:action="@{/asm/list}" th:object="${filter}" method="post">
+		<form class="form-style-9" th:action="@{/product/list}" th:object="${filter}" method="post">
 			<h2 align="center">
 				Фильтр поиска
 			</h2>
@@ -58,23 +58,15 @@
 				    <th>№</th>
 	   				<th>Обозначение</th>
 	   				<th>Наименование</th>
-	   				<th>Статус</th>
-	   				<th>Версия</th>
-	   				<th>Дата</th>
+	   				<th>Описание</th>
 			    </tr>
 			</thead>
 			<tbody>
 			    <tr th:each="item, status : ${itemsFiltered}">
 	   				<td th:text="${status.count}"></td>
-	   				<td><a th:href="@{/spec/{id}(id=${item.getId()})}" th:text="${item.number}"></a></td>
+	   				<td th:text="${item.number}"></td>
 	   				<td th:text="${item.name}"></td>
-	   				<td>
-	   					<span th:if="${item.status == 'NOTE'}" th:text="'Извещение'" class="note"></span>
-	   					<span th:if="${item.status == 'DESIGN'}" th:text="'Проектирование'" class="design"></span>
-	   					<span th:if="${item.status == 'TASK'}" th:text="'Задание'" class="task"></span>
-	   				</td>
-	   				<td th:text="${item.version}"></td>
-	   				<td th:text="${item.update}"></td>
+	   				<td th:text="${item.description}"></td>
 	   			</tr>
 			</tbody>
 		</table>

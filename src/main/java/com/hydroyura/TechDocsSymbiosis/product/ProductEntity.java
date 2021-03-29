@@ -1,12 +1,30 @@
 package com.hydroyura.TechDocsSymbiosis.product;
 
-public class Product {
+public class ProductEntity {
 	
 	
 	private String name, number;
 	private String description;
+	private String drawLink;
 	private int asmId;
+	private int id;
 	
+	
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getDrawLink() {
+		return drawLink;
+	}
+	public void setDrawLink(String drawLink) {
+		this.drawLink = drawLink;
+	}
 	
 	public String getName() {
 		return name;

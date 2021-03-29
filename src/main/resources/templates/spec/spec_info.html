@@ -3,29 +3,46 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Спецификация</title>
-		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
+		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
 	</head>
 	<body>
+		<nav>
+		  <ul>
+		    <li>
+		      <a href="../../product/">Продукция</a>
+		    </li>
+		    <li>
+		      <a href="../../asm/">Сборки</a>
+		    </li>
+		    <li>
+		      <a href="../../opp/">Детали</a>
+		    </li>
+		    <li>
+		      <a href="../../oring/">O-rings</a>
+		    </li>
+		    <li>
+		      <a href="../../stp/">Стандартные изделия</a>
+		    </li>
+		    <li>
+		      <a href="../../vzk/">Взаимозаменяемые комплектующие</a>
+		    </li>
+		    <li>
+		      <a href="../../buy/">Покупные изделия</a>
+		    </li>
+		  </ul>
+		</nav>
 		<a href="../asm/">НАЗАД</a>
-	    <h1>Спецификация</h1>
+	    <h2 align="center">
+			Сборки - <span class="underline_text">Спецификация</span>
+		</h2>
 	    <br>
-	    	<table id="list_of_items">
-	   			<tr>
-	   				<td>Обозначение</td>
-	   				<td th:text="${spec.asm.number}"/>
-	   			</tr>
-	   			<tr>
-	   				<td>Наименование</td>
-	   				<td th:text="${spec.asm.name}"/>
-	   			</tr>
-	    	</table>
-		<br>
-		<br>
-		<table id="spec">
+	    <p>Обозначение: <span th:text="${spec.asm.number}"></span></p>
+		<p>Наименование: <span th:text="${spec.asm.name}"></span></p>
+		<table>
 			<thead>
 				<tr>
-					<td><b>Обозначение</b></td>
-					<td><b>Кол.</b></td>
+					<th>Обозначение</th>
+					<th>Кол.</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -80,7 +97,6 @@
 		</table>
 		<hr class="hr-circle">
 		<a th:href="@{/spec/detailed/{id}(id=${spec.asm.id})}">РАЗВЕРНУТЬ ПОДСБОРКИ</a>
-		<br>
 		<br>	
 		<a href="../asm/">НАЗАД</a>
 	</body>

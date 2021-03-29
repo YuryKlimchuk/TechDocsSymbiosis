@@ -3,21 +3,48 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Сборочные единицы</title>
-		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
+		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
 	</head>
 	<body>
-	    <h1>Редактирование состава сборки</h1>
-	    <h2 th:text="${asm.number + ' ' + asm.name}"></h2>
-	    <br>
+		<nav>
+		  <ul>
+		    <li>
+		      <a href="../../product/">Продукция</a>
+		    </li>
+		    <li>
+		      <a href="../../asm/">Сборки</a>
+		    </li>
+		    <li>
+		      <a href="../../opp/">Детали</a>
+		    </li>
+		    <li>
+		      <a href="../../oring/">O-rings</a>
+		    </li>
+		    <li>
+		      <a href="../../stp/">Стандартные изделия</a>
+		    </li>
+		    <li>
+		      <a href="../../vzk/">Взаимозаменяемые комплектующие</a>
+		    </li>
+		    <li>
+		      <a href="../../buy/">Покупные изделия</a>
+		    </li>
+		  </ul>
+		</nav>
+		<h2 align="center">
+			Редактирование состава сборки - <span class="underline_text" th:text="${asm.number + ' ' + asm.name}"></span>
+		</h2>
 		<br>
 		<!-- OPP -->
 		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${oppDataAsm}">
-			<table id="spec">
-				<tr>
-					<td colspan="4">
-						<b>Детали</b>
-					</td>
-				</tr>
+			<table align="center">
+				<thead>
+					<tr>
+						<th colspan="4">
+							Детали
+						</th>
+					</tr>
+				</thead>
 				<tr>
 					<td>Наименование</td>
 					<td>Кол.</td>
@@ -69,13 +96,16 @@
 			</table>
 		</form>
 		<!-- ORINGS -->
-		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${oppDataAsm}">
-			<table id="spec">
-				<tr>
-					<td colspan="4">
-						<b>Кольцо резиновые (O-Ring)</b>
-					</td>
-				</tr>
+		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${oringDataAsm}">
+			<table align="center">
+				<thead>
+					<tr>
+						<th colspan="4">
+							O-Rings
+						</th>
+					</tr>
+				</thead>
+
 				<tr>
 					<td>Наименование</td>
 					<td>Кол.</td>
@@ -128,12 +158,14 @@
 		</form>
 		<!-- ORINGS -->
 		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${vzkDataAsm}">
-			<table id="spec">
-				<tr>
-					<td colspan="4">
-						<b>ВЗК</b>
-					</td>
-				</tr>
+			<table align="center">
+				<thead>
+					<tr>
+						<th colspan="4">
+							Взаимозаменяемые комплектующие
+						</th>
+					</tr>
+				</thead>
 				<tr>
 					<td>Наименование</td>
 					<td>Кол.</td>
@@ -186,12 +218,14 @@
 		</form>
 		<!-- STP -->
 		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${stpDataAsm}">
-			<table id="spec">
-				<tr>
-					<td colspan="4">
-						<b>Стандартные изделия</b>
-					</td>
-				</tr>
+			<table align="center">
+				<thead>
+					<tr>
+						<th colspan="4">
+							Стандартные изделия
+						</th>
+					</tr>
+				</thead>
 				<tr>
 					<td>Наименование</td>
 					<td>Кол.</td>
@@ -244,12 +278,14 @@
 		</form>
 		<!-- BUY -->
 		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${buyDataAsm}">
-			<table id="spec">
-				<tr>
-					<td colspan="4">
-						<b>Покупные изделия</b>
-					</td>
-				</tr>
+			<table align="center">
+				<thead>
+					<tr>
+						<th colspan="4">
+							Покупные изделия
+						</th>
+					</tr>
+				</thead>
 				<tr>
 					<td>Наименование</td>
 					<td>Кол.</td>
@@ -302,12 +338,14 @@
 		</form>
 		<!-- ASM< -->
 		<form th:action="@{/asm/edit_spec/{id}(id=${asm.getId()})}" method="POST" th:object="${asmDataAsm}">
-			<table id="spec">
-				<tr>
-					<td colspan="4">
-						<b>Сборочные единицы</b>
-					</td>
-				</tr>
+			<table align="center">
+				<thead>
+					<tr>
+						<th colspan="4">
+							Сборочные единицы
+						</th>
+					</tr>
+				</thead>
 				<tr>
 					<td>Наименование</td>
 					<td>Кол.</td>
@@ -359,6 +397,6 @@
 			</table>
 		</form>
 		<br>
-		<a href="../../">назад в главное меню</a>
+		<a href="../asm/">НАЗАД</a>
 	</body>
 </html>

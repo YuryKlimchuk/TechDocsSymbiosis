@@ -17,11 +17,11 @@ import com.hydroyura.TechDocsSymbiosis.basicclasses.ServiceBasic;
 
 @Controller
 @RequestMapping("/product")
-public class ProductController extends ControllerBasic<Product>{
+public class ProductController extends ControllerBasic<ProductEntity>{
 
 	
 	@Autowired
-	public ProductController(@Qualifier("ProductService") ServiceBasic<Product> service) {
+	public ProductController(@Qualifier("ProductService") ServiceBasic<ProductEntity> service) {
 		super(service);
 	}
 	
@@ -29,19 +29,28 @@ public class ProductController extends ControllerBasic<Product>{
 	@PostConstruct
 	public void init() {
 	   INDEX = "/product/product_index";
+	   LIST_GET = "/product/product_list";
+	   LIST_POST = "redirect:/product/list";
+	   EDIT_GET = "/product/product_edit";
+	   ADD_GET = "/product/product_add";
+	   ADD_POST = "redirect:/product/add";
+	   DELETE_GET = "redirect:/product/edit";
+	   EDIT_ITEM_GET = "/product/product_edit_entity";
+	   EDIT_ITEM_POST = "redirect:/product/edit/{id}";	
 	}
 	
 
 	@Override
 	public String showAddGet(Model model) {
-		// TODO Auto-generated method stub
-		return null;
+		model.addAttribute("item", new ProductEntity());
+		return ADD_GET;
 	}
 
 	@Override
-	public List<Product> getItemsFiltered(ItemsListFilter filter) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ProductEntity> getItemsFiltered(ItemsListFilter filter) {
+		if(filter.getStringMap().get("NAME") == null && filter.getStringMap().get("NUMBER") == null)
+			return service.getItemsByNameAndNumber("", "");
+		else return service.getItemsByNameAndNumber(filter.getStringMap().get("NAME"), filter.getStringMap().get("NUMBER")); 
 	}
 
 }

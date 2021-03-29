@@ -6,24 +6,50 @@
 		<link th:href="@{/styles/list_style.css}" rel="stylesheet" />	
 	</head>
 	<body>
-		<a href="../edit">НАЗАД</a>
-	    <h1>Добавить новый элемент</h1>
+		<nav>
+		  <ul>
+		    <li>
+		      <a href="../../product/">Продукция</a>
+		    </li>
+		    <li>
+		      <a href="../../asm/">Сборки</a>
+		    </li>
+		    <li>
+		      <a href="../../opp/">Детали</a>
+		    </li>
+		    <li>
+		      <a href="../../oring/">O-rings</a>
+		    </li>
+		    <li>
+		      <a href="../../stp/">Стандартные изделия</a>
+		    </li>
+		    <li>
+		      <a href="../../vzk/">Взаимозаменяемые комплектующие</a>
+		    </li>
+		    <li>
+		      <a href="../../buy/">Покупные изделия</a>
+		    </li>
+		  </ul>
+		</nav>
+		<a href="../../asm/">НАЗАД</a>
+		<h2 align="center">
+			Сборки - <span class="underline_text">Редактировать элемент</span>
+		</h2>
 	    <br>
 	    <h2 th:text="${msg}"></h2>
-	    <div>
-	    	<form th:action="@{/asm/edit/{id}(id=${editableItem.getId()})}" th:object="${editableItem}" method="post">
-	    		<div>
-	    			<p>	    				
-	    				<input type="text" th:field="*{name}"/>
-	    				<span>Наименование</span>
-	    			</p>
-	    			<p>
-		    			<input type="text" th:field="*{number}"/>
-		    			<span>Обозначение</span>
-		    		</p>
-	    		</div>
-	    		<div>
-	    			<p>
+	    <form class="form-style-9" th:action="@{/asm/edit/{id}(id=${editableItem.getId()})}" th:object="${editableItem}" method="post">
+			<h2 align="center">
+				Откорректируйте данные
+			</h2>
+			<ul>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Наименование" th:field="*{name}"/>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Обозначение" th:field="*{number}"/>
+				</li>
+				<li>
+					<p>
 						<input type="radio" value="DESIGN" th:field="*{status}">
 						<span>Проектирование</span>
 					</p>
@@ -35,21 +61,18 @@
 						<input type="radio" value="NOTE" th:field="*{status}">
 						<span>Извещение</span>
 					</p>
-	    		</div>
-	    		<div>
-	    			<p>	    				
-	    				<input type="text" th:field="*{version}"/>
-	    				<span>Версия</span>
-	    			</p>
-	    			<p>
-		    			<input type="text" th:field="*{update}"/>
-		    			<span>Дата обновления</span>
-		    		</p>
-	    		</div>
-	    		<br>
-	    		<input type="submit" value="Применить"/>
-	    	</form>
-	    </div>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Версия" th:field="*{version}"/>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Дата обновления" th:field="*{update}"/>
+				</li>
+				<li>
+				<input type="submit" value="Применить" />
+				</li>
+			</ul>
+		</form>	
 	    <br>
 	    <br>
 		<a href="../edit">НАЗАД</a>

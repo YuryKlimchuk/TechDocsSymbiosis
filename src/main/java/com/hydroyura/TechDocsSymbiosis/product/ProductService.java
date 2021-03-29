@@ -12,7 +12,7 @@ import com.hydroyura.TechDocsSymbiosis.basicclasses.rowmappers.ProductRowMap;
 
 @Component("ProductService")
 @Service
-public class ProductService extends ServiceBasic<Product>{
+public class ProductService extends ServiceBasic<ProductEntity>{
 	
 	@PostConstruct
 	public void init() {

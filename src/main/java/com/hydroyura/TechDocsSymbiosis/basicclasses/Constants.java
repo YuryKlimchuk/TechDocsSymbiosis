@@ -150,7 +150,9 @@ public class Constants {
 	public static final String TABLE_COLOMN_PRODUCT_ID 					= "id";
 	public static final String TABLE_COLOMN_PRODUCT_NUMBER 				= "number";
 	public static final String TABLE_COLOMN_PRODUCT_NAME 				= "name";
+	public static final String TABLE_COLOMN_PRODUCT_ASM_ID 				= "asm_id";
 	public static final String TABLE_COLOMN_PRODUCT_DESCRIPTION			= "description";
+	public static final String TABLE_COLOMN_PRODUCT_DRAW_LINK			= "draw_link";
 	//-------------------------------------------------------------------------------------	
 
 	
