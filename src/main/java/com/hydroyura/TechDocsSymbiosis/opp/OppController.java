@@ -26,17 +26,17 @@ public class OppController extends ControllerBasic<OppEntity>{
 
 	@PostConstruct
 	public void init() {
-	   INDEX = "/opp/opp_index";
-	   LIST_GET = "/opp/opp_list";
-	   LIST_POST = "redirect:/opp/list";
-	   EDIT_GET = "/opp/opp_edit";
-	   ADD_GET = "/opp/opp_add";
-	   ADD_POST = "redirect:/opp/add";
-	   DELETE_GET = "redirect:/opp/edit";
-	   EDIT_ITEM_GET = "/opp/opp_edit_entity";
-	   EDIT_ITEM_POST = "redirect:/opp/edit/{id}";	
-	   ITEM_IN_ASM_GET = "/opp/opp_in_asm";
-	   ITEM_IN_ASM_POST = "redirect:/asm/edit_spec/{asmid}";
+	   INDEX = "opp/opp_index";
+	   LIST_GET = "opp/opp_list";
+	   LIST_POST = "redirect:opp/list";
+	   EDIT_GET = "opp/opp_edit";
+	   ADD_GET = "opp/opp_add";
+	   ADD_POST = "redirect:opp/add";
+	   DELETE_GET = "redirect:opp/edit";
+	   EDIT_ITEM_GET = "opp/opp_edit_entity";
+	   EDIT_ITEM_POST = "redirect:opp/edit/{id}";	
+	   ITEM_IN_ASM_GET = "opp/opp_in_asm";
+	   ITEM_IN_ASM_POST = "redirect:asm/edit_spec/{asmid}";
 	}
 
 	@Override
