@@ -26,15 +26,15 @@ public class StpController extends ControllerBasic<StpEntity>{
 	
 	@PostConstruct
 	public void init() {
-	   INDEX = "/stp/stp_index";
-	   LIST_GET = "/stp/stp_list";
+	   INDEX = "stp/stp_index";
+	   LIST_GET = "stp/stp_list";
 	   LIST_POST = "redirect:/stp/list";
-	   EDIT_GET = "/stp/stp_edit";
-	   ADD_GET = "/stp/stp_add";
-	   ADD_POST = "redirect:/stp/add";
-	   DELETE_GET = "redirect:/stp/edit";
-	   EDIT_ITEM_GET = "/stp/stp_edit_entity";
-	   EDIT_ITEM_POST = "redirect:/stp/edit/{id}";	
+	   EDIT_GET = "stp/stp_edit";
+	   ADD_GET = "stp/stp_add";
+	   ADD_POST = "redirect:stp/add";
+	   DELETE_GET = "redirect:stp/edit";
+	   EDIT_ITEM_GET = "stp/stp_edit_entity";
+	   EDIT_ITEM_POST = "redirect:stp/edit/{id}";	
 	}
 
 	@Override

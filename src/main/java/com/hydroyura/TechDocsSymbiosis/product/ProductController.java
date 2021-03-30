@@ -28,15 +28,15 @@ public class ProductController extends ControllerBasic<ProductEntity>{
 	
 	@PostConstruct
 	public void init() {
-	   INDEX = "/product/product_index";
-	   LIST_GET = "/product/product_list";
+	   INDEX = "product/product_index";
+	   LIST_GET = "product/product_list";
 	   LIST_POST = "redirect:/product/list";
-	   EDIT_GET = "/product/product_edit";
-	   ADD_GET = "/product/product_add";
-	   ADD_POST = "redirect:/product/add";
-	   DELETE_GET = "redirect:/product/edit";
-	   EDIT_ITEM_GET = "/product/product_edit_entity";
-	   EDIT_ITEM_POST = "redirect:/product/edit/{id}";	
+	   EDIT_GET = "product/product_edit";
+	   ADD_GET = "product/product_add";
+	   ADD_POST = "redirect:product/add";
+	   DELETE_GET = "redirect:product/edit";
+	   EDIT_ITEM_GET = "product/product_edit_entity";
+	   EDIT_ITEM_POST = "redirect:product/edit/{id}";	
 	}
 	
 

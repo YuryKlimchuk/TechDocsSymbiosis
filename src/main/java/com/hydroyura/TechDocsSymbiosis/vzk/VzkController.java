@@ -26,15 +26,15 @@ public class VzkController extends ControllerBasic<VzkEntity>{
 	
 	@PostConstruct
 	public void init() {
-	   INDEX = "/vzk/vzk_index";
-	   LIST_GET = "/vzk/vzk_list";
-	   LIST_POST = "redirect:/vzk/list";
-	   EDIT_GET = "/vzk/vzk_edit";
-	   ADD_GET = "/vzk/vzk_add";
-	   ADD_POST = "redirect:/vzk/add";
-	   DELETE_GET = "redirect:/vzk/edit";
-	   EDIT_ITEM_GET = "/vzk/vzk_edit_entity";
-	   EDIT_ITEM_POST = "redirect:/vzk/edit/{id}";	
+	   INDEX = "vzk/vzk_index";
+	   LIST_GET = "vzk/vzk_list";
+	   LIST_POST = "redirect:vzk/list";
+	   EDIT_GET = "vzk/vzk_edit";
+	   ADD_GET = "vzk/vzk_add";
+	   ADD_POST = "redirect:vzk/add";
+	   DELETE_GET = "redirect:vzk/edit";
+	   EDIT_ITEM_GET = "vzk/vzk_edit_entity";
+	   EDIT_ITEM_POST = "redirect:vzk/edit/{id}";	
 	}
 
 	@Override

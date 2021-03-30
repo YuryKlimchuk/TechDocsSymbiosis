@@ -26,15 +26,15 @@ public class BuyController extends ControllerBasic<BuyEntity>{
 
 	@PostConstruct
 	public void init() {
-	   INDEX = "/buy/buy_index";
-	   LIST_GET = "/buy/buy_list";
+	   INDEX = "buy/buy_index";
+	   LIST_GET = "buy/buy_list";
 	   LIST_POST = "redirect:/buy/list";
-	   EDIT_GET = "/buy/buy_edit";
-	   ADD_GET = "/buy/buy_add";
-	   ADD_POST = "redirect:/buy/add";
-	   DELETE_GET = "redirect:/buy/edit";
-	   EDIT_ITEM_GET = "/buy/buy_edit_entity";
-	   EDIT_ITEM_POST = "redirect:/buy/edit/{id}";	
+	   EDIT_GET = "buy/buy_edit";
+	   ADD_GET = "buy/buy_add";
+	   ADD_POST = "redirect:buy/add";
+	   DELETE_GET = "redirect:buy/edit";
+	   EDIT_ITEM_GET = "buy/buy_edit_entity";
+	   EDIT_ITEM_POST = "redirect:buy/edit/{id}";	
 	}
 
 	@Override

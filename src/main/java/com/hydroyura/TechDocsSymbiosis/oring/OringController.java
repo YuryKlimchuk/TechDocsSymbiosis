@@ -27,17 +27,17 @@ public class OringController extends ControllerBasic<OringEntity>{
 	
 	@PostConstruct
 	public void init() {
-	   INDEX = "/oring/oring_index";
-	   LIST_GET = "/oring/oring_list";
-	   LIST_POST = "redirect:/oring/list";
-	   EDIT_GET = "/oring/oring_edit";
-	   ADD_GET = "/oring/oring_add";
-	   ADD_POST = "redirect:/oring/add";
-	   DELETE_GET = "redirect:/oring/edit";
-	   EDIT_ITEM_GET = "/oring/oring_edit_entity";
-	   EDIT_ITEM_POST = "redirect:/oring/edit/{id}";
-	   ITEM_IN_ASM_GET = "/oring/oring_in_asm";
-	   ITEM_IN_ASM_POST = "redirect:/asm/edit_spec/{asmid}";
+	   INDEX = "oring/oring_index";
+	   LIST_GET = "oring/oring_list";
+	   LIST_POST = "redirect:oring/list";
+	   EDIT_GET = "oring/oring_edit";
+	   ADD_GET = "oring/oring_add";
+	   ADD_POST = "redirect:oring/add";
+	   DELETE_GET = "redirect:oring/edit";
+	   EDIT_ITEM_GET = "oring/oring_edit_entity";
+	   EDIT_ITEM_POST = "redirect:oring/edit/{id}";
+	   ITEM_IN_ASM_GET = "oring/oring_in_asm";
+	   ITEM_IN_ASM_POST = "redirect:asm/edit_spec/{asmid}";
 	}
 
 	@Override

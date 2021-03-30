@@ -29,7 +29,7 @@ public class SpecController {
 		SpecEntity spec = specService.getSpecInfo(id);
 		model.addAttribute("spec", spec);
 		redirectAttributes.addFlashAttribute("spec", spec);
-		return "/spec/spec_info";
+		return "spec/spec_info";
 	}
 	
 	@GetMapping("/detailed/{id}")
@@ -58,7 +58,7 @@ public class SpecController {
 		 */
 		
 		
-		return "/spec/spec_detailed_info";
+		return "spec/spec_detailed_info";
 	}
 
 }

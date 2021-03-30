@@ -68,15 +68,15 @@ public class AsmController extends ControllerBasic<AsmEntity>{
 
 	@PostConstruct
 	public void init() {
-	   INDEX = "/asm/asm_index";
-	   LIST_GET = "/asm/asm_list";
-	   LIST_POST = "redirect:/asm/list";
-	   EDIT_GET = "/asm/asm_edit";
-	   ADD_GET = "/asm/asm_add";
-	   ADD_POST = "redirect:/asm/add";
-	   DELETE_GET = "redirect:/asm/edit";
-	   EDIT_ITEM_GET = "/asm/asm_edit_entity";
-	   EDIT_ITEM_POST = "redirect:/asm/edit/{id}";	
+	   INDEX = "asm/asm_index";
+	   LIST_GET = "asm/asm_list";
+	   LIST_POST = "redirect:asm/list";
+	   EDIT_GET = "asm/asm_edit";
+	   ADD_GET = "asm/asm_add";
+	   ADD_POST = "redirect:asm/add";
+	   DELETE_GET = "redirect:asm/edit";
+	   EDIT_ITEM_GET = "asm/asm_edit_entity";
+	   EDIT_ITEM_POST = "redirect:asm/edit/{id}";	
 	}
 
 	@Override
