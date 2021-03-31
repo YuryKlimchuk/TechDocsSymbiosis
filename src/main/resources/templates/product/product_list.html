@@ -64,7 +64,7 @@
 			<tbody>
 			    <tr th:each="item, status : ${itemsFiltered}">
 	   				<td th:text="${status.count}"></td>
-	   				<td th:text="${item.number}"></td>
+	   				<td><a th:href="@{/spec/{id}(id=${item.getAsmId()})}"><span th:text="${item.number}"></span></a></td>
 	   				<td th:text="${item.name}"></td>
 	   				<td th:text="${item.description}"></td>
 	   			</tr>

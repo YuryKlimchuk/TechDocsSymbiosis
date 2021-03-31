@@ -28,7 +28,7 @@ public class StpController extends ControllerBasic<StpEntity>{
 	public void init() {
 	   INDEX = "stp/stp_index";
 	   LIST_GET = "stp/stp_list";
-	   LIST_POST = "redirect:/stp/list";
+	   LIST_POST = "redirect:stp/list";
 	   EDIT_GET = "stp/stp_edit";
 	   ADD_GET = "stp/stp_add";
 	   ADD_POST = "redirect:stp/add";

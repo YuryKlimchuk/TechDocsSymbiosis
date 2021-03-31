@@ -1,7 +1,9 @@
 package com.hydroyura.TechDocsSymbiosis.spec;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -43,8 +45,13 @@ public class SpecController {
 		
 		specService.getDetailedPartList(spec, map);
 		
+		Map<String, Integer> sortedMap = map.entrySet().stream()
+	            .sorted(Map.Entry.comparingByKey())
+	            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+	                    (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 		
-		model.addAttribute("map", map);
+		
+		model.addAttribute("map", sortedMap);
 		
 		/*
 		 * 

@@ -86,7 +86,7 @@ public class SpecService {
 		
 		for (DataAsm dataAsm : orings) {
 			OringEntity oring = oringService.getItem(dataAsm.getId()); 
-			String str = oring.getNumber() + " " + oring.getName();
+			String str = oring.getName() + " " + oring.getNumber() + " " + oring.getStandart();
 			oringsMap.put(str, dataAsm.getCount());
 		}
 		spec.setOrings(orings);
@@ -113,7 +113,7 @@ public class SpecService {
 		
 		for (DataAsm dataAsm : stps) {
 			StpEntity stp = stpService.getItem(dataAsm.getId()); 
-			String str = stp.getNumber() + " " + stp.getName();
+			String str = stp.getName() + " " + stp.getNumber() + " " + stp.getStandart();
 			stpsMap.put(str, dataAsm.getCount());
 		}
 		spec.setStps(stps);

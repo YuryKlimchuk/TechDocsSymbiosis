@@ -30,7 +30,7 @@ public class ProductController extends ControllerBasic<ProductEntity>{
 	public void init() {
 	   INDEX = "product/product_index";
 	   LIST_GET = "product/product_list";
-	   LIST_POST = "redirect:/product/list";
+	   LIST_POST = "redirect:product/list";
 	   EDIT_GET = "product/product_edit";
 	   ADD_GET = "product/product_add";
 	   ADD_POST = "redirect:product/add";

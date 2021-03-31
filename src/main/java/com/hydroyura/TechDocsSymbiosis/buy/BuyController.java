@@ -28,7 +28,7 @@ public class BuyController extends ControllerBasic<BuyEntity>{
 	public void init() {
 	   INDEX = "buy/buy_index";
 	   LIST_GET = "buy/buy_list";
-	   LIST_POST = "redirect:/buy/list";
+	   LIST_POST = "redirect:buy/list";
 	   EDIT_GET = "buy/buy_edit";
 	   ADD_GET = "buy/buy_add";
 	   ADD_POST = "redirect:buy/add";
