@@ -2,42 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Взаимозаменяемые изделия</title>
+		<title>Взаимозаменяемые комплектующие</title>
 		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
 	</head>
 	<body>
-		<nav>
-		  <ul>
-		    <li>
-		      <a href="../../product/">Продукция</a>
-		    </li>
-		    <li>
-		      <a href="../../asm/">Сборки</a>
-		    </li>
-		    <li>
-		      <a href="../../opp/">Детали</a>
-		    </li>
-		    <li>
-		      <a href="../../oring/">O-rings</a>
-		    </li>
-		    <li>
-		      <a href="../../stp/">Стандартные изделия</a>
-		    </li>
-		    <li>
-		      <a href="../../vzk/">Взаимозаменяемые комплектующие</a>
-		    </li>
-		    <li>
-		      <a href="../../buy/">Покупные изделия</a>
-		    </li>
-		  </ul>
-		</nav>
 		<a href="../vzk/">НАЗАД</a>
 		<h2 align="center">
 			Взаимозаменяемые комплектующие - <span class="underline_text">Добавить новый элемент</span>
 		</h2>
+		
 	    <br>
-	    <h2 th:text="${msg}"></h2>
-	    <form class="form-style-9" th:action="@{/vzk/add}" th:object="${item}" method="post">
+	    <h2 th:text="${msg}" class="design"></h2>
+	    <form class="form-style-9" th:action="@{/vzk/edit/add}" th:object="${item}" method="post">
 			<h2 align="center">
 				Ввод данных
 			</h2>
@@ -49,7 +25,7 @@
 				    <input type="text" class="field-style field-split align-left" placeholder="Обозначение" th:field="*{number}"/>
 				</li>
 				<li>
-					<input type="submit" value="Применить" />
+				<input type="submit" value="Применить" />
 				</li>
 			</ul>
 		</form>	

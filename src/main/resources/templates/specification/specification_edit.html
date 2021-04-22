@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Спецификация</title>
+		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<h4 th:text="'Пользователь : ' + ${userName}"></h4>
+		<a href="../list/">НАЗАД</a>
+		<input action="action" type="button" onclick="history.go(-1);" />
+		<a href="#" onclick="history.go(-1);return false;">НАЗАД</a>
+		<h2 align="center">
+			<span class="underline_text">Спецификация</span>
+		</h2>
+		<div>
+			<p>Обозначение : <span th:text="${specification.asm.number}"></span></p>
+			<p>Наименование : <span th:text="${specification.asm.name}"></span></p>
+			<th:block th:if="${specification.asm.status == 'DESIGN'}">
+				<p>Стаус : <span th:text="'Проектирование'" class="design"></span></p>	
+			</th:block>
+			<th:block th:if="${specification.asm.status == 'TASK'}">
+				<p>Стаус : <span th:text="'Задание'" class="task"></span></p>	
+				<p>Номер задания : <span th:text="${specification.asm.version}" class="task"></span></p>
+			</th:block>
+			<th:block th:if="${specification.asm.status == 'NOTE'}">
+				<p>Стаус : <span th:text="'Извещение'" class="note"></span></p>	
+				<p>Номер извещения : <span th:text="${specification.asm.version}" class="note"></span></p>
+			</th:block>
+			<p>Дата последнего обновления : <span th:text="${specification.asm.update}"></span></p>
+			<br>
+			<br>
+			<a href="edit" sec:authorize="hasRole('ADMIN')">Редактировать спецификацию</a>
+			<br>
+			<br>
+		</div>
+		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId()})}" method="POST" th:object="${asmSpec}">
+			<table>
+				<thead>
+					<tr>
+						<th width="50%">Обозначение</th>
+						<th width="10%">Кол.</th>
+						<th width="20%">Удалить</th>
+						<th width="20%">Изм.кол.</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="4"><b>Сборочные единицы</b></td>
+						
+					</tr>
+					<tr th:each="item : ${specification.asms}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+						<td>
+							<button type="submit" name="delete_asm" th:value="${item['key'].id}">Удалить</button>
+						<td>
+							<button type="submit" name="edit_asm"  th:value="${item['key'].id}">Изм.кол.</button>
+						</td>
+					</tr>
+					<th:block th:if="${asmSpecFlag}">
+						<tr>
+							<td>
+								<select th:field="*{elementId}">
+									<option th:each="item : ${asmList}" th:text="${item.number}" th:value="${item.id}">
+								</select>
+							</td>
+							<td>
+								<select th:field="*{count}">
+			    					<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}"/>
+			    				</select>
+							</td>	
+							<td colspan="2">
+								-
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<button type="submit" name="save_row_asm" value="1">Сохранить</button>
+							</td>
+						</tr>
+					</th:block>
+					<th:block th:unless="${asmSpecFlag}">
+						<tr>
+							<td colspan="4">
+								<button type="submit" name="add_row_asm" th:value="1">Добавить новый элемент</button>
+							</td>
+						</tr>
+					</th:block>
+				</tbody>
+			</table>
+		</form>
+		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId()})}" method="POST" th:object="${oppSpec}">
+			<table>
+				<thead>
+					<tr>
+						<th width="50%">Обозначение</th>
+						<th width="10%">Кол.</th>
+						<th width="20%">Удалить</th>
+						<th width="20%">Изм.кол.</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="4"><b>Детали</b></td>
+						
+					</tr>
+					<tr th:each="item : ${specification.opps}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+						<td>
+							<button type="submit" name="delete_opp" th:value="${item['key'].id}">Удалить</button>
+						<td>
+							<button type="submit" name="edit_opp"  th:value="${item['key'].id}">Изм.кол.</button>
+						</td>
+					</tr>
+					<th:block th:if="${oppSpecFlag}">
+						<tr>
+							<td>
+								<select th:field="*{elementId}">
+									<option th:each="item : ${oppList}" th:text="${item.number}" th:value="${item.id}">
+								</select>
+							</td>
+							<td>
+								<select th:field="*{count}">
+			    					<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}"/>
+			    				</select>
+							</td>	
+							<td colspan="2">
+								-
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<button type="submit" name="save_row_opp" value="1">Сохранить</button>
+							</td>
+						</tr>
+					</th:block>
+					<th:block th:unless="${oppSpecFlag}">
+						<tr>
+							<td colspan="4">
+								<button type="submit" name="add_row_opp" th:value="1">Добавить новый элемент</button>
+							</td>
+						</tr>
+					</th:block>
+				</tbody>
+			</table>
+		</form>
+		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId()})}" method="POST" th:object="${oringSpec}">
+			<table>
+				<thead>
+					<tr>
+						<th width="50%">Обозначение</th>
+						<th width="10%">Кол.</th>
+						<th width="20%">Удалить</th>
+						<th width="20%">Изм.кол.</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="4"><b>O-rings</b></td>
+						
+					</tr>
+					<tr th:each="item : ${specification.orings}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+						<td>
+							<button type="submit" name="delete_oring" th:value="${item['key'].id}">Удалить</button>
+						<td>
+							<button type="submit" name="edit_oring"  th:value="${item['key'].id}">Изм.кол.</button>
+						</td>
+					</tr>
+					<th:block th:if="${oringSpecFlag}">
+						<tr>
+							<td>
+								<select th:field="*{elementId}">
+									<option th:each="item : ${oringList}" th:text="${item.number}" th:value="${item.id}">
+								</select>
+							</td>
+							<td>
+								<select th:field="*{count}">
+			    					<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}"/>
+			    				</select>
+							</td>	
+							<td colspan="2">
+								-
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<button type="submit" name="save_row_oring" value="1">Сохранить</button>
+							</td>
+						</tr>
+					</th:block>
+					<th:block th:unless="${oringSpecFlag}">
+						<tr>
+							<td colspan="4">
+								<button type="submit" name="add_row_oring" th:value="1">Добавить новый элемент</button>
+							</td>
+						</tr>
+					</th:block>
+				</tbody>
+			</table>
+		</form>
+		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId()})}" method="POST" th:object="${stpSpec}">
+			<table>
+				<thead>
+					<tr>
+						<th width="50%">Обозначение</th>
+						<th width="10%">Кол.</th>
+						<th width="20%">Удалить</th>
+						<th width="20%">Изм.кол.</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="4"><b>Стандартные изделия</b></td>
+						
+					</tr>
+					<tr th:each="item : ${specification.stps}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+						<td>
+							<button type="submit" name="delete_stp" th:value="${item['key'].id}">Удалить</button>
+						<td>
+							<button type="submit" name="edit_stp"  th:value="${item['key'].id}">Изм.кол.</button>
+						</td>
+					</tr>
+					<th:block th:if="${stpSpecFlag}">
+						<tr>
+							<td>
+								<select th:field="*{elementId}">
+									<option th:each="item : ${stpList}" th:text="${item.number}" th:value="${item.id}">
+								</select>
+							</td>
+							<td>
+								<select th:field="*{count}">
+			    					<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}"/>
+			    				</select>
+							</td>	
+							<td colspan="2">
+								-
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<button type="submit" name="save_row_stp" value="1">Сохранить</button>
+							</td>
+						</tr>
+					</th:block>
+					<th:block th:unless="${stpSpecFlag}">
+						<tr>
+							<td colspan="4">
+								<button type="submit" name="add_row_stp" th:value="1">Добавить новый элемент</button>
+							</td>
+						</tr>
+					</th:block>
+				</tbody>
+			</table>
+		</form>
+		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId()})}" method="POST" th:object="${vzkSpec}">
+			<table>
+				<thead>
+					<tr>
+						<th width="50%">Обозначение</th>
+						<th width="10%">Кол.</th>
+						<th width="20%">Удалить</th>
+						<th width="20%">Изм.кол.</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="4"><b>Взаимозаменяемые комплектующие</b></td>
+						
+					</tr>
+					<tr th:each="item : ${specification.vzks}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+						<td>
+							<button type="submit" name="delete_vzk" th:value="${item['key'].id}">Удалить</button>
+						<td>
+							<button type="submit" name="edit_vzk"  th:value="${item['key'].id}">Изм.кол.</button>
+						</td>
+					</tr>
+					<th:block th:if="${vzkSpecFlag}">
+						<tr>
+							<td>
+								<select th:field="*{elementId}">
+									<option th:each="item : ${vzkList}" th:text="${item.number}" th:value="${item.id}">
+								</select>
+							</td>
+							<td>
+								<select th:field="*{count}">
+			    					<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}"/>
+			    				</select>
+							</td>	
+							<td colspan="2">
+								-
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<button type="submit" name="save_row_vzk" value="1">Сохранить</button>
+							</td>
+						</tr>
+					</th:block>
+					<th:block th:unless="${vzkSpecFlag}">
+						<tr>
+							<td colspan="4">
+								<button type="submit" name="add_row_vzk" th:value="1">Добавить новый элемент</button>
+							</td>
+						</tr>
+					</th:block>
+				</tbody>
+			</table>
+		</form>
+		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId()})}" method="POST" th:object="${buySpec}">
+			<table>
+				<thead>
+					<tr>
+						<th width="50%">Обозначение</th>
+						<th width="10%">Кол.</th>
+						<th width="20%">Удалить</th>
+						<th width="20%">Изм.кол.</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="4"><b>Покупные изделия</b></td>
+						
+					</tr>
+					<tr th:each="item : ${specification.buys}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+						<td>
+							<button type="submit" name="delete_buy" th:value="${item['key'].id}">Удалить</button>
+						<td>
+							<button type="submit" name="edit_buy"  th:value="${item['key'].id}">Изм.кол.</button>
+						</td>
+					</tr>
+					<th:block th:if="${buySpecFlag}">
+						<tr>
+							<td>
+								<select th:field="*{elementId}">
+									<option th:each="item : ${buyList}" th:text="${item.number}" th:value="${item.id}">
+								</select>
+							</td>
+							<td>
+								<select th:field="*{count}">
+			    					<option th:each="i : ${#numbers.sequence(1, 100)}" th:value="${i}" th:text="${i}"/>
+			    				</select>
+							</td>	
+							<td colspan="2">
+								-
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<button type="submit" name="save_row_buy" value="1">Сохранить</button>
+							</td>
+						</tr>
+					</th:block>
+					<th:block th:unless="${buySpecFlag}">
+						<tr>
+							<td colspan="4">
+								<button type="submit" name="add_row_buy" th:value="1">Добавить новый элемент</button>
+							</td>
+						</tr>
+					</th:block>
+				</tbody>
+			</table>
+		</form>
+		<br>
+		<br>
+	</body>
+</html>

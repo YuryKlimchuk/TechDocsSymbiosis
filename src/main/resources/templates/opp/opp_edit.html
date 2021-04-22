@@ -6,35 +6,13 @@
 		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
 	</head>
 	<body>
-		<nav>
-		  <ul>
-		    <li>
-		      <a href="../../product/">Продукция</a>
-		    </li>
-		    <li>
-		      <a href="../../asm/">Сборки</a>
-		    </li>
-		    <li>
-		      <a href="../../opp/">Детали</a>
-		    </li>
-		    <li>
-		      <a href="../../oring/">O-rings</a>
-		    </li>
-		    <li>
-		      <a href="../../stp/">Стандартные изделия</a>
-		    </li>
-		    <li>
-		      <a href="../../vzk/">Взаимозаменяемые комплектующие</a>
-		    </li>
-		    <li>
-		      <a href="../../buy/">Покупные изделия</a>
-		    </li>
-		  </ul>
-		</nav>
+		<h4 th:text="'Пользователь : ' + ${userName}"></h4>
 		<a href="../opp/">НАЗАД</a>
 		<h2 align="center">
 			Детали - <span class="underline_text">Редактировать список элементов</span>
 		</h2>
+		<a href="/opp/edit/add">Добавить новый элемент</a>
+		<h2 th:text="${msg}" class="design"></h2>
 		<table align="center">
 			<thead>
 			    <tr>
@@ -49,9 +27,9 @@
 			    </tr>
 			</thead>
 			<tbody>
-			    <tr th:each="item, status : ${itemsFiltered}">
+			    <tr th:each="item, status : ${items}">
 	   				<td th:text="${status.count}"></td>
-	   				<td><a th:href="@{/data/opp/{id}(id=${item.getId()})}" th:text="${item.number}"></a></td>
+	   				<td><a th:href="@{/opp/list/{id}(id=${item.getId()})}" th:text="${item.number}"></a></td>
 	   				<td th:text="${item.name}"></td>
 	   				<td>
 	   					<span th:if="${item.status == 'NOTE'}" th:text="'Извещение'" class="note"></span>
@@ -60,7 +38,7 @@
 	   				</td>
 	   				<td th:text="${item.version}"></td>
 	   				<td th:text="${item.update}"></td>
-	   				<td><a th:href="@{/opp/delete/{id}(id=${item.getId()})}">Удалить</a></td>
+	   				<td><a th:href="@{/opp/edit/delete/{id}(id=${item.getId()})}">Удалить</a></td>
 	    			<td><a th:href="@{/opp/edit/{id}(id=${item.getId()})}">Редактировать</a></td>
 	   			</tr>
 			</tbody>

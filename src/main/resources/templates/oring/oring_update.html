@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>O-Ring</title>
+		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<a href="../oring/">НАЗАД</a>
+		<h2 align="center">
+			O-Ring - <span class="underline_text">Обновить элемент элемент</span>
+		</h2>
+		
+	    <br>
+	    <h2 th:text="${msg}" class="design"></h2>
+	    <form class="form-style-9" th:action="@{/oring/edit/{id}(id=${editableItem.getId()})}" th:object="${editableItem}" method="post">
+			<h2 align="center">
+				Ввод данных
+			</h2>
+			<ul>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Наименование" th:field="*{name}"/>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Обозначение" th:field="*{number}"/>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Внутренний диаметр, мм" th:field="*{innerDiameter}"/>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Сечение, мм" th:field="*{crossSection}"/>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Стандарт" th:field="*{standart}"/>
+				</li>
+				<li>
+					<input type="submit" value="Применить" />
+				</li>
+			</ul>
+		</form>	
+	    <br>
+	    <br>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Сборочные единицы</title>
+		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<a href="../">НАЗАД</a>
+		<h2 align="center">
+			Сборочные единицы - <span class="underline_text">Обновить элемент элемент</span>
+		</h2>
+		
+	    <br>
+	    <h2 th:text="${msg}" class="design"></h2>
+	    <form class="form-style-9" th:action="@{/product/edit/{id}(id=${editableItem.getId()}+'/')}" th:object="${editableItem}" method="post">
+			<h2 align="center">
+				Ввод данных
+			</h2>
+			<ul>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Наименование" th:field="*{name}"/>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Обозначение" th:field="*{number}"/>
+				</li>
+				<li>
+					<p>
+						<input type="radio" value="DESIGN" th:field="*{status}">
+						<span>Проектирование</span>
+					</p>
+					<p>
+						<input type="radio" value="TASK" th:field="*{status}">
+						<span>Задание</span>
+					</p>
+					<p>
+						<input type="radio" value="NOTE" th:field="*{status}">
+						<span>Извещение</span>
+					</p>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Версия" th:field="*{version}"/>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Дата обновления" th:field="*{update}"/>
+				</li>
+				<li>
+					 <textarea class="field-style field-split align-left" rows="15" cols="15" placeholder="Описание" th:field="*{description}"></textarea>
+				</li>
+				<li>
+					<select th:field="*{asmId}">
+						<option th:each="item : ${asmList}" th:text="${item.number}" th:value="${item.id}" th:selected="${editableItem.asmId==item.id}">
+					</select>
+				</li>
+				<li>
+					<input type="submit" value="Применить" />
+				</li>
+			</ul>
+		</form>	
+	    <br>
+	    <br>
+	</body>
+</html>

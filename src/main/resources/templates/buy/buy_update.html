@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Покупные изделия</title>
+		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<a href="../buy/">НАЗАД</a>
+		<h2 align="center">
+			Покупные изделия - <span class="underline_text">Обновить элемент элемент</span>
+		</h2>
+		
+	    <br>
+	    <h2 th:text="${msg}" class="design"></h2>
+	    <form class="form-style-9" th:action="@{/buy/edit/{id}(id=${editableItem.getId()})}" th:object="${editableItem}" method="post">
+			<h2 align="center">
+				Ввод данных
+			</h2>
+			<ul>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Наименование" th:field="*{name}"/>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Обозначение" th:field="*{number}"/>
+				</li>
+				<li>
+				    <input type="text" class="field-style field-split align-left" placeholder="Производитель" th:field="*{manufacturer}"/>
+				</li>
+				<li>
+					<input type="submit" value="Применить" />
+				</li>
+			</ul>
+		</form>	
+	    <br>
+	    <br>
+	</body>
+</html>

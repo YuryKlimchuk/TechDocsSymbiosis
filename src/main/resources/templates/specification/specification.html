@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Спецификация</title>
+		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<h4 th:text="'Пользователь : ' + ${userName}"></h4>
+		<!-- <input action="action" type="button" onclick="history.go(-1);" /> -->
+		<h2 align="center">
+			<span class="underline_text">Спецификация</span>
+		</h2>
+		<div>
+			<p>Обозначение : <span th:text="${specification.asm.number}"></span></p>
+			<p>Наименование : <span th:text="${specification.asm.name}"></span></p>
+			<th:block th:if="${specification.asm.status == 'DESIGN'}">
+				<p>Стаус : <span th:text="'Проектирование'" class="design"></span></p>	
+			</th:block>
+			<th:block th:if="${specification.asm.status == 'TASK'}">
+				<p>Стаус : <span th:text="'Задание'" class="task"></span></p>	
+				<p>Номер задания : <span th:text="${specification.asm.version}" class="task"></span></p>
+			</th:block>
+			<th:block th:if="${specification.asm.status == 'NOTE'}">
+				<p>Стаус : <span th:text="'Извещение'" class="note"></span></p>	
+				<p>Номер извещения : <span th:text="${specification.asm.version}" class="note"></span></p>
+			</th:block>
+			<p>Дата последнего обновления : <span th:text="${specification.asm.update}"></span></p>
+			<br>
+			<a th:href="@{/specification/detail/{id}(id=${specification.asm.getId()}+'/')}">Развернутая спецификация</a>
+			<br>
+			<a th:href="@{/specification/edit/{id}(id=${specification.asm.getId()}+'/')}" sec:authorize="hasRole('ADMIN')">Редактировать спецификацию</a>
+			<br>
+			<br>
+		</div>
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Обозначение</th>
+					<th>Кол.</th>
+				</tr>
+			</thead>
+			<tbody>
+				<th:block th:unless="${specification.asms.empty}">
+					<tr>
+						<td colspan="2"><b>Сборочные единицы</b></td>
+					</tr>
+					<tr th:each="item : ${specification.asms}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+					</tr>
+				</th:block> 
+				<th:block th:unless="${specification.opps.empty}">
+					<tr>
+						<td colspan="2"><b>Детали</b></td>
+						
+					</tr>
+					<tr th:each="item : ${specification.opps}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+					</tr>
+				</th:block> 
+				<th:block th:unless="${specification.orings.empty}">
+					<tr>
+						<td colspan="2"><b>O-Rings</b></td>
+					</tr>
+					<tr th:each="item : ${specification.orings}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+					</tr>
+				</th:block> 
+				<th:block th:unless="${specification.vzks.empty}">
+					<tr>
+						<td colspan="2"><b>Взаимозаменяемые комплектующие</b></td>
+					</tr>
+					<tr th:each="item : ${specification.vzks}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+					</tr>
+				</th:block> 
+				<th:block th:unless="${specification.stps.empty}">
+					<tr>
+						<td colspan="2"><b>Стандартные изделия</b></td>
+					</tr>
+					<tr th:each="item : ${specification.stps}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+					</tr>
+				</th:block> 
+				<th:block th:unless="${specification.buys.empty}">
+					<tr>
+						<td colspan="2"><b>Покупные изделия</b></td>
+					</tr>
+					<tr th:each="item : ${specification.buys}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+					</tr>
+				</th:block> 
+			</tbody>
+		</table>
+		
+		<br>
+		<br>
+		<br>
+	</body>
+</html>
