@@ -13,7 +13,7 @@
 		
 	    <br>
 	    <h2 th:text="${msg}" class="design"></h2>
-	    <form class="form-style-9" th:action="@{/vzk/edit/add}" th:object="${item}" method="post">
+	    <form class="form-style-9" th:action="@{/vzk/edit/add/}" th:object="${item}" method="post">
 			<h2 align="center">
 				Ввод данных
 			</h2>
@@ -25,7 +25,7 @@
 				    <input type="text" class="field-style field-split align-left" placeholder="Обозначение" th:field="*{number}"/>
 				</li>
 				<li>
-				<input type="submit" value="Применить" />
+					<input type="submit" value="Применить" />
 				</li>
 			</ul>
 		</form>	

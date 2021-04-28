@@ -42,7 +42,7 @@ public abstract class BaseEntityController<T> {
 	@GetMapping("/list/")
 	public abstract String showListGet(Model model);
 	
-	@GetMapping("/list/{id}")
+	@GetMapping("/list/{id}/")
 	public String showDetailGet(@PathVariable("id") long id, Model model) {
 		model.addAttribute("item", service.getEntity(id));
 		model.addAttribute("asmList", service.getSpecificationRowsByEntityId(id));

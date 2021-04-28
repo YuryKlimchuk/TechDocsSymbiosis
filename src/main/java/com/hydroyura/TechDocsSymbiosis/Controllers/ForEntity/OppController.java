@@ -36,12 +36,12 @@ public class OppController extends BaseEntityController<Opp> {
 		
 		INDEX_GET = "opp/opp_index";
 		LIST_GET = "opp/opp_list";
-		LIST_POST = "redirect:/opp/list";
+		LIST_POST = "redirect:/opp/list/";
 		EDIT_GET = "opp/opp_edit";
 		DETAIL_GET = "opp/opp_detail";
 		EDIT_ADD_GET = "opp/opp_add";
-		EDIT_ADD_POST = "redirect:/opp/edit/add";
-		EDIT_DELETE_GET = "redirect:/opp/edit";
+		EDIT_ADD_POST = "redirect:/opp/edit/add/";
+		EDIT_DELETE_GET = "redirect:/opp/edit/";
 		EDIT_UPDATE_GET = "opp/opp_update";
 		EDIT_UPDATE_POST = "redirect:/opp/edit/";
 	}

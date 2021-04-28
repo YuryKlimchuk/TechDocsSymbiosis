@@ -34,12 +34,12 @@ public class AsmController extends BaseEntityController<Asm> {
 		
 		INDEX_GET = "asm/asm_index";
 		LIST_GET = "asm/asm_list";
-		LIST_POST = "redirect:/asm/list";
+		LIST_POST = "redirect:/asm/list/";
 		EDIT_GET = "asm/asm_edit";
 		DETAIL_GET = "asm/asm_detail";
 		EDIT_ADD_GET = "asm/asm_add";
-		EDIT_ADD_POST = "redirect:/asm/edit/add";
-		EDIT_DELETE_GET = "redirect:/asm/edit";
+		EDIT_ADD_POST = "redirect:/asm/edit/add/";
+		EDIT_DELETE_GET = "redirect:/asm/edit/";
 		EDIT_UPDATE_GET = "asm/asm_update";
 		EDIT_UPDATE_POST = "redirect:/asm/edit/";
 	}

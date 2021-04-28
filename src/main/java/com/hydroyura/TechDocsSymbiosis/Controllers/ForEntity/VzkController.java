@@ -36,12 +36,12 @@ public class VzkController extends BaseEntityController<Vzk> {
 		
 		INDEX_GET = "vzk/vzk_index";
 		LIST_GET = "vzk/vzk_list";
-		LIST_POST = "redirect:/vzk/list";
+		LIST_POST = "redirect:/vzk/list/";
 		EDIT_GET = "vzk/vzk_edit";
 		DETAIL_GET = "vzk/vzk_detail";
 		EDIT_ADD_GET = "vzk/vzk_add";
-		EDIT_ADD_POST = "redirect:/vzk/edit/add";
-		EDIT_DELETE_GET = "redirect:/vzk/edit";
+		EDIT_ADD_POST = "redirect:/vzk/edit/add/";
+		EDIT_DELETE_GET = "redirect:/vzk/edit/";
 		EDIT_UPDATE_GET = "vzk/vzk_update";
 		EDIT_UPDATE_POST = "redirect:/vzk/edit/";
 	}

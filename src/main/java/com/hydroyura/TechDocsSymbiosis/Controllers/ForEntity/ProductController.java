@@ -44,12 +44,12 @@ public class ProductController extends BaseEntityController<Product> {
 		
 		INDEX_GET = "product/product_index";
 		LIST_GET = "product/product_list";
-		LIST_POST = "redirect:/product/list";
+		LIST_POST = "redirect:/product/list/";
 		EDIT_GET = "product/product_edit";
 		DETAIL_GET = "product/product_detail";
 		EDIT_ADD_GET = "product/product_add";
-		EDIT_ADD_POST = "redirect:/product/edit/add";
-		EDIT_DELETE_GET = "redirect:/product/edit";
+		EDIT_ADD_POST = "redirect:/product/edit/add/";
+		EDIT_DELETE_GET = "redirect:/product/edit/";
 		EDIT_UPDATE_GET = "product/product_update";
 		EDIT_UPDATE_POST = "redirect:/product/edit/";
 	}

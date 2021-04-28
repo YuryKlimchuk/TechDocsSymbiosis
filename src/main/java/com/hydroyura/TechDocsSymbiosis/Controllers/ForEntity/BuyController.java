@@ -36,12 +36,12 @@ public class BuyController extends BaseEntityController<Buy> {
 		
 		INDEX_GET = "buy/buy_index";
 		LIST_GET = "buy/buy_list";
-		LIST_POST = "redirect:/buy/list";
+		LIST_POST = "redirect:/buy/list/";
 		EDIT_GET = "buy/buy_edit";
 		DETAIL_GET = "buy/buy_detail";
 		EDIT_ADD_GET = "buy/buy_add";
-		EDIT_ADD_POST = "redirect:/buy/edit/add";
-		EDIT_DELETE_GET = "redirect:/buy/edit";
+		EDIT_ADD_POST = "redirect:/buy/edit/add/";
+		EDIT_DELETE_GET = "redirect:/buy/edit/";
 		EDIT_UPDATE_GET = "buy/buy_update";
 		EDIT_UPDATE_POST = "redirect:/buy/edit/";
 	}

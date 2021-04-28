@@ -7,9 +7,7 @@
 	</head>
 	<body>
 		<h4 th:text="'Пользователь : ' + ${userName}"></h4>
-		<a href="../list/">НАЗАД</a>
-		<input action="action" type="button" onclick="history.go(-1);" />
-		<a href="#" onclick="history.go(-1);return false;">НАЗАД</a>
+		<a href="../../../">НАЗАД В ГЛАВНОЕ МЕНЮ</a>
 		<h2 align="center">
 			<span class="underline_text">Спецификация</span>
 		</h2>
@@ -30,11 +28,10 @@
 			<p>Дата последнего обновления : <span th:text="${specification.asm.update}"></span></p>
 			<br>
 			<br>
-			<a href="edit" sec:authorize="hasRole('ADMIN')">Редактировать спецификацию</a>
 			<br>
 			<br>
 		</div>
-		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId()})}" method="POST" th:object="${asmSpec}">
+		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId() +'/'})}" method="POST" th:object="${asmSpec}">
 			<table>
 				<thead>
 					<tr>
@@ -90,7 +87,7 @@
 				</tbody>
 			</table>
 		</form>
-		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId()})}" method="POST" th:object="${oppSpec}">
+		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId() +'/'})}" method="POST" th:object="${oppSpec}">
 			<table>
 				<thead>
 					<tr>
@@ -146,7 +143,7 @@
 				</tbody>
 			</table>
 		</form>
-		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId()})}" method="POST" th:object="${oringSpec}">
+		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId() +'/'})}" method="POST" th:object="${oringSpec}">
 			<table>
 				<thead>
 					<tr>
@@ -202,7 +199,7 @@
 				</tbody>
 			</table>
 		</form>
-		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId()})}" method="POST" th:object="${stpSpec}">
+		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId() +'/'})}" method="POST" th:object="${stpSpec}">
 			<table>
 				<thead>
 					<tr>
@@ -258,7 +255,7 @@
 				</tbody>
 			</table>
 		</form>
-		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId()})}" method="POST" th:object="${vzkSpec}">
+		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId() +'/'})}" method="POST" th:object="${vzkSpec}">
 			<table>
 				<thead>
 					<tr>
@@ -314,7 +311,7 @@
 				</tbody>
 			</table>
 		</form>
-		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId()})}" method="POST" th:object="${buySpec}">
+		<form th:action="@{/specification/edit/{id}(id=${specification.asm.getId() +'/'})}" method="POST" th:object="${buySpec}">
 			<table>
 				<thead>
 					<tr>

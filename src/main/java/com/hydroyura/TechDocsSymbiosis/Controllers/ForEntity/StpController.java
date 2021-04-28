@@ -34,12 +34,12 @@ public class StpController extends BaseEntityController<Stp> {
 		
 		INDEX_GET = "stp/stp_index";
 		LIST_GET = "stp/stp_list";
-		LIST_POST = "redirect:/stp/list";
+		LIST_POST = "redirect:/stp/list/";
 		EDIT_GET = "stp/stp_edit";
 		DETAIL_GET = "stp/stp_detail";
 		EDIT_ADD_GET = "stp/stp_add";
-		EDIT_ADD_POST = "redirect:/stp/edit/add";
-		EDIT_DELETE_GET = "redirect:/stp/edit";
+		EDIT_ADD_POST = "redirect:/stp/edit/add/";
+		EDIT_DELETE_GET = "redirect:/stp/edit/";
 		EDIT_UPDATE_GET = "stp/stp_update";
 		EDIT_UPDATE_POST = "redirect:/stp/edit/";
 	}

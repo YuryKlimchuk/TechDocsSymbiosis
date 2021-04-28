@@ -11,7 +11,7 @@
 		<h2 align="center">
 			Стандартные изделия - <span class="underline_text">Редактировать список элементов</span>
 		</h2>
-		<a href="/stp/edit/add">Добавить новый элемент</a>
+		<a href="/stp/edit/add/">Добавить новый элемент</a>
 		<h2 th:text="${msg}" class="design"></h2>
 		<table align="center">
 			<thead>
@@ -27,11 +27,11 @@
 			<tbody>
 			    <tr th:each="item, status : ${items}">
 	   				<td th:text="${status.count}"></td>
-	   				<td><a th:href="@{/stp/list/{id}(id=${item.getId()})}" th:text="${item.number}"></a></td>
+	   				<td><a th:href="@{/stp/list/{id}(id=${item.getId()}+'/')}" th:text="${item.number}"></a></td>
 	   				<td th:text="${item.name}"></td>
 	   				<td th:text="${item.standart}"></td>
-	   				<td><a th:href="@{/stp/edit/delete/{id}(id=${item.getId()})}">Удалить</a></td>
-	    			<td><a th:href="@{/stp/edit/{id}(id=${item.getId()})}">Редактировать</a></td>
+	   				<td><a th:href="@{/stp/edit/delete/{id}(id=${item.getId()}+'/')}">Удалить</a></td>
+	    			<td><a th:href="@{/stp/edit/{id}(id=${item.getId()}+'/')}">Редактировать</a></td>
 	   			</tr>
 			</tbody>
 		</table>

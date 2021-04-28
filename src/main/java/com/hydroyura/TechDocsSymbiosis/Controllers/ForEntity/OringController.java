@@ -34,12 +34,12 @@ public class OringController extends BaseEntityController<Oring> {
 		
 		INDEX_GET = "oring/oring_index";
 		LIST_GET = "oring/oring_list";
-		LIST_POST = "redirect:/oring/list";
+		LIST_POST = "redirect:/oring/list/";
 		EDIT_GET = "oring/oring_edit";
 		DETAIL_GET = "oring/oring_detail";
 		EDIT_ADD_GET = "oring/oring_add";
-		EDIT_ADD_POST = "redirect:/oring/edit/add";
-		EDIT_DELETE_GET = "redirect:/oring/edit";
+		EDIT_ADD_POST = "redirect:/oring/edit/add/";
+		EDIT_DELETE_GET = "redirect:/oring/edit/";
 		EDIT_UPDATE_GET = "oring/oring_update";
 		EDIT_UPDATE_POST = "redirect:/oring/edit/";
 	}

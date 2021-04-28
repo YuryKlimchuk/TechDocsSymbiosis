@@ -6,14 +6,13 @@
 		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
 	</head>
 	<body>
-		<a href="../asm/">НАЗАД</a>
 		<h2 align="center">
 			Сборочные единицы - <span class="underline_text">Обновить элемент элемент</span>
 		</h2>
 		
 	    <br>
 	    <h2 th:text="${msg}" class="design"></h2>
-	    <form class="form-style-9" th:action="@{/opp/edit/{id}(id=${editableItem.getId()})}" th:object="${editableItem}" method="post">
+	    <form class="form-style-9" th:action="@{/opp/edit/{id}(id=${editableItem.getId()} +'/')}" th:object="${editableItem}" method="post">
 			<h2 align="center">
 				Ввод данных
 			</h2>
