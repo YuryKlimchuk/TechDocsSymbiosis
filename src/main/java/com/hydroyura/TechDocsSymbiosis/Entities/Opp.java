@@ -76,4 +76,10 @@ public class Opp {
 	public int hashCode() {
 		return (int) this.id;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Opp item = (Opp) obj;
+		return this.id==item.id;
+	}
 }

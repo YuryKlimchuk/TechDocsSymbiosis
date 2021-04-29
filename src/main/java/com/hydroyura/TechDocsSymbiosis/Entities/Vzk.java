@@ -37,13 +37,13 @@ public class Vzk {
 	}
 	
 	@Override
-	public boolean equals(Object obj) {
-		Vzk vzk = (Vzk) obj;
-		return this.id==vzk.id;
+	public int hashCode() {
+		return (int) this.id;
 	}
 	
 	@Override
-	public int hashCode() {
-		return (int) this.id;
+	public boolean equals(Object obj) {
+		Vzk item = (Vzk) obj;
+		return this.id==item.id;
 	}
 }

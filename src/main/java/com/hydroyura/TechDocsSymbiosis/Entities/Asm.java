@@ -79,4 +79,10 @@ public class Asm {
 		return (int) this.id;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		Asm item = (Asm) obj;
+		return this.id==item.id;
+	}
+	
 }

@@ -52,5 +52,11 @@ public class Buy {
 	public int hashCode() {
 		return (int) this.id;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Buy item = (Buy) obj;
+		return this.id==item.id;
+	}
 
 }

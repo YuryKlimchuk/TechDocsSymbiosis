@@ -51,6 +51,13 @@ public class Stp {
 	public int hashCode() {
 		return (int) this.id;
 	}
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		Stp item = (Stp) obj;
+		return this.id==item.id;
+	}
 		
 
 }
