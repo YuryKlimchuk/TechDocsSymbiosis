@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Спецификация</title>
+		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<h4 th:text="'Пользователь : ' + ${userName}"></h4>
+		<a href="../../../">Назад в главное меню</a>
+		<h2 align="center">
+			Планирование - Состав группы изделий - <span class="underline_text">Развернутая спецификация</span>
+		</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Обозначение</th>
+					<th>Кол.</th>
+				</tr>
+			</thead>
+			<tbody>
+				<th:block th:unless="${specification.asms.empty}">
+					<tr>
+						<td colspan="2"><b>Сборочные единицы</b></td>
+					</tr>
+					<tr th:each="item : ${specification.asms}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+					</tr>
+				</th:block> 
+				<th:block th:unless="${specification.opps.empty}">
+					<tr>
+						<td colspan="2"><b>Детали</b></td>
+						
+					</tr>
+					<tr th:each="item : ${specification.opps}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+					</tr>
+				</th:block> 
+				<th:block th:unless="${specification.orings.empty}">
+					<tr>
+						<td colspan="2"><b>O-Rings</b></td>
+					</tr>
+					<tr th:each="item : ${specification.orings}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+					</tr>
+				</th:block> 
+				<th:block th:unless="${specification.vzks.empty}">
+					<tr>
+						<td colspan="2"><b>Взаимозаменяемые комплектующие</b></td>
+					</tr>
+					<tr th:each="item : ${specification.vzks}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+					</tr>
+				</th:block> 
+				<th:block th:unless="${specification.stps.empty}">
+					<tr>
+						<td colspan="2"><b>Стандартные изделия</b></td>
+					</tr>
+					<tr th:each="item : ${specification.stps}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+					</tr>
+				</th:block> 
+				<th:block th:unless="${specification.buys.empty}">
+					<tr>
+						<td colspan="2"><b>Покупные изделия</b></td>
+					</tr>
+					<tr th:each="item : ${specification.buys}">
+						<td th:text="${item['key'].number} + ' ' + ${item['key'].name}"/>
+						<td th:text="${item['value'].count}"/>
+					</tr>
+				</th:block> 
+			</tbody>
+		</table>
+		
+		<br>
+		<br>
+		<br>
+	</body>
+</html>

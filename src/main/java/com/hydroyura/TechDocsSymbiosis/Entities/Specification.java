@@ -92,6 +92,12 @@ public class Specification {
 	public void setAsms(Map<Asm, SpecificationRow> asms) {
 		this.asms = asms;
 	}
+
+	@Override
+	public String toString() {
+		return "Specification [asms=" + asms + "]";
+	}
+	
 	
 
 	

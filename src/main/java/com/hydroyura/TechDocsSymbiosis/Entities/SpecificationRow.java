@@ -59,4 +59,11 @@ public class SpecificationRow {
 		this.rowType = rowType;
 	}
 
+	@Override
+	public String toString() {
+		return "SpecificationRow [asmId=" + asmId + ", count=" + count + "]";
+	}
+	
+	
+
 }

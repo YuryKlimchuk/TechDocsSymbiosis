@@ -60,5 +60,24 @@ public class Product {
 	public void setDrawLink(String drawLink) {
 		this.drawLink = drawLink;
 	}
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", asmId=" + asmId + ", number=" + number + ", name=" + name + ", description="
+				+ description + ", status=" + status + ", version=" + version + ", update=" + update + ", drawLink="
+				+ drawLink + "]";
+	}
+
+
+	@Override
+	public int hashCode() {
+		return (int) this.id;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Product item = (Product) obj;
+		return this.id==item.id;
+	}
+	
 
 }

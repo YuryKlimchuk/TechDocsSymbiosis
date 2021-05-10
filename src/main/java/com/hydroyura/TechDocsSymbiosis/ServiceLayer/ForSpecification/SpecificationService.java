@@ -97,6 +97,14 @@ public class SpecificationService {
 	public Specification getDetailSpecification(Long asmId) {
 		Specification specification = getSpecification(asmId);
 		
+		getDetailSpecification(specification);
+		
+		return specification;
+	}
+
+	
+	public Specification getDetailSpecification(Specification specification) {
+		
 		while (!specification.getAsms().isEmpty()) {
 			
 			Map<Asm, SpecificationRow> asmMapBuffer = new HashMap<Asm, SpecificationRow>(specification.getAsms());
@@ -194,6 +202,7 @@ public class SpecificationService {
 		return specification;
 	}
 
+	
 
 	public long deleteRowFromSpecification(CompositeKeySpecRow key) {
 		return specRowDAO.delete(key);

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Планирование</title>
+		<link th:href="@{/styles/style4.css}" rel="stylesheet" />	
+	</head>
+	<body>
+		<h4 th:text="'Пользователь : ' + ${userName}"></h4>
+		<a href="../">НАЗАД</a>
+		<h2 align="center">
+			Планирование - <span class="underline_text">Состав группы изделий</span>
+		</h2>
+		
+		<form th:action="@{/planning/group-composition/}" th:object="${itemForAdd}" method="post">
+			<table align="center">
+				<thead>
+				    <tr>
+		   				<th>Обозначение</th>
+		   				<th>Кол.</th>
+				    </tr>
+				</thead>
+				<tbody>
+					<th:block th:if="not ${products.isEmpty()}">
+						<tr th:each="element : ${products}">
+			   				<td th:text="${element['key'].name} + ' ' + ${element['key'].number}"/>
+			   				<td th:text="${element['value']}"/>
+				    	</tr>		
+					</th:block>
+						<tr>
+			   				<td>
+								<select th:field="*{asmId}">
+									<option th:each="item : ${items}" th:text="${item.name} + ' ' + ${item.number}" th:value="${item.asmId}" >
+								</select>
+							</td>
+							<td>
+								<select th:field="*{count}">
+			    					<option th:each="i : ${#numbers.sequence(1, 5000)}" th:value="${i}" th:text="${i}" />
+			    				</select>
+							</td>
+				    	</tr>
+				    	<tr>
+							<td colspan="2">
+								<button type="submit">Добавить</button>
+							</td>
+						</tr>
+				</tbody>
+			</table>
+			<a href="./detail-specifications/">Раскрыть спецификации</a>
+		</form>
+	</body>
+</html>
